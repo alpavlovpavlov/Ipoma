@@ -1,0 +1,120 @@
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+/* input + select */
+.input-group input,
+.input-group select {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ccc;
+    border-radius: 6px;
+    background: transparent;
+    font-size: 14px;
+    background-color: #f7f6f6;
+}
+
+/* label */
+.input-group label,
+.input-group input[type="month"] + label {
+    position: absolute;
+    left: 12px;
+    top: -13px;
+    font-size: 11px;
+    background: white;
+    padding: 0 5px;
+    color: #2d2d2d;
+    transition: 0.25s;
+    pointer-events: none;
+}
+
+.select-group label {
+    top: -8px;
+}
+
+/* floating ефект */
+.input-group input:not([type="month"]):not(:placeholder-shown) + label {
+    top: -4px;
+    font-size: 12px;
+    color: #4caf50;
+}
+
+.input-group.active input {
+    background: #E8F0FE;
+}
+
+.input-group.active input[type="month"] + label {
+    top: -8px;
+    font-size: 12px;
+    color: #4caf50;
+}
+
+/* focus стил */
+.input-group input:focus,
+.input-group select:focus {
+    outline: none;
+}
+
+.file-box {
+    border: 2px solid #ccc;
+    border-radius: 6px;
+    padding: 12px;
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f7f6f6;
+}
+
+.file-group.active .file-box {
+    background: #E8F0FE;
+}
+
+.file-group:hover .file-box {
+    background: #e5e7eb;
+}
+
+.input-group:hover input,
+.input-group:hover select {
+    background: #e5e7eb;
+}
+
+/* Here */
+.input-group.active label {
+    top: -8px;
+    font-size: 12px;
+    color: #4caf50;
+}
+
+.select-group.active label {
+    top: -4px;
+    font-size: 12px;
+    color: #4caf50;
+}
+
+.file-group.active .file-box {
+    border-color: #4caf50;
+}
+
+.input-group.active input {
+    border-color: #4caf50;
+}
+
+.file-text {
+    color: #555;
+}
+
+.file-name {
+    font-size: 12px;
+    color: #555;
+    margin-left: 10px;
+}
+
+/* грешка */
+.input-group.error input,
+.input-group.error select,
+.input-group.error .file-box {
+  border-color: red;
+}

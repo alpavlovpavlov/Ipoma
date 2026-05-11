@@ -1,0 +1,13 @@
+.home-page {
+  text-align: center; /* центрира image + текст */
+}
+
+.home-img {
+  display: block;
+  margin: 0 auto;     /* центрира image */
+  box-shadow: none;   /* маха глобалния shadow */
+}
+
+#home-h2 {
+    margin-top: 70px;
+}

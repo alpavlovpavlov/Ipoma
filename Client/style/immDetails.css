@@ -1,0 +1,42 @@
+.right-table {
+  flex: 1;
+  margin-left: auto; /* 🔥 това я бута вдясно */
+  max-width: 350px;
+}
+
+.right-table {
+  min-width: 300px;
+  margin-top: 83px;
+  border-collapse: collapse;
+  font-size: 14px;
+  width: 100%;
+}
+
+.right-table th,
+.right-table td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.right-table thead {
+  background: #f4f6f8;
+}
+
+.right-table td:first-child {
+  width: 40px;
+  text-align: center;
+}
+
+.right-table td:last-child {
+  text-align: center;
+}
+
+.right-table td:nth-child(2),
+.right-table th:nth-child(2) {
+  text-align: center;
+}
+
+.clickable {
+  cursor: pointer;
+  color: blue;
+}

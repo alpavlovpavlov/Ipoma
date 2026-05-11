@@ -1,0 +1,99 @@
+.meme-description {
+  max-width: 25%;
+  flex: 0 0 35.333333%;
+  position: relative;
+  text-align: center;
+}
+
+.meme-description-mold p {
+  margin-bottom: 50px;
+  text-align: center;
+  box-shadow: 2px 5px 13px 0px #000000, 8px -15px 31px -12px rgb(0 0 0 / 0%);
+  padding:20px;
+
+  width: 100%;
+  min-height: 50px;  /* избери подходяща стойност */
+  max-width: 300px;   /* контролира ширината */
+  margin: 0 auto;     /* центрира в колоната */
+  text-align: center; /* махни justify */
+  padding: 20px;
+}
+
+.files-table {
+  min-width: 400px;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+/* header */
+.files-table thead {
+  background: #f4f6f8;
+}
+
+.files-table th {
+  text-align: left;
+  padding: 10px;
+  border-bottom: 2px solid #ddd;
+}
+
+/* клетки */
+.files-table td {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  vertical-align: middle;
+}
+
+/* hover */
+.files-table tbody tr:hover {
+  background: #f9f9f9;
+}
+
+/* икона */
+.files-table td:first-child {
+  width: 40px;
+  text-align: center;
+}
+
+/* име на файл */
+.files-table td:nth-child(2) {
+  max-width: 220px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* бутони */
+.files-table td:last-child {
+  display: flex;
+  gap: 8px;
+}
+
+.files-table .button {
+  padding: 5px 10px;
+  font-size: 13px;
+}
+
+.files-table .button:hover {
+  opacity: 0.85;
+}
+
+.files-table .button {
+  padding: 5px 10px;
+  font-size: 13px;
+}
+
+.files-table .button:hover {
+  opacity: 0.85;
+}
+
+@media (max-width: 800px) {
+  .meme-details {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 800px) {
+  .meme-details {
+    flex-direction: column;
+  }
+}

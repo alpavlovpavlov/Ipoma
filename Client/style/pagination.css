@@ -1,0 +1,74 @@
+.paginbtn {
+  padding: 8px 16px;
+  border-radius: 8px;            /* заоблени ръбове */
+  border: 1px solid #d1d5db;     /* светло сив border */
+  background: #dbdcdf;           /* сив фон */
+  color: #374151;                /* тъмен текст */
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+
+  transition: all 0.2s ease;     /* smooth hover */
+}
+
+/* hover ефект */
+.middle button:hover {
+  background: #e5e7eb;
+  border-color: #9ca3af;
+}
+
+/* disabled state */
+.middle button:disabled {
+  background: #e5e7eb;     /* по-светло сиво */
+  color: #9ca3af;          /* по-блед текст */
+  border-color: #e5e7eb;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* маха hover ефекта когато е disabled */
+.pagination button:disabled:hover {
+  background: #e5e7eb;
+  border-color: #e5e7eb;
+  transform: none;
+  box-shadow: none;
+}
+
+.middle {
+  display: flex;
+  align-items: center;   /* центрира span и бутоните вертикално */
+  justify-content: center; 
+  gap: 10px;
+  width: 100%;
+  margin-top: 25px;
+}
+
+#page-info {
+  font-size: 14px;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.pagination-dots {
+  padding: 6px 8px;
+  color: #9ca3af;
+}
+
+.page-number {
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  background: #f3f4f6;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.page-number:hover {
+  background: #e5e7eb;
+}
+
+.page-number.active {
+  background: #6b7280;
+  color: white;
+  border-color: #6b7280;
+}

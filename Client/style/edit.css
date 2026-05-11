@@ -1,0 +1,35 @@
+.file-info {
+    display: flex;
+    align-items: center; /* вертикално подравняване */
+    gap: 8px;            /* разстояние между иконката и текста */
+}
+
+.input-group {
+  position: relative;
+  margin-top: 10px;
+  margin-bottom: 25px;
+}
+
+.input-group input {
+  padding: 10px;
+  font-size: 14px;
+}
+
+.input-group label {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  color: #999;
+  transition: 0.2s;
+  pointer-events: none;
+  background: white;
+  padding: 0 4px;
+}
+
+/* когато има стойност или е фокусиран */
+.input-group input:focus + label,
+.input-group input:valid + label {
+  top: -8px;
+  font-size: 11px;
+  color: #333;
+}
