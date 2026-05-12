@@ -1,0 +1,22 @@
+{
+  "name": "ipoma",
+  "version": "1.0.0",
+  "main": "index.js",
+   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "lite-server"
+  },
+  "dependencies": {
+    "isarray": "^0.0.1",
+    "lit-html": "^3.3.1",
+    "page": "^1.11.6",
+    "path-to-regexp": "^1.2.1"
+  },
+  "devDependencies": {
+    "lite-server": "^2.6.1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <title id="title">{title}</title>
+        <link rel="icon" href="/images/logo.png" type="image/x-icon"></link>
+        <link rel="stylesheet" href="/style/styles.css">
+        <script src="/src/app.js" type="module"></script>
+    </head>
+
+    <body>
+        <div id="container">
+
+            <!-- Notifications -->
+            <section id="notifications">
+                <div id="errorBox" class="notification">
+                    <span>MESSAGE</span>
+                </div>
+            </section>
+
+            <nav class="nav">
+                <div class="nav-left">
+                    <a href="/">Home Page</a>
+                    <div class="create-dropdown">
+                        <div class="ipoma">
+                            <a href="#">Search</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/searchItem">Search Item</a></li>
+                                <li><a href="/searchImm">Search IMM</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="user">
+                            <a href="#">Search</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/searchItem">Search Item</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="guest">
+                            <a href="#">Search</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/searchItem">Search Item</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="user">
+                        <div class="create-dropdown">
+                            <a href="#">Catalog</a>
+                            <ul class="dropdown-menu">
+                                <li class="has-submenu">
+                                    <a href="#">Items Catalog</a>
+                                    <ul class="submenu">
+                                        <li><a href="/containers-shape">Containers</a></li>
+                                        <li><a href="/lids-shape">Lids</a></li>
+                                        <li><a href="/handles-catalog">Handles</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="guest">
+                        <div class="create-dropdown">
+                            <a href="#">Catalog</a>
+                            <ul class="dropdown-menu">
+                                <li class="has-submenu">
+                                    <a href="#">Items Catalog</a>
+                                    <ul class="submenu">
+                                        <li><a href="/containers-shape">Containers</a></li>
+                                        <li><a href="/lids-shape">Lids</a></li>
+                                        <li><a href="/handles-catalog">Handles</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="ipoma">
+                        <div class="create-dropdown">
+                            <a href="#">Catalog</a>
+                            <ul class="dropdown-menu">
+                                <li class="has-submenu">
+                                    <a href="#">Items Catalog</a>
+                                    <ul class="submenu">
+                                        <li><a href="/containers-shape">Containers</a></li>
+                                        <li><a href="/lids-shape">Lids</a></li>
+                                        <li><a href="/handles-catalog">Handles</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="/imms-catalog">IMM Catalog</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="create-dropdown">
+                            <a href="#">Create</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/create-item">Create Item</a></li>
+                                <li><a href="/create-imm">Create IMM</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="nav-right">
+                    <div class="ipoma">
+                        <div class="profile">
+                            <a id="prof" href="/profile">Welcome, {username}</a>
+                            <a href="/logout">Logout</a>
+                        </div>
+                    </div>
+                    <div class="user">
+                        <div class="profile">
+                            <a id="prof1" href="/profile">Welcome, {username}</a>
+                            <a href="/logout">Logout</a>
+                        </div>
+                    </div>
+                    <div class="guest">
+                        <div class="profile">
+                            <a href="/login">Login</a>
+                            <a href="/register">Register</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <main>
+            </main>
+            
+            <footer class="footer">
+                <p>Created by Alex</p>
+            </footer>
+        </div>
+    </body>
+
+</html>

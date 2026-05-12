@@ -1,0 +1,272 @@
+#meme-details {
+  margin: 0;
+}
+#meme-details h1 {
+  margin-bottom: .5rem;
+  font-family: inherit;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+#memes {
+  margin-top: 100px;
+}
+
+.meme-details {
+  /* display: grid; */
+  grid-template-columns: 1fr 300px 300px;
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  margin-top:80px;
+  padding: 0 15px;
+  position: relative;
+}
+
+.meme-details h1 {
+  display: block;
+}
+
+.meme-img {
+  grid-column: 3;
+  max-width: 32%;
+  height: auto;
+  border-radius: 6px;
+  text-align: center;
+  position: absolute;
+  left: 0;
+  width: 300px;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+.meme-img img {
+  padding: .25rem;
+  background-color: #fff;
+  border: 1px solid #dee2e6;
+  border-radius: .25rem;
+  max-width: 60%;
+  height: auto;
+}
+
+.meme-description {
+  /* grid-column: 2; */
+  width: auto;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 400px;
+  text-align: center;
+}
+
+.meme-description-mold {
+  max-width: 100%;
+  flex: 0 0 35.333333%;
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(200px, 1fr));
+  gap: 20px;
+  align-items: start; /* 🔥 спира vertical stretch */
+  margin: auto;
+}
+
+.buttons-row {
+  grid-column: 1 / -1; /* заема всички колони */
+  display: flex;
+  justify-content: center; /* бутоните на един ред */
+  margin-top: 20px;
+  gap: 15px;
+  align-self: center; /* не се разтяга */
+}
+
+.meme-description h2 {
+  margin-bottom: 1rem;
+  font-family: inherit;
+  font-weight: 500;
+  line-height: 1.2;
+  color: inherit;
+  margin-top: 1rem;
+  font-size: 1.75rem;
+}
+
+.meme-description-mold h2 {
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  line-height: 1.2;
+  color: inherit;
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 1.75rem;
+  grid-column: 1 / -1;   /* заема двете колони */
+  text-align: center;
+}
+
+.meme-description-mold p {
+  margin-bottom: 50px;
+  text-align: center;
+  box-shadow: 2px 5px 13px 0px #000000, 8px -15px 31px -12px rgb(0 0 0 / 0%);
+  padding:20px;
+  width: 100%;
+  min-height: 50px;  /* избери подходяща стойност */
+  max-width: 300px;   /* контролира ширината */
+  margin: 0 auto;     /* центрира в колоната */
+  text-align: center; /* махни justify */
+  padding: 20px;
+}
+
+.heading3 {
+  margin-top: 10px;
+}
+
+.meme-description p {
+  margin-bottom: 50px;
+  text-align: justify;
+  box-shadow: 2px 5px 13px 0px #000000, 8px -15px 31px -12px rgb(0 0 0 / 0%);
+  padding:20px;
+}
+
+.warning {
+  margin-right: 20px;
+}
+
+.danger:hover {
+  color: #212529;
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
+
+.warning:hover {
+  color: #212529;
+  background-color: #ffc107;
+  border-color: #ffc107;
+}
+
+.no-warning:hover {
+  color: #212529;
+  background-color: #5780be;
+  border-color: #5780be;
+}
+
+.button-row {
+  display: flex;
+  justify-content: center; /* центрира бутоните */
+  gap: 10px;               /* разстояние между тях */
+  margin-top: 10px;
+}
+
+.files-table {
+  /* grid-column: 1; */
+  flex: 1;
+  width: 350px;
+  flex: 0 0 auto;
+  border-collapse: collapse;
+  font-size: 14px;
+  margin-top: 83px;
+}
+
+/* header */
+.files-table thead {
+  background: #f4f6f8;
+}
+
+.files-table th {
+  text-align: center;
+  justify-content: center;
+  padding: 10px;
+  border-bottom: 2px solid #ddd;
+}
+
+/* клетки */
+.files-table td {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  vertical-align: middle;
+  height: 100%;
+}
+
+.files-table tr {
+  height: 35px;
+}
+
+/* hover */
+.files-table tbody tr:hover {
+  background: #f9f9f9;
+}
+
+/* икона */
+.files-table td:first-child {
+  width: 40px;
+  text-align: center;
+}
+
+/* име на файл */
+.files-table td:nth-child(2) {
+  max-width: 220px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* бутони */
+.files-table td:last-child {
+  /* display: flex; */
+  gap: 8px;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  gap: 8px;
+}
+
+.files-table .button {
+  padding: 5px 10px;
+  font-size: 13px;
+}
+
+.files-table .button:hover {
+  opacity: 0.85;
+}
+
+.files-table .button {
+  padding: 5px 10px;
+  font-size: 13px;
+}
+
+.files-table .button:hover {
+  opacity: 0.85;
+}
+
+.point {
+  cursor: pointer;
+  color: blue;
+}
+
+.underline {
+  border-bottom: 3px solid lightgrey;
+}
+
+@media (max-width: 800px) {
+  .meme-details {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 900px) {
+  .meme-details {
+    grid-template-columns: 1fr;
+  }
+
+  .files-table,
+  .meme-description,
+  .meme-img {
+    grid-column: auto;
+  }
+}

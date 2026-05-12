@@ -1,0 +1,102 @@
+.drg {
+  margin-bottom: 20px;
+}
+
+.input-group {
+  position: relative;
+  margin-top: 10px;
+  margin-bottom: 25px;
+}
+
+.input-group input {
+  padding: 10px;
+  font-size: 14px;
+}
+
+.input-group label {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  color: #999;
+  transition: 0.2s;
+  pointer-events: none;
+  background: white;
+  padding: 0 4px;
+}
+
+/* когато има стойност или е фокусиран */
+.input-group input:focus + label,
+.input-group input:valid + label,
+.input-group input:not(:placeholder-shown) + label {
+  top: -8px;
+  font-size: 11px;
+  color: #333;
+}
+
+/* когато има файл */
+input.has-file + label,
+input:focus + label {
+  top: -8px;
+  font-size: 12px;
+}
+
+
+/* New part */
+.file-group {
+  position: relative;
+  width: 490px;
+  font-family: sans-serif;
+}
+
+/* кутията */
+.file-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  padding: 10px 12px;
+  cursor: pointer;
+
+  background: white;
+  transition: 0.3s;
+}
+
+.file-box:hover {
+  border-color: #4caf50;
+}
+
+/* текстове */
+.file-text {
+  color: #555;
+}
+
+.file-name {
+  font-size: 12px;
+  color: #999;
+  margin-left: 10px;
+}
+
+/* floating label */
+.floating-label {
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  background: white;
+  padding: 0 5px;
+  color: #777;
+  transition: 0.3s;
+  pointer-events: none;
+}
+
+/* активен state */
+.file-group.active .floating-label {
+  top: -8px;
+  font-size: 12px;
+  color: #4caf50;
+}
+
+.file-group.active .file-box {
+  border-color: #4caf50;
+}
