@@ -18,7 +18,7 @@ router.use('/api', mailController);
 router.use('/options', optionController);
 router.use('/download', downloadController);
 
-router.get('/*', (req, res) => {
+router.get('/(.*)', (req, res) => {
     res.render('404');
 });
 
