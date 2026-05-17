@@ -1,6 +1,6 @@
 import { clearUserData, getUser } from "../util/util.js";
 
-export const host = "http://localhost:3030";
+export const host = "https://ipoma.orender.com";
 
 async function request(method, url, data, isFile = false) {
   const options = {
