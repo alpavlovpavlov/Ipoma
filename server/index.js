@@ -20,7 +20,9 @@ app.use(routs);
 mongoose.connect(connectionString)
     .then(() => {
     console.log(`DB is connected`);
+    
     app.listen(port, () => {
         console.log(`Server is listening on port ${port}`);
-    });
+    })
+    .catch(err => console.log(err));
 })
