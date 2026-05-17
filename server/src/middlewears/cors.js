@@ -6,8 +6,6 @@ const allowedOrigins = [
 module.exports = () => (req, res, next) => {
     const origin = req.headers.origin;
 
-    console.log('REQ ORIGIN:', origin);
-
     if (allowedOrigins.includes(origin)) {
         res.setHeader('Access-Control-Allow-Origin', origin);
     }
