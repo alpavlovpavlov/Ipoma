@@ -10,6 +10,14 @@ const transporter = nodemailer.createTransport({
     }
 })
 
+transporter.verify((error, success) => {
+    if (error) {
+        console.log(error);
+    } else {
+        console.log('Mail server is ready');
+    }
+});
+
 async function sendEmail(email, link, title, content) {
     await transporter.sendMail({
         from: process.env.EMAIL_FROM,
