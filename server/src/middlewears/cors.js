@@ -1,6 +1,6 @@
 const allowedOrigins = [
     'http://localhost:3000',
-    'https://your-app.vercel.app'
+    'https://ipoma.vercel.app'
 ];
 
 module.exports = () => (req, res, next) => {
