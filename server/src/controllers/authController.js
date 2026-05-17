@@ -27,24 +27,24 @@ router.post("/register", isGuest(), async (req, res) => {
 
 // Login
 router.post('/login', isGuest(), async (req, res) => {
-    const { email, password } = req.body;
+  const { email, password } = req.body;
 
-    try {
-      if (email == '' || password == '') {
-        throw new Error('All fields are required!');
-      }
-      
-      if (validator.isEmail(email) == false) {
-        throw new Error('Please entr a valid email address!');
-      }
-      
-      const user = await authService.login(email, password);
-      
-      res.json(user);
-    } catch (error) {
-      const message = parseError(error);
-      res.status(403).json({ message });
+  try {
+    if (email == '' || password == '') {
+      throw new Error('All fields are required!');
     }
+    
+    if (validator.isEmail(email) == false) {
+      throw new Error('Please entr a valid email address!');
+    }
+    
+    const user = await authService.login(email, password);
+    
+    res.json(user);
+  } catch (error) {
+    const message = parseError(error);
+    res.status(403).json({ message });
+  }
 })
 
 // Log out
