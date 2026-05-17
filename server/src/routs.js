@@ -18,8 +18,8 @@ router.use('/api', mailController);
 router.use('/options', optionController);
 router.use('/download', downloadController);
 
-router.get('/(.*)', (req, res) => {
-    res.render('404');
-});
+router.use((req, res) => {
+    res.status(404).json({ message: 'Rout not found' })
+})
 
 module.exports = router;
