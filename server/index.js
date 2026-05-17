@@ -12,6 +12,7 @@ const app = express();
 
 configExpress(app);
 
+app.use(cors());
 app.use(routs);
 
 mongoose.connect(connectionString)
