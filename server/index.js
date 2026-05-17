@@ -21,5 +21,5 @@ mongoose.connect(connectionString)
     console.log(`DB is connected`);
     app.listen(port, () => {
         console.log(`Server is listening on port ${port}`);
-    })
+    });
 })
