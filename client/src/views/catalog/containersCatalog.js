@@ -1,4 +1,4 @@
-import { html } from '../../../node_modules/lit-html/lit-html.js';
+import { html } from 'https://unpkg.com/lit?module';
 
 import { host } from '../../data/api.js';
 import { getAll } from '../../data/item.js';

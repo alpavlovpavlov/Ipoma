@@ -1,4 +1,4 @@
-import { html } from '../../../node_modules/lit-html/lit-html.js';
+import { html } from 'https://unpkg.com/lit?module';
 
 import { editMold, getById, sendDrawing } from '../../data/mold.js';
 import { onSubmit } from '../../middlewears/submit.js';

@@ -1,4 +1,4 @@
-import page from '../node_modules/page/page.mjs';
+import page from '//unpkg.com/page/page.mjs';
 
 import { onRenderContent } from './middlewears/renderContent.js';
 import { setActiveNav } from './middlewears/activeNav.js';
