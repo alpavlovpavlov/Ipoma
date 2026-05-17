@@ -1,4 +1,4 @@
-import { render } from 'https://unpkg/lit-html?module';
+import { render } from 'https://unpkg.com/lit-html?module';
 
 const main = document.querySelector('main');
 
