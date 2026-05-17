@@ -23,8 +23,3 @@ mongoose.connect(connectionString)
         console.log(`Server is listening on port ${port}`);
     })
 })
-
-// Alternative approuch to protect in case of an error with DB connection... You can use also try/catch
-// mongoose.on('connect', () => console.log('DB is connected'));
-// mongoose.on('disconnect', () => console.log('DB is disconnected'));
-// mongoose.on('error', (err) => console.log(err));
