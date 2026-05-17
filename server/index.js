@@ -1,6 +1,5 @@
 const express = require('express');
 const mongoose = require('mongoose');
-// const cors = require('cors');
 require('dotenv').config();
 
 const routs = require('./src/routs');
@@ -10,14 +9,6 @@ const port = process.env.PORT || 3030;
 const connectionString = process.env.DB_URL;
 
 const app = express();
-
-// app.use(cors({
-//     origin: [
-//         'http://localhost:3000',
-//         'https://ipoma.vercel.app'
-//     ],
-//     credentials: true
-// }));
 
 configExpress(app);
 
