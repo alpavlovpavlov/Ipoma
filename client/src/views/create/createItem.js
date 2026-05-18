@@ -99,7 +99,6 @@ const itemTemplate = () => html`
 
 let context = null;
 const user = getUser();
-console.log(user._id);
 
 export function createItemPage(ctx) {
   titleChange('Craete Item Page');
@@ -142,6 +141,7 @@ async function onCreate(event) {
         throw 'All fields in red are required!';
       }
 
+      console.log(user._id);
       let item = Object.assign({ _ownerId: user._id }, data);
       item.image = `uploads/items/${file.name}`;
       item.tds = `uploads/drawings/item/tds/${tds.name}`;
