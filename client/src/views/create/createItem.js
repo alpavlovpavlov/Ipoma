@@ -99,6 +99,7 @@ const itemTemplate = () => html`
 
 let context = null;
 const user = getUser();
+console.log(user);
 
 export function createItemPage(ctx) {
   titleChange('Craete Item Page');
