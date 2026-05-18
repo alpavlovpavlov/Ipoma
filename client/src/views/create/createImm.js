@@ -91,6 +91,7 @@ async function onCreate(event) {
     const user = getUser();
     const files = formData.getAll('drawing');
     const [year, month] = data.date.split('-');
+    console.log(files);
     
     data.date = `${year}-${month}`;
 
@@ -110,9 +111,11 @@ async function onCreate(event) {
 
             let imm = Object.assign({ _ownerId: user._id }, data);
             imm.immDrawing = [];
-            files.forEach(element => {
-                imm.immDrawing.push(`uploads/drawings/imm/${element.name}`);
-            });
+            if (files) {
+                files.forEach(element => {
+                    imm.immDrawing.push(`uploads/drawings/imm/${element.name}`);
+                });
+            }
 
             // TODO
             if (files[0].name == '') {
