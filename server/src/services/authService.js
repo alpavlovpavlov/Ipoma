@@ -4,7 +4,7 @@ const crypto = require('crypto');
 const User = require("../Models/User");
 const JWT_SECRET = process.env.JWT_SECRET;
 const { sign, verify } = require('../lib/jwt');
-const { sendEmail } = require("../services/mailService");
+const { sendVerificationEmail } = require("../services/mailService");
 
 const API_URL = process.env.BACKEND_URL;
 const tokenBlackList = new Set();
@@ -59,10 +59,10 @@ async function register(username, email, password) {
   })
 
   const link = `${API_URL}/api/verify-email/${token}`;
-  const title = 'Confirm your email';
+  const title = 'Verify your email';
   const content = 'Click to confirm your email:';
 
-  await sendEmail(email, link, title, content);
+  await sendVerificationEmail(email, link, title, content);
 }
 
 // Login
@@ -137,7 +137,7 @@ async function createToken({ _id, email, username, role }) {
   }
 }
 
-// Verify tiken
+// Verify token
 async function verifyToken(token) {
   if (tokenBlackList.has(token)) {
     throw new Error("Token is blacklisted");
