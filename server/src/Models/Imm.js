@@ -20,7 +20,7 @@ const immSchema = new mongoose.Schema({
     },
 
     immNumber: {
-        type: Number,
+        type: String,
         required: [true, 'IMM serial number is required'],
         unique: [true, 'This serial number is already taken'],
         minLength: [5, 'Serial number must be at lesat 5 charcters long']
