@@ -7,6 +7,12 @@ const immSchema = new mongoose.Schema({
         minLength: [3, 'Producer must be at lesat 3 charcters long']
     },
 
+    description: {
+        type: String,
+        required: [true, 'IMM description is required'],
+        minLength: [3, 'Label must be at lesat 3 charcters long']
+    },
+
     label: {
         type: String,
         required: [true, 'IMM label is required'],
