@@ -116,8 +116,7 @@ async function onCreate(event) {
                 });
             }
 
-            // TODO
-            if (files[0].name == '') {
+            if (files[0].name != '') {
                 await saveDrawing(formData);
             }
 
