@@ -90,9 +90,6 @@ async function onCreate(event) {
     const { data, form, formData } = onSubmit(event);
     const user = getUser();
     const files = formData.getAll('drawing');
-    const [year, month] = data.date.split('-');
-    
-    data.date = `${year}-${month}`;
 
     try {
         if(data) {
