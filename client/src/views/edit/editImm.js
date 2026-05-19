@@ -26,8 +26,8 @@ const editImmTemplate = (imm, isLoading) => html`
                         </div>
                         
                         <div class="input-group">
-                            <input class="input-create" id="date" type="month" name="date" .value=${imm.date} />
-                            <label>Manufactoring date</label>
+                            <input class="input-create" id="date" type="number" placeholder="" name="date" .value=${imm.date} min="1990" max="2099" />
+                            <label>Year of manufactoring</label>
                         </div>
 
                         <div class="input-group">
