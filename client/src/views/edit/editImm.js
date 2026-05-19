@@ -120,9 +120,6 @@ export async function editImmPage(ctx) {
 async function onEdit(event) {
     const { data, form, formData } = onSubmit(event);
     const files = formData.getAll("immDrawing");
-    const [year, month] = data.date.split('-');
-    
-    data.date = `${year}-${month}`;
 
     try {
         if (data) {
