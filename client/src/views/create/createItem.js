@@ -118,6 +118,7 @@ async function onCreate(event) {
   const file = formData.get('image');
   const tds = formData.get('tds');
   const files = formData.getAll('itemDrawing');
+  const user = getUser();
   
   try {
     if (data) {
@@ -140,7 +141,7 @@ async function onCreate(event) {
         throw 'All fields in red are required!';
       }
 
-      let item = Object.assign({ _ownerId: getUser()._id }, data);
+      let item = Object.assign({ _ownerId: user._id }, data);
       item.image = `uploads/items/${file.name}`;
       item.tds = `uploads/drawings/item/tds/${tds.name}`;
       item.itemDrawing = [];
