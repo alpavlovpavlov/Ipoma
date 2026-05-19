@@ -64,8 +64,8 @@ const moldTemplate = (item) => html`
         <div class="input-group select-group">
           <select class="option-create" type="text" name="wayOfInjection">
             <option value="" disabled selected>--Select--</option>
-            <option>Injection inside</option>
-            <option>Injection outside</option>
+            <option>inside</option>
+            <option>outside</option>
           </select>
           <label>Injection point</label>
         </div>

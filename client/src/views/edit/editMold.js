@@ -55,19 +55,6 @@ const editMoldTemplate = (mold, isLoading) => html`
                             <label>Pitch distance, mm</label>
                         </div>
 
-                        <!-- ${mold.moldDrawing.length > 0
-                            ? html`
-                                <label class="file-label-edit">Drawing</label>
-                                <label class="file-label" id="filename6" for="itemdrawing6">${mold.drawings}</label>
-                                <input class="input-create" id="itemdrawing6" type="file" name="moldDrawing" accept="application/pdf">
-                            `
-                            : html`
-                                <label class="file-label-edit" for="itemdrawing6">Drawing</label>
-                                <label class="file-label" id="filename6" for="itemdrawing6">No file selected</label>
-                                <input class="input-create" id="itemdrawing6" type="file" name="moldDrawing" accept="application/pdf">
-                            `
-                        } -->
-
                         <div class="input-group file-group not-required">
                             <input id="file" type="file" name="moldDrawing" accept="application/pdf" multiple hidden />
                             
