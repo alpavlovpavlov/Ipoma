@@ -19,10 +19,15 @@ const editImmTemplate = (imm, isLoading) => html`
                             <input class="input-create" id="producer" type="text" placeholder="" name="producer" .value=${imm.producer} />
                             <label>Producer</label>
                         </div>
+
+                        <div class="input-group">
+                            <input class="input-create" id="description" type="text" placeholder="" name="description" .value=${imm.description} />
+                            <label>Machine description</label>
+                        </div>
                         
                         <div class="input-group">
                             <input class="input-create" id="label" type="text" placeholder="" name="label" .value=${imm.label} />
-                            <label>Identification</label>
+                            <label>Ipoma assed identification</label>
                         </div>
                         
                         <div class="input-group">
@@ -125,6 +130,7 @@ async function onEdit(event) {
         if (data) {
         if (
             data.producer == "" ||
+            data.description == "" ||
             data.label == "" ||
             data.date == "" ||
             data.immNumber == "" ||

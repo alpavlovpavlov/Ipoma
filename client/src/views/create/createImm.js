@@ -18,8 +18,13 @@ const immTemplate = () => html`
                 </div>
 
                 <div class="input-group">
+                    <input class="input-create" type="text" placeholder="" name="description" />
+                    <label>Machine designation</label>
+                </div>
+
+                <div class="input-group">
                     <input class="input-create" type="text" placeholder="" name="label" />
-                    <label>Ipoma assed designation</label>
+                    <label>Ipoma assed identification</label>
                 </div>
                 
                 <div class="input-group">
@@ -95,6 +100,7 @@ async function onCreate(event) {
         if(data) {
             if(
                 data.producer == '' ||
+                data.description == '' ||
                 data.label == '' ||
                 data.date == '' ||
                 data.immNumber == '' ||

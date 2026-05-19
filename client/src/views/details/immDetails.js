@@ -58,6 +58,7 @@ const immDetailsTemplate = (imm, isLoading, items, currentUser) => html`
                     
                     <div class="meme-description-mold">
                         <h2>Details</h2>
+                        <p><strong>Machine description:</strong> ${imm.description}</p>
                         <p><strong>Ipoma identification:</strong> ${imm.label}</p>
                         <p><strong>Serial number:</strong> ${imm.immNumber}</p>
                         <p><strong>Year of manufactoring:</strong> ${imm.date}</p>
