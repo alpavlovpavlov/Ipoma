@@ -23,8 +23,6 @@ const renewPassTemplate = () => html`
 let token = null;
 
 export function renewPassPage(ctx) {
-    console.log('Got in');
-    
     titleChange('Renew Password Page');
     context = ctx;
     token = ctx.params.token;
