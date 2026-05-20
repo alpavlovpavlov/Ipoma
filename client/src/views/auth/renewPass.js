@@ -24,7 +24,6 @@ let token = null;
 
 export function renewPassPage(ctx) {
     titleChange('Renew Password Page');
-    context = ctx;
     token = ctx.params.token;
 
     ctx.render(renewPassTemplate());
