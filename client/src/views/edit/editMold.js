@@ -134,9 +134,6 @@ export async function editMoldPage(ctx) {
 async function onEdit(event) {
     const { data, form, formData } = onSubmit(event);
     const files = formData.getAll('moldDrawing');
-    const [year, month] = data.date.split('-');
-    
-    data.date = `${year}-${month}`;
 
     try {
         if (!data) throw "All fields are required!";
