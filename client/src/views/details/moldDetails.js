@@ -132,8 +132,18 @@ export async function moldDetailsPage(ctx) {
     }
 }
 
+// function download(file) {
+//     downloadDrawing(file.split('/')[2], file.split('/')[3]);
+// }
+
 function download(file) {
-    downloadDrawing(file.split('/')[2], file.split('/')[3]);
+    const content = file.split('/');
+    
+    if (content.length == 4) {
+        downloadDrawing(content[2], content[3], false);
+    } else if (content.length == 5) {
+        downloadDrawing(content[2], content[4], true);
+    }
 }
 
 function view(file) {
