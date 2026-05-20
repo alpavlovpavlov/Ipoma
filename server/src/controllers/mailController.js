@@ -53,6 +53,8 @@ router.post('/forgot-password/:email', async (req, res) => {
     await user.save();
     
     const link = `${process.env.FRONTEND_URL}/renew/${token}`;
+    console.log(link);
+    
     const title = 'Reset your password';
     const content = 'Click the link below:';
     
