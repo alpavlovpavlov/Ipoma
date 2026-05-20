@@ -10,7 +10,7 @@ async function sendVerificationEmail(email, link, title, content) {
             subject: title,
             html: `
                 <p>${content}</p>
-                <a href="${link}">Verify Email</a>
+                <a href="${link}">${title}</a>
                 <p>This link expires in 30 minutes.</p>
             `
         });
