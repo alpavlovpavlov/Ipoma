@@ -110,17 +110,23 @@ router.delete('/imm/:immId', userStatus('imm'), async (req, res) => {
     }
 })
 
-// Upload pictures & drawings
+// Upload drawings
 router.post('/upload',
     uploadPicturesAndDrawings.fields([{ name: 'immDrawing', maxCount: 10 }]),
-    (req, res) => {
-        try {
-            res.json({ message: 'Drawing saved' });
-        } catch (error) {
-            const message = parseError(error);
-            res.status(444).json({ message });
-        }
+    async (req, res) => {
+    try {
+      const immDrawings = req.files.immDrawing?.map(x => x.path) || [];
+
+      res.json({
+        immDrawings
+      });
+
+    } catch (error) {
+      const message = parseError(error);
+
+      res.status(444).json({ message });
     }
+  }
 )
 
 module.exports = router;

@@ -90,14 +90,26 @@ router.post('/upload',
     { name: 'itemDrawing', maxCount: 10 },
     { name: 'tds', maxCount: 1}
   ]),
-  (req, res) => {
+  async (req, res) => {
     try {
-      res.json({ message: 'Image and drawing saved' });
+      const image = req.files.image?.[0]?.path;
+
+      const itemDrawings = req.files.itemDrawing?.map(x => x.path) || [];
+
+      const tds = req.files.tds?.[0]?.path;
+
+      res.json({
+        image,
+        itemDrawings,
+        tds
+      });
+
     } catch (error) {
       const message = parseError(error);
+
       res.status(444).json({ message });
     }
   }
-)
+);
 
 module.exports = router;

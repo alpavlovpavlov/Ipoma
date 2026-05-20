@@ -94,14 +94,20 @@ router.delete("/molds/:itemId", hasUser(), isItemOwner(), async (req, res) => {
 // Save drawing
 router.post('/upload',
   uploadPicturesAndDrawings.fields([{ name: 'moldDrawing', maxCount: 10 }]),
-  (req, res) => {
+  async (req, res) => {
     try {
-      res.json({ message: 'Drawing saved' });
+      const moldDrawings = req.files.moldDrawing?.map(x => x.path) || [];
+
+      res.json({
+        moldDrawings
+      });
+
     } catch (error) {
       const message = parseError(error);
+
       res.status(444).json({ message });
     }
   }
-)
+);
 
 module.exports = router;
