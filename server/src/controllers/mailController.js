@@ -6,8 +6,6 @@ const parseError = require('../utils/parser');
 const { generateEmailToken, hashPass } = require('../services/authService');
 const { sendVerificationEmail } = require('../services/mailService');
 
-const FRONTEND_URL = process.env.FRONTEND__URL;
-
 router.get('/verify-email/:token', async (req, res) => {
   const token = req.params.token;
   
@@ -54,7 +52,7 @@ router.post('/forgot-password/:email', async (req, res) => {
 
     await user.save();
     
-    const link = `${FRONTEND_URL}/renew/${token}`;
+    const link = `${process.env.FRONTEND_URL}/renew/${token}`;
     const title = 'Reset your password';
     const content = 'Click the link below:';
     
