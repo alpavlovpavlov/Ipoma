@@ -1,36 +1,42 @@
-const multer = require("multer");
-const path = require('path');
+const multer = require('multer');
+const { CloudinaryStorage } = require('multer-storage-cloudinary');
 
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    let uploadPath = '';
+const cloudinary = require('./cloudinary');
+
+const storage = new CloudinaryStorage({
+  cloudinary,
+
+  params: async (req, file) => {
+
+    let folder = 'ipoma/other';
 
     if (file.fieldname == 'image') {
-      uploadPath = "../static/uploads/items";
+      folder = 'ipoma/items';
     }
 
     if (file.fieldname == 'tds') {
-      uploadPath = "../static/uploads/drawings/item/tds";
+      folder = 'ipoma/drawings/item/tds';
     }
 
     if (file.fieldname == 'itemDrawing') {
-      uploadPath = "../static/uploads/drawings/item";
+      folder = 'ipoma/drawings/item';
     }
 
     if (file.fieldname == 'immDrawing') {
-      uploadPath = "../static/uploads/drawings/imm";
+      folder = 'ipoma/drawings/imm';
     }
 
     if (file.fieldname == 'moldDrawing') {
-      uploadPath = "../static/uploads/drawings/mold";
+      folder = 'ipoma/drawings/mold';
     }
 
-    cb(null, path.join(__dirname, uploadPath));
-  },
-  filename: (req, file, cb) => {
-    cb(null, file.originalname);
+    return {
+      folder,
+      resource_type: 'auto',
+      public_id: `${Date.now()}-${file.originalname}`
+    };
   }
-})
+});
 
 const uploadPicturesAndDrawings = multer({ storage });
 

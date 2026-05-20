@@ -132,10 +132,6 @@ export async function moldDetailsPage(ctx) {
     }
 }
 
-// function download(file) {
-//     downloadDrawing(file.split('/')[2], file.split('/')[3]);
-// }
-
 function download(file) {
     const content = file.split('/');
     
