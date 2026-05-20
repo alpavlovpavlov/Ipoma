@@ -71,7 +71,7 @@ const moldDetalsTemplate = (mold, isLoading, currentUser) => html`
                     
                     <div class="meme-description-mold">
                         <h2>Details</h2>
-                        <p><strong>Manufactoring date: </strong>${mold.date}</p>
+                        <p><strong>Year of manufactoring: </strong>${mold.date}</p>
                         <p><strong>Number of cavities: </strong>${mold.numberOfCavities}</p>
                         <p><strong>Manufacturer: </strong>${mold.producer}</p>
                         

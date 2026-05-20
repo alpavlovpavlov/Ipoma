@@ -20,8 +20,8 @@ const moldTemplate = (item) => html`
         </div>
 
         <div class="input-group">
-          <input class="input-create" type="month" name="date">
-          <label>Enter manufactoring date</label>
+          <input class="input-create" type="number" placeholder="" name="date" min="1990" max="2099" />
+          <label>Year of manufactoring</label>
         </div>
 
         <div class="input-group">

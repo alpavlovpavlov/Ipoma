@@ -29,7 +29,7 @@ const immTemplate = () => html`
                 
                 <div class="input-group">
                     <input class="input-create" type="number" placeholder="" name="date" min="1990" max="2099" />
-                    <label>Enter manufactoring date</label>
+                    <label>Year of manufactoring</label>
                 </div>
                  
                 <div class="input-group">
