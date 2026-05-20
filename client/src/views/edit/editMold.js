@@ -3,6 +3,7 @@ import { html } from 'https://unpkg.com/lit?module';
 import { editMold, getById, sendDrawing } from '../../data/mold.js';
 import { onSubmit } from '../../middlewears/submit.js';
 import { titleChange } from '../../util/title.js';
+import { showHideHRSNInput, showHidePitchInput } from "../../util/swowHideinputElement.js";
 import { handleImputAndSelect, fileInput, pdfPreview, inputValidation, editForm } from "../../util/changeElementState.js";
 import { drawingGroup } from '../../util/drawingGroupActivation.js';
 import { notifyNoEvent } from '../notify.js';
@@ -26,7 +27,7 @@ const editMoldTemplate = (mold, isLoading) => html`
                         </div>
 
                         <div class="input-group">
-                            <input class="input-create" id="producer" type="text" placeholder="M" name="producer" .value=${mold.producer} />
+                            <input class="input-create" id="producer" type="text" placeholder="" name="producer" .value=${mold.producer} />
                             <label>Mold producer</label>
                         </div>
 
@@ -35,9 +36,16 @@ const editMoldTemplate = (mold, isLoading) => html`
                             <label>Mold number</label>
                         </div>
 
-                        <div class="input-group">
-                            <input class="input-create" id="hotRunnerMan" type="text" placeholder="" name="hotRunnerMan" .value=${mold.hotRunnerMan} />
-                            <label>Hot-runner producer</label>
+                        <div class="input-group select-group">
+                            <select id="hotRunnerMan" class="option-create" type="text" name="hotRunnerMan">
+                                <option value="" disabled selected>${mold.hotRunnerMan}</option>
+                                <option>n.a.</option>
+                                <option>Maenner</option>
+                                <option>DME</option>
+                                <option>Mold Masters</option>
+                                <option>Huskey</option>
+                            </select>
+                            <label>Hot-runner manufacturer</label>
                         </div>
 
                         <div class="input-group">
@@ -110,6 +118,8 @@ export async function editMoldPage(ctx) {
         
         ctx.render(editMoldTemplate(mold, false));
 
+        showHideHRSNInput();
+        showHidePitchInput();
         editForm();
         drawingGroup(mold);
         pdfPreview('file');
