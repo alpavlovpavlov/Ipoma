@@ -33,5 +33,5 @@ export async function searchItem(query) {
 };
 
 export async function sendDrawing(data) {
-    post(endpoints.sendDrawing, data);
+    return post(endpoints.sendDrawing, data);
 };

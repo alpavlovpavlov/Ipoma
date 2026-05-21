@@ -142,16 +142,20 @@ async function onCreate(event) {
       }
 
       let item = Object.assign({ _ownerId: user._id }, data);
-      item.image = `uploads/items/${file.name}`;
-      item.tds = `uploads/drawings/item/tds/${tds.name}`;
-      item.itemDrawing = [];
-      files.forEach(element => {
-        item.itemDrawing.push(`uploads/drawings/item/${element.name}`);
-      })
 
-      if (file || tds || files[0].name != '') {
-        await sendDrawing(formData);
-      }
+      // item.image = `uploads/items/${file.name}`;
+      // item.tds = `uploads/drawings/item/tds/${tds.name}`;
+      // item.itemDrawing = [];
+
+      // files.forEach(element => {
+      //   item.itemDrawing.push(`uploads/drawings/item/${element.name}`);
+      // })
+
+      const uploadedFiles = await sendDrawing(formData);
+      
+      item.image = uploadedFiles.image;
+      item.tds = uploadedFiles.tds;
+      item.itemDrawing = uploadedFiles.itemDrawings;
       
       localStorage.setItem('item', JSON.stringify(item));
       
