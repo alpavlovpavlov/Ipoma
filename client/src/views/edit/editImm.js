@@ -145,6 +145,8 @@ async function onEdit(event) {
             data.immDrawing = imm.immDrawing;
         } else {
             const uploadedFiles = await saveDrawing(formData);
+            console.log(uploadedFiles);
+            
             data.immDrawing = uploadedFiles.immDrawings;
         }
 
