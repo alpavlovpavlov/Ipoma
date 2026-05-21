@@ -152,7 +152,8 @@ async function onCreate(event) {
       // })
 
       const uploadedFiles = await sendDrawing(formData);
-      
+      console.log(uploadedFiles);
+
       item.image = uploadedFiles.image;
       item.tds = uploadedFiles.tds;
       item.itemDrawing = uploadedFiles.itemDrawings;
