@@ -39,8 +39,5 @@ export async function searchImm(query) {
 }
 
 export async function saveDrawing(data) {
-    const result = post(endpoints.saveDrawing, data);
-    console.log(result);
-    
-    return result;
+    return await post(endpoints.saveDrawing, data);
 }
