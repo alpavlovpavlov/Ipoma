@@ -94,7 +94,7 @@ export function createImmPage(ctx) {
 async function onCreate(event) {
     const { data, form, formData } = onSubmit(event);
     const user = getUser();
-    const files = formData.getAll('drawing');
+    const files = formData.get('drawing');
 
     try {
         if(data) {
