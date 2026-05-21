@@ -119,12 +119,17 @@ async function onCreate(event) {
             //     });
             // }
 
-            if (files[0].name != '') {
-                const uploadedFiles = await saveDrawing(formData);
-                console.log(uploadedFiles);
+            // if (files[0].name != '') {
+            //     const uploadedFiles = await saveDrawing(formData);
+            //     console.log(uploadedFiles);
                 
-                imm.immDrawing = uploadedFiles.immDrawings;
-            }
+            //     imm.immDrawing = uploadedFiles.immDrawings;
+            // }
+
+            const uploadedFiles = await saveDrawing(formData);
+            console.log(uploadedFiles);
+            
+            imm.immDrawing = uploadedFiles.immDrawings;
 
             await createIMM(imm);
             context.page.redirect('/imms-catalog');
