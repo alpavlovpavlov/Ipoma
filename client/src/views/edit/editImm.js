@@ -144,14 +144,8 @@ async function onEdit(event) {
         if (files[0].name == '') {
             data.immDrawing = imm.immDrawing;
         } else {
-            data.immDrawing = [];
-            files.forEach(element => {
-                data.immDrawing.push(`uploads/drawings/imm/${element.name}`);
-            })
-        }
-
-        if (files.length > 0) {
-            await saveDrawing(formData);
+            const uploadedFiles = await saveDrawing(formData);
+            data.immDrawing = uploadedFiles.immDrawings;
         }
 
         const result = await editIMM(immId, data);

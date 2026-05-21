@@ -171,7 +171,7 @@ async function onEdit(event) {
                 data.volume == "" ||
                 data.weight == ""
             ) {
-                throw "All fields are required!";
+                throw "All fields in red are required!";
             }
 
             if (!file || file.size == 0) {
@@ -196,8 +196,13 @@ async function onEdit(event) {
             }
 
             if (files.length > 0) {
-                await sendDrawing(formData);
+                const uploadedFiles = await sendDrawing(formData);
             }
+
+            data.image = uploadedFiles.image;
+            data.tds = uploadedFiles.tds;
+            data.itemDrawing = uploadedFiles.itemDrawings;
+
             await editItem(itemId, data);
             
             context.page.redirect(`/item-details/${itemId}`);
