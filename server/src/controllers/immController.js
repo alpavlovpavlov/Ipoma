@@ -114,19 +114,19 @@ router.delete('/imm/:immId', userStatus('imm'), async (req, res) => {
 router.post('/upload',
     uploadPicturesAndDrawings.fields([{ name: 'immDrawing', maxCount: 10 }]),
     async (req, res) => {
-    try {
-      const immDrawings = req.files.immDrawing?.map(x => x.path) || [];
+        try {
+        const immDrawings = req.files.immDrawing?.map(x => x.path) || [];
 
-      res.json({
-        immDrawings
-      });
+        res.json({
+            immDrawings
+        });
 
-    } catch (error) {
-      const message = parseError(error);
+        } catch (error) {
+        const message = parseError(error);
 
-      res.status(444).json({ message });
+        res.status(444).json({ message });
+        }
     }
-  }
 )
 
 module.exports = router;

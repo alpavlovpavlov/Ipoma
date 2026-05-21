@@ -10,10 +10,6 @@ const endpoints = {
     saveDrawing: '/immData/upload'
 }
 
-// export function getFiles(folderName) {
-//     return get(endpoints.getFiles + folderName);
-// }
-
 export function getAll(state) {
     return get(endpoints.getCatalog(state));
 }

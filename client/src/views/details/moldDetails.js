@@ -5,7 +5,6 @@ import { getUser } from '../../util/util.js';
 import { getItem } from '../../data/item.js';
 import { deleteMoldAndItem, getMoldByItemId } from '../../data/mold.js';
 import { titleChange } from '../../util/title.js';
-import { downloadDrawing } from '../../data/fileDownload.js';
 import { notifyNoEvent } from '../notify.js';
 import { roleAssignment } from '../../util/role.js';
 
@@ -136,9 +135,9 @@ function download(file) {
     const content = file.split('/');
     
     if (content.length == 4) {
-        downloadDrawing(content[2], content[3], false);
+        //downloadDrawing(content[2], content[3], false);
     } else if (content.length == 5) {
-        downloadDrawing(content[2], content[4], true);
+        //downloadDrawing(content[2], content[4], true);
     }
 }
 

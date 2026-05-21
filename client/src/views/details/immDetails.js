@@ -5,7 +5,6 @@ import { getById, deleteIMM } from '../../data/imm.js';
 import { getItem } from '../../data/item.js';
 import { getUser } from '../../util/util.js';
 import { titleChange } from '../../util/title.js';
-import { downloadDrawing } from '../../data/fileDownload.js';
 import { notifyNoEvent } from '../notify.js';
 import { roleAssignment } from '../../util/role.js';
 
@@ -45,7 +44,7 @@ const immDetailsTemplate = (imm, isLoading, items, currentUser) => html`
                                             <td>
                                                 <div class="actions">
                                                     <button @click=${() => view(file)}>View</button>
-                                                    <button @click=${() => download(file)}>Download</button>
+                                                    <a href="${imm.immDrawing}" target="_blank">Download</a>
                                                 </div>
                                             </td>
                                         </tr>
@@ -137,10 +136,6 @@ export async function immDetailsPage(ctx) {
     } catch (error) {
         notifyNoEvent(error);
     }
-}
-
-function download(file) {
-    downloadDrawing(file.split('/')[2], file.split('/')[3]);
 }
 
 function view(file) {

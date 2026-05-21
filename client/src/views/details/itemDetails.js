@@ -7,7 +7,6 @@ import { titleChange } from '../../util/title.js';
 import { notify, notifyNoEvent } from '../notify.js';
 import { roleAssignment } from '../../util/role.js'
 import { deleteMoldAndItem } from '../../data/mold.js';
-import { downloadDrawing } from '../../data/fileDownload.js';
 
 const itemDetailsTemplate = (item, isLoading, currentUser) => html`
     <section id="meme-details">
@@ -73,7 +72,7 @@ const itemDetailsTemplate = (item, isLoading, currentUser) => html`
                     </div>
                 </div>
                 <div class="meme-img">
-                    <img alt="meme-alt" src="${host}/${item.image}">
+                    <img alt="meme-alt" src="${item.image}">
                 </div>
             `
         }
@@ -101,7 +100,7 @@ const tableTemplate = (file, dr, role) => html`
                 ${role != 'guest'
                     ? html`
                         <button @click=${() => view(file)}>View</button>
-                        <button @click=${() => download(file)}>Download</button>
+                        <a href="{file}">Download</a>
                     `
                     : null
                 }
@@ -138,14 +137,14 @@ function download(file) {
     const content = file.split('/');
     
     if (content.length == 4) {
-        downloadDrawing(content[2], content[3], false);
+        //downloadDrawing(content[2], content[3], false);
     } else if (content.length == 5) {
-        downloadDrawing(content[2], content[4], true);
+        //downloadDrawing(content[2], content[4], true);
     }
 }
 
 function view(file) {
-    window.open(`${host}/${file}`, "_blank");
+    window.open(`${file}`, "_blank");
 }
 
 async function onDelete() {
