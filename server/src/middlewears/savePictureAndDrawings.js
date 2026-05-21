@@ -11,23 +11,23 @@ const storage = new CloudinaryStorage({
     let folder = 'ipoma/other';
 
     if (file.fieldname == 'image') {
-      folder = 'ipoma/items';
+      folder = 'ipoma/items/images';
     }
 
     if (file.fieldname == 'tds') {
-      folder = 'ipoma/drawings/item/tds';
+      folder = 'ipoma/items/tds';
     }
 
     if (file.fieldname == 'itemDrawing') {
-      folder = 'ipoma/drawings/item';
+      folder = 'ipoma/items/drawings';
     }
 
     if (file.fieldname == 'immDrawing') {
-      folder = 'ipoma/drawings/imm';
+      folder = 'ipoma/imms/drawings';
     }
 
     if (file.fieldname == 'moldDrawing') {
-      folder = 'ipoma/drawings/mold';
+      folder = 'ipoma/molds/drawings';
     }
 
     return {
