@@ -7,7 +7,6 @@ const fileController = require('./controllers/fileController');
 const mailController = require('./controllers/mailController');
 const immController = require('./controllers/immController');
 const optionController = require('./controllers/optionController');
-const downloadController = require('./controllers/downloadController');
 
 router.use('/itemData', itemController);
 router.use('/moldData', moldController);
