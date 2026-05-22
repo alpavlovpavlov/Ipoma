@@ -30,10 +30,16 @@ const storage = new CloudinaryStorage({
       folder = 'ipoma/molds/drawings';
     }
 
+    const safeName = file.originalname
+      .replace(/\.[^/.]+$/, '')
+      .replace(/\s+/g, '-')
+      .replace(/[^a-zA-Z0-9-_]/g, '')
+    ;
+
     return {
       folder,
       resource_type: 'auto',
-      public_id: `${Date.now()}-${file.originalname}`
+      public_id: `${Date.now()}-${safeName}`
     };
   }
 });
