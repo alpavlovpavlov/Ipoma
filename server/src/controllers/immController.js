@@ -118,7 +118,7 @@ router.post('/upload',
         console.log(req.immDrawing);
         
         try {
-        const immDrawings = req.files.immDrawing?.map(x => x.secure_url) || [];
+        const immDrawings = req.files.immDrawing?.map(x => x.path) || [];
 
         res.json({
             immDrawings
