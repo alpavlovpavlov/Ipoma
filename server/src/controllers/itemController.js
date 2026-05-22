@@ -92,11 +92,11 @@ router.post('/upload',
   ]),
   async (req, res) => {
     try {
-      const image = req.files.image?.[0]?.path;
+      const image = req.files.image?.[0]?.secure_url;
 
-      const itemDrawings = req.files.itemDrawing?.map(x => x.path) || [];
+      const itemDrawings = req.files.itemDrawing?.map(x => x.scure_url) || [];
 
-      const tds = req.files.tds?.[0]?.path;
+      const tds = req.files.tds?.[0]?.secure_url;
 
       res.json({
         image,
