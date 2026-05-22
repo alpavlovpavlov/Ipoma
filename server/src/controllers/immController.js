@@ -114,6 +114,7 @@ router.delete('/imm/:immId', userStatus('imm'), async (req, res) => {
 router.post('/upload',
     uploadPicturesAndDrawings.fields([{ name: 'immDrawing', maxCount: 10 }]),
     async (req, res) => {
+        console.log(req.files.immDrawing);
         try {
         const immDrawings = req.files.immDrawing?.map(x => x.path) || [];
 
