@@ -7,6 +7,7 @@ const storage = new CloudinaryStorage({
   cloudinary,
 
   params: async (req, file) => {
+    const extension = file.originalname.split('.').pop();
 
     let folder = 'ipoma/other';
 
@@ -39,7 +40,7 @@ const storage = new CloudinaryStorage({
     return {
       folder,
       resource_type: file.mimetype === 'application/pdf' ? 'raw' : 'image',
-      public_id: `${Date.now()}-${safeName}`
+      public_id: `${Date.now()}-${safeName}.${extension}`,
     };
   }
 });
