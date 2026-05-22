@@ -62,7 +62,7 @@ const immTemplate = () => html`
                 </div>
 
                 <div class="input-group file-group not-required">
-                    <input id="drawing" type="file" name="drawing" accept="application/pdf" multiple hidden />
+                    <input id="drawing" type="file" name="immDrawing" accept="application/pdf" multiple hidden />
                     
                     <div class="file-box">
                         <span class="file-text">Choose files</span>
@@ -94,7 +94,7 @@ export function createImmPage(ctx) {
 async function onCreate(event) {
     const { data, form, formData } = onSubmit(event);
     const user = getUser();
-    const files = formData.get('drawing');
+    const files = formData.getAll('immDrawing');
 
     try {
         if(data) {
