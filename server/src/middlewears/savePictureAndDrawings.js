@@ -39,7 +39,7 @@ const storage = new CloudinaryStorage({
 
     return {
       folder,
-      resource_type: file.mimetype === 'application/pdf' ? 'raw' : 'image',
+      resource_type: 'auto',
       public_id: `${Date.now()}-${safeName}.${extension}`,
     };
   }
