@@ -114,7 +114,6 @@ async function onCreate(event) {
             let imm = Object.assign({ _ownerId: user._id }, data);
 
             const uploadedFiles = await saveDrawing(formData);
-            console.log(uploadedFiles);
             
             imm.immDrawing = uploadedFiles.immDrawings;
 
