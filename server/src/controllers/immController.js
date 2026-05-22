@@ -115,7 +115,7 @@ router.post('/upload',
     uploadPicturesAndDrawings.fields([{ name: 'immDrawing', maxCount: 10 }]),
     async (req, res) => {
         try {
-        const immDrawings = req.files.immDrawing?.map(x => x.path) || [];
+        const immDrawings = req.files.immDrawing?.map(x => x.secure_url) || [];
 
         res.json({
             immDrawings
