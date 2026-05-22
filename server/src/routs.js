@@ -16,7 +16,6 @@ router.use('/users', authController);
 router.use('/files', fileController);
 router.use('/api', mailController);
 router.use('/options', optionController);
-router.use('/download', downloadController);
 
 router.use((req, res) => {
     res.status(404).json({ message: 'Rout not found' })
