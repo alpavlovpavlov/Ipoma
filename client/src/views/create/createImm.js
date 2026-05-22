@@ -112,19 +112,6 @@ async function onCreate(event) {
             }
 
             let imm = Object.assign({ _ownerId: user._id }, data);
-            // imm.immDrawing = [];
-            // if (files[0].name != '') {
-            //     files.forEach(element => {
-            //         imm.immDrawing.push(`uploads/drawings/imm/${element.name}`);
-            //     });
-            // }
-
-            // if (files[0].name != '') {
-            //     const uploadedFiles = await saveDrawing(formData);
-            //     console.log(uploadedFiles);
-                
-            //     imm.immDrawing = uploadedFiles.immDrawings;
-            // }
 
             const uploadedFiles = await saveDrawing(formData);
             console.log(uploadedFiles);
