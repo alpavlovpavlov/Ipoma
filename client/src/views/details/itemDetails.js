@@ -91,7 +91,7 @@ const tableTemplate = (file, dr, role) => html`
         }    
 
         ${role != 'guest'
-            ? html`<td class="point" @click=${() => view(file)}>${file.split('/').pop()}</td>`
+            ? html`<td class="point" @click=${() => view(file)}>${file.split('/').pop().split('-').pop()}</td>`
             : html`<td class="point" @click=${(e) => notify('Please register or login to have accesss to the full functionality', e)}>${file.split('/').pop()}</td>`
         }
 
@@ -99,8 +99,8 @@ const tableTemplate = (file, dr, role) => html`
             <div class="actions">
                 ${role != 'guest'
                     ? html`
-                        <button @click=${() => view(file)}>View</button>
-                        <a href="{file}">Download</a>
+                        <a href="${file}" target="_blank">View</a>
+                        <a href="${getDownloadUrl(file)}">Download</a>
                     `
                     : null
                 }
@@ -133,14 +133,8 @@ export async function itemDetailsPage(ctx) {
     }
 }
 
-function download(file) {
-    const content = file.split('/');
-    
-    if (content.length == 4) {
-        //downloadDrawing(content[2], content[3], false);
-    } else if (content.length == 5) {
-        //downloadDrawing(content[2], content[4], true);
-    }
+function getDownloadUrl(url) {
+    return url.replace('/upload/', '/upload/fl_attachment/');
 }
 
 function view(file) {
