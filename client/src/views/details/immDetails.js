@@ -139,6 +139,7 @@ export async function immDetailsPage(ctx) {
 }
 
 function view(file) {
+    console.log(file);
     window.open(`${file}`, "_blank");
 }
 
