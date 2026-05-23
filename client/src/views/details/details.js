@@ -13,7 +13,7 @@ const detailsTemplate = (item, isLogged) => html`
             <div id="memes">
                 <div class="info">
                     <div>
-                        <img class="meme-image" alt="meme-img" src="${host}/${item.image}">
+                        <img class="meme-image" alt="meme-img" src="${item.image}">
                     </div>
                     <a class="button" href="/item-details/${item._id}">Item details</a>
                 </div>
