@@ -197,10 +197,6 @@ async function onEdit(event) {
 
             }
 
-            data.image = uploadedFiles.image;
-            data.tds = uploadedFiles.tds;
-            data.itemDrawing = uploadedFiles.itemDrawings;
-
             await editItem(itemId, data);
             
             context.page.redirect(`/item-details/${itemId}`);
