@@ -45,7 +45,7 @@ const immDetailsTemplate = (imm, isLoading, items, currentUser) => html`
                                                 <div class="actions">
                                                     <a href="${file}" target="_blank">View</a>
                                                     <!-- <button @click=${() => view(file)}>View</button> -->
-                                                    <a href="${file}" download target="_blank">Download</a>
+                                                    <a href="${file}" download>Download</a>
                                                 </div>
                                             </td>
                                         </tr>
@@ -140,9 +140,9 @@ export async function immDetailsPage(ctx) {
     }
 }
 
-function view(file) {
-    window.open(`${host}/${file}`, "_blank");
-}
+// function view(file) {
+//     window.open(`${host}/${file}`, "_blank");
+// }
 
 function itemDtls(itemId) {
     context.page.redirect(`/item-details/${itemId}`);
