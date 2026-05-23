@@ -92,7 +92,7 @@ const tableTemplate = (file, dr, role) => html`
 
         ${role != 'guest'
             ? html`<td class="point" @click=${() => view(file)}>${file.split('/').pop().split('-').slice(0)}</td>`
-            : html`<td class="point" @click=${(e) => notify('Please register or login to have accesss to the full functionality', e)}>${file.split('/').pop()}</td>`
+            : html`<td class="point" @click=${(e) => notify('Please register or login to have accesss to the full functionality', e)}>${file.split('/').pop().split('-').sloice(0)}</td>`
         }
 
         <td>
