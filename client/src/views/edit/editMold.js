@@ -154,14 +154,9 @@ async function onEdit(event) {
         if (files[0].name == '') {
             data.moldDrawing = mold.moldDrawing;
         } else {
-            data.moldDrawing = [];
-            files.forEach(element => {
-                data.moldDrawing.push(`uploads/drawings/mold/${element.name}`);
-            })
-        }
-
-        if (files.length > 0) {
-            await sendDrawing(formData);
+            const uploadedFiles = await sendDrawing(formData);
+            
+            data.moldDrawing = uploadedFiles.moldDrawings;
         }
 
         const result = await editMold(moldId, data);
