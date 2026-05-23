@@ -44,7 +44,6 @@ const immDetailsTemplate = (imm, isLoading, items, currentUser) => html`
                                             <td>
                                                 <div class="actions">
                                                     <a href="${file}" target="_blank">View</a>
-                                                    <a @click=${() => view(file)}>View</a>
                                                     <a href="${getDownloadUrl(file)}">Download</a>
                                                 </div>
                                             </td>
