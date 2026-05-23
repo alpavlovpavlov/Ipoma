@@ -40,7 +40,7 @@ const immDetailsTemplate = (imm, isLoading, items, currentUser) => html`
                                             <td>
                                                 <img src="/images/pdf-icon.png" width="24">
                                             </td>
-                                            <td class="point" @click=${() => view(file)}>${file.split('/').pop().split('-').slice(1).join('_')}</td>
+                                            <td class="point" @click=${() => view(file)}>${file.split('/').pop().split('-').slice(1)}</td>
                                             <td>
                                                 <div class="actions">
                                                     <a href="${file}" target="_blank">View</a>
