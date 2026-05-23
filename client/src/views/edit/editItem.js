@@ -158,7 +158,7 @@ export async function editItemPage(ctx) {
 
 async function onEdit(event) {
     const { data, form, formData } = onSubmit(event);
-    const file = formData.get('image');
+    const image = formData.get('image');
     const tds = formData.get('tds');
     const files = formData.getAll('itemDrawing');
 
@@ -174,29 +174,27 @@ async function onEdit(event) {
                 throw "All fields in red are required!";
             }
 
-            if (!file || file.size == 0) {
-                data.image = item.image;
-            } else {
-                data.image = `uploads/items/${data.image.name}`;
-            }
-
-            if (!tds || tds.size == 0) {
-                data.tds = item.tds;
-            } else {
-                data.tds = `uploads/drawings/item/tds/${tds.name}`;
-            }
-
-            if (files[0].name == '') {
-                data.itemDrawing = item.itemDrawing;
-            } else {
-                data.itemDrawing = [];
-                files.forEach(element => {
-                    data.itemDrawing.push(`uploads/drawings/item/${element.name}`);
-                })
-            }
-
-            if (files.length > 0) {
+            if (image && image.size > 0 || tds && tds.size > 0 || files[0].name != '') {
                 const uploadedFiles = await sendDrawing(formData);
+
+                if (!image || image.size == 0) {
+                    data.image = item.image;
+                } else {
+                    data.image = uploadedFiles.image;
+                }
+    
+                if (!tds || tds.size == 0) {
+                    data.tds = item.tds;
+                } else {
+                    data.tds = uploadedFiles.tds;
+                }
+    
+                if (files[0].name == '') {
+                    data.itemDrawing = item.itemDrawing;
+                } else {
+                    data.itemDrawing = uploadedFiles.itemDrawings;
+                }
+
             }
 
             data.image = uploadedFiles.image;
