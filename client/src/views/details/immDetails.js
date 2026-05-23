@@ -139,7 +139,7 @@ export async function immDetailsPage(ctx) {
 }
 
 function view(file) {
-    console.log(file.split('/').pop().split('-').slice(0));
+    console.log(file.split('/').pop().split('-').slice(1));
     window.open(`${file}`, "_blank");
 }
 
