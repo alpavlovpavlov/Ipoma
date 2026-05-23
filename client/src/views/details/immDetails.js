@@ -43,9 +43,9 @@ const immDetailsTemplate = (imm, isLoading, items, currentUser) => html`
                                             <td class="point" @click=${() => view(file)}>${file.split('/').pop()}</td>
                                             <td>
                                                 <div class="actions">
-                                                    <!-- <a href="${file}" target="_blank">View</a> -->
+                                                    <a href="${file}" target="_blank">View</a>
                                                     <a @click=${() => view(file)}>View</a>
-                                                    <a href="${file}" download>Download</a>
+                                                    <a href="${getDownloadUrl(file)}">Download</a>
                                                 </div>
                                             </td>
                                         </tr>
@@ -142,6 +142,10 @@ export async function immDetailsPage(ctx) {
 
 function view(file) {
     window.open(`${file}`, "_blank");
+}
+
+function getDownloadUrl(url) {
+    return url.replace('/upload/', '/upload/fl_attachment/');
 }
 
 function itemDtls(itemId) {
