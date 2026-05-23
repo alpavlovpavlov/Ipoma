@@ -49,7 +49,7 @@ const containerTemplate = (item, extention) => html`
         <div class="card">
             <div class="info">
                 <p class="meme-title">${item.name}</p>
-                <img class="meme-image" alt="meme-img" src="${host}/${item.image}">
+                <img class="meme-image" alt="meme-img" src="${item.image}">
             </div>
             <div id="data-buttons">
                 ${extention == 'ipoma'
