@@ -137,21 +137,22 @@ async function onCreate(event) {
       }
 
       let mold = Object.assign({ _itemId: item._id }, data);
-      if (files[0].name == '') {
-        mold.moldDrawing = [];
-      } else {
-        mold.moldDrawing = [];
-        files.forEach(element => {
-          mold.moldDrawing.push(`uploads/drawings/mold/${element.name}`);
-        })
-      }
+
+      // if (files[0].name == '') {
+      //   mold.moldDrawing = [];
+      // } else {
+      //   mold.moldDrawing = [];
+      //   files.forEach(element => {
+      //     mold.moldDrawing.push(`uploads/drawings/mold/${element.name}`);
+      //   })
+      // }
       
       mold.name = item.name;
       mold["_ownerId"] = user._id;
 
-      if (files[0].name != '') {
-        await sendDrawing(formData);
-      }
+      const uploadedFiles = await sendDrawing(formData);
+
+      mold.moldDrawing = uploadedFiles.moldDrawings;
       
       const acceds = await createMoldAndItem({ item, mold });
       const itemType = (item.type).toLowerCase() + 's';

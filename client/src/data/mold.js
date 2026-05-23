@@ -42,5 +42,5 @@ export async function deleteMoldAndItem(id) {
 };
 
 export async function sendDrawing(data) {
-    post(endpoints.sendDrawing, data);
+    return post(endpoints.sendDrawing, data);
 };

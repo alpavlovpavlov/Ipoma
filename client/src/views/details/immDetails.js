@@ -122,7 +122,6 @@ export async function immDetailsPage(ctx) {
     ctx.render(immDetailsTemplate({}, true));
     try {
         imm = await getById(immId);
-        console.log(imm.immDrawing);
         
         const user = getUser();
         const currentUser = roleAssignment(user, imm);

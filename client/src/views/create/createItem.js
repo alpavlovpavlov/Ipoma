@@ -115,7 +115,7 @@ export function createItemPage(ctx) {
 
 async function onCreate(event) {
   const { data, form, formData } = onSubmit(event);
-  const file = formData.get('image');
+  const image = formData.get('image');
   const tds = formData.get('tds');
   const files = formData.getAll('itemDrawing');
   const user = getUser();
@@ -133,7 +133,7 @@ async function onCreate(event) {
         throw "All fields in red are required!";
       }
 
-      if (!file || file.size === 0) {
+      if (!image || image.size === 0) {
         throw 'All fields in red are required!';
       }
 
@@ -142,14 +142,6 @@ async function onCreate(event) {
       }
 
       let item = Object.assign({ _ownerId: user._id }, data);
-
-      // item.image = `uploads/items/${file.name}`;
-      // item.tds = `uploads/drawings/item/tds/${tds.name}`;
-      // item.itemDrawing = [];
-
-      // files.forEach(element => {
-      //   item.itemDrawing.push(`uploads/drawings/item/${element.name}`);
-      // })
 
       const uploadedFiles = await sendDrawing(formData);
       console.log(uploadedFiles);
