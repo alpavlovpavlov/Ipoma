@@ -104,7 +104,6 @@ router.post('/upload',
 
     } catch (error) {
       const message = parseError(error);
-
       res.status(444).json({ message });
     }
   }

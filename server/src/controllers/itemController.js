@@ -93,9 +93,7 @@ router.post('/upload',
   async (req, res) => {
     try {
       const image = req.files.image?.[0]?.path;
-
       const itemDrawings = req.files.itemDrawing?.map(x => x.path) || [];
-
       const tds = req.files.tds?.[0]?.path;
 
       res.json({
@@ -106,7 +104,6 @@ router.post('/upload',
 
     } catch (error) {
       const message = parseError(error);
-
       res.status(444).json({ message });
     }
   }
