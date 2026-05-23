@@ -144,7 +144,6 @@ async function onCreate(event) {
       let item = Object.assign({ _ownerId: user._id }, data);
 
       const uploadedFiles = await sendDrawing(formData);
-      console.log(uploadedFiles);
 
       item.image = uploadedFiles.image;
       item.tds = uploadedFiles.tds;
