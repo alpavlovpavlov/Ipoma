@@ -1,0 +1,26 @@
+export function nameSanitizer(formData, files, param) {
+    formData.delete(param);
+
+    let sanitizedFileName = null
+
+    if (Array.isArray(files)) {
+        files.forEach(file => {
+            if (file.size == 0) return;
+
+            const renamedFile = file.name.replace(/\s+/g, '-').replace(/-/g, '_');
+            sanitizedFileName = new File([file], renamedFile, { type: file.type });
+
+            formData.append(param, sanitizedFileName);
+        })
+    } else if (files instanceof File) {
+        if (files.size === 0) return formData;
+
+        const renamedFile = files.name.replace(/\s+/g, '-').replace(/-/g, '_');
+        sanitizedFileName = new File([files], renamedFile, { type: files.type });
+
+        formData.set(param, sanitizedFileName);
+    }
+
+    console.log(formData.getAll(sanitizedFileName));
+    return formData;
+}

@@ -6,6 +6,7 @@ import { getUser } from '../../util/util.js';
 import { titleChange } from '../../util/title.js';
 import { handleImputAndSelect, fileInput, pdfPreview, inputValidation } from "../../util/changeElementState.js";
 import { notifyNoEvent } from '../notify.js';
+import { nameSanitizer } from '../../util/nameSanitizer.js';
 
 const immTemplate = () => html`
     <section id="create-item">
@@ -93,7 +94,10 @@ export function createImmPage(ctx) {
 
 async function onCreate(event) {
     const { data, form, formData } = onSubmit(event);
+    const files = formData.getAll('immDrawing');
     const user = getUser();
+
+    const newDrawingName = nameSanitizer(formData, files, 'immDrawing');
 
     try {
         if(data) {
