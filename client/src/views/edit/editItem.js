@@ -66,7 +66,7 @@ const editItemTemplate = (item, isLoading) => html`
                                 ${item.image != ''
                                     ? html`
                                         <span class="file-name">${item.image.split('/').pop().split('-').slice(1)}</span>
-                                        <img id="image-preview" style="margin-top:10px; max-width:40px;" src="${host}/${item.image}" />
+                                        <img id="image-preview" style="margin-top:10px; max-width:40px;" src="${item.image}" />
                                     `
                                     : html`
                                         <span class="file-name">No file selected</span>
