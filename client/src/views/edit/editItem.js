@@ -62,10 +62,10 @@ const editItemTemplate = (item, isLoading) => html`
                             <input id="image" type="file" name="image" accept="image/*" hidden />
 
                             <div class="file-box">
-                                <span class="file-text">Choose file</span>
+                                <span class="file-text">Choose image</span>
                                 ${item.image != ''
                                     ? html`
-                                        <span class="file-name">${item.image.split('/')[2]}</span>
+                                        <span class="file-name">${item.image.split('/').pop().split('-').slice(1)}</span>
                                         <img id="image-preview" style="margin-top:10px; max-width:40px;" src="${host}/${item.image}" />
                                     `
                                     : html`
