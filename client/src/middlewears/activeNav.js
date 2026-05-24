@@ -35,9 +35,8 @@ export function setActiveNav(currentPath) {
             };
         }
     });
-}
 
-document.querySelectorAll('.create-dropdown').forEach(dropdown => {
+    document.querySelectorAll('.create-dropdown').forEach(dropdown => {
     // const parentLink = dropdown.firstElementChild;
     const parentLink = dropdown.querySelector(':scope a[href="#"]');
     const childLinks = dropdown.querySelectorAll('.dropdown-menu a');
@@ -50,3 +49,4 @@ document.querySelectorAll('.create-dropdown').forEach(dropdown => {
 
     parentLink?.classList.toggle('active', hasActiveChild);
 });
+}
