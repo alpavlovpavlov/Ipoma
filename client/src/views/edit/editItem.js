@@ -85,7 +85,7 @@ const editItemTemplate = (item, isLoading) => html`
                                 <span class="file-text">Choose files</span>
                                 ${item.drawings
                                     ? html`
-                                        <span class="file-name">${item.drawings}</span>
+                                        <span class="file-name">${item.drawings.split('/').pop().split('-').slice(1)}</span>
                                         <img id="file-preview" src="../../../images/pdf-icon.png" style="margin-top:10px; max-width:20px" type="application/pdf" />
                                     `
                                     : html`
@@ -104,7 +104,7 @@ const editItemTemplate = (item, isLoading) => html`
                                 <span class="file-text">Choose files</span>
                                 ${item.tds
                                     ? html`
-                                        <span class="file-name">${item.tds.split('/')[4]}</span>
+                                        <span class="file-name">${item.tds.split('/').pop().split('-').slice(1)}</span>
                                         <img id="tds-preview" src="../../../images/pdf-icon.png" style="margin-top:10px; max-width:20px" type="application/pdf" />
                                         `
                                     : html`
