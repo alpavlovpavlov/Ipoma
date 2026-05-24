@@ -26,7 +26,7 @@ export function setActiveNav(currentPath) {
             const dropdown = link.closest('.create-dropdown');
             
             if (dropdown) {
-                const parent = dropdown.querySelector(':scope > a');
+                const parent = dropdown.querySelector('a');
                 parent?.classList.add('active');
             };
         }
