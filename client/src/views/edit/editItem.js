@@ -82,10 +82,10 @@ const editItemTemplate = (item, isLoading) => html`
                             <input id="file" type="file" name="itemDrawing" accept="application/pdf" multiple hidden />
                             
                             <div class="file-box">
-                                <span class="file-text">Choose files</span>
+                                <span class="file-text">Choose drawings</span>
                                 ${item.drawings
                                     ? html`
-                                        <span class="file-name">${item.drawings.split('/').pop().split('-').slice(1)}</span>
+                                        <span class="file-name">${item.drawings}</span>
                                         <img id="file-preview" src="../../../images/pdf-icon.png" style="margin-top:10px; max-width:20px" type="application/pdf" />
                                     `
                                     : html`
@@ -101,7 +101,7 @@ const editItemTemplate = (item, isLoading) => html`
                             <input id="tds" type="file" name="tds" accept="application/pdf" multiple hidden />
                             
                             <div class="file-box">
-                                <span class="file-text">Choose files</span>
+                                <span class="file-text">Choose tds file</span>
                                 ${item.tds
                                     ? html`
                                         <span class="file-name">${item.tds.split('/').pop().split('-').slice(1)}</span>
@@ -139,7 +139,7 @@ export async function editItemPage(ctx) {
 
         item = await getItem(itemId);
 
-        item.drawings = item.itemDrawing.map(d => d.split('/')[3]).join(' / ');
+        item.drawings = item.itemDrawing.map(d => d.split('/').pop().split('-').slice(1)).join(' / ');
 
         ctx.render(editItemTemplate(item, false));
 
