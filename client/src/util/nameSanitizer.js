@@ -7,7 +7,7 @@ export function nameSanitizer(formData, files, param) {
         files.forEach(file => {
             if (file.size == 0) return;
 
-            const renamedFile = file.name.replace(/\s+/g, '-').replace(/-/g, '_');
+            const renamedFile = file.name.replace(/\s+/g, '_');
             sanitizedFileName = new File([file], renamedFile, { type: file.type });
 
             console.log(sanitizedFileName);
@@ -16,7 +16,7 @@ export function nameSanitizer(formData, files, param) {
     } else if (files instanceof File) {
         if (files.size === 0) return formData;
 
-        const renamedFile = files.name.replace(/\s+/g, '-').replace(/-/g, '_');
+        const renamedFile = files.name.replace(/\s+/g, '_');
         sanitizedFileName = new File([files], renamedFile, { type: files.type });
         
         console.log(sanitizedFileName);
