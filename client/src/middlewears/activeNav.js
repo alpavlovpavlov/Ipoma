@@ -26,8 +26,11 @@ export function setActiveNav(currentPath) {
         const linkPath = normalize(new URL(link.href).pathname);
 
         if (linkPath === currentPath) {
-            link.classList.add('active');
             const dropdown = link.closest('.create-dropdown');
+            
+            if (!dropdown) {
+                link.classList.add('active');
+            }
             
             if (dropdown) {
                 const parent = dropdown.querySelector(':scope > a');
