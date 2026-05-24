@@ -69,10 +69,10 @@ const editImmTemplate = (imm, isLoading) => html`
                             
                             <div class="file-box">
                                 <span class="file-text">Choose files</span>
-                                ${imm.drawings
+                                ${imm.drawings.length > 0
                                     ? html`
                                         <span class="file-name">${imm.drawings}</span>
-                                        <img id="file-preview" src="../../../images/pdf-icon.png" style="margin-top:10px; max-width:20px" type="application/pdf" />
+                                        <img id="file-preview" src="../../../images/pdf-icon.png" style="display:none; margin-top:10px; max-width:20px" type="application/pdf" />
                                         `
                                     : html`
                                         <span class="file-name">No file selected</span>

@@ -77,7 +77,7 @@ const editMoldTemplate = (mold, isLoading) => html`
                             
                             <div class="file-box">
                                 <span class="file-text">Choose files</span>
-                                ${mold.moldDrawing
+                                ${mold.moldDrawing.length > 0
                                     ? html`
                                         <span class="file-name">${mold.drawings}</span>
                                         <img id="file-preview" src="../../../images/pdf-icon.png" style="display:none; margin-top:10px; max-width:20px" type="application/pdf" />
