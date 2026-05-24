@@ -38,7 +38,8 @@ export function setActiveNav(currentPath) {
 }
 
 document.querySelectorAll('.create-dropdown').forEach(dropdown => {
-    const parentLink = dropdown.firstElementChild;
+    // const parentLink = dropdown.firstElementChild;
+    const parentLink = dropdown.querySelector(':scope a[href="#"]');
     const childLinks = dropdown.querySelectorAll('.dropdown-menu a');
 
     const hasActiveChild = [...childLinks].some(link => {
