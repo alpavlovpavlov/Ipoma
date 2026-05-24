@@ -4,6 +4,10 @@ function normalize(path) {
 
 let currentPath2 = '';
 
+function isVisible(el) {
+    return !!(el.offsetWidth || el.offsetHeight || el.getClientRects().length);
+}
+
 export function setActiveNav(currentPath) {
     currentPath = normalize(currentPath);
     currentPath2 = currentPath;
@@ -34,7 +38,8 @@ export function setActiveNav(currentPath) {
 
     document.querySelectorAll('.create-dropdown').forEach(dropdown => {
         // const parentLink = dropdown.firstElementChild;
-        const parentLink = dropdown.querySelector('a[href="#"]');
+        const parentLinks = dropdown.querySelector('a[href="#"]');
+        const parentLink = [...parentLinks].find(link => isVisible(link));
         const childLinks = dropdown.querySelectorAll('.dropdown-menu a');
 
         let hasActiveChild = [...childLinks].some(link => {
