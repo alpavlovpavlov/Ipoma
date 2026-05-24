@@ -107,7 +107,7 @@ export async function editImmPage(ctx) {
 
         imm = await getById(immId);
 
-        imm.drawings = imm.immDrawing.map(d => d.split('/').pop().split('-').slice(1)).join(' / ');
+        imm.drawings = imm.immDrawing.map(d => d.split('/').pop().split('___')[1]).join(' / ');
 
         ctx.render(editImmTemplate(imm, false));
 

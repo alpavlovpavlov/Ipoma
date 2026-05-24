@@ -91,8 +91,8 @@ const tableTemplate = (file, dr, role) => html`
         }    
 
         ${role != 'guest'
-            ? html`<td class="point" @click=${() => view(file)}>${file.split('/').pop().split('-').slice(1)}</td>`
-            : html`<td class="point" @click=${(e) => notify('Please register or login to have accesss to the full functionality', e)}>${file.split('/').pop().split('-').slice(1)}</td>`
+            ? html`<td class="point" @click=${() => view(file)}>${file.split('/').pop().split('___')[1]}</td>`
+            : html`<td class="point" @click=${(e) => notify('Please register or login to have accesss to the full functionality', e)}>${file.split('/').pop().split('___')[1]}</td>`
         }
 
         <td>

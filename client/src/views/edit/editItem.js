@@ -65,7 +65,7 @@ const editItemTemplate = (item, isLoading) => html`
                                 <span class="file-text">Choose image</span>
                                 ${item.image != ''
                                     ? html`
-                                        <span class="file-name">${item.image.split('/').pop().split('-').slice(1)}</span>
+                                        <span class="file-name">${item.image.split('/').pop().split('___')[1]}</span>
                                         <img id="image-preview" style="margin-top:10px; max-width:40px;" src="${item.image}" />
                                     `
                                     : html`
@@ -104,7 +104,7 @@ const editItemTemplate = (item, isLoading) => html`
                                 <span class="file-text">Choose tds file</span>
                                 ${item.tds
                                     ? html`
-                                        <span class="file-name">${item.tds.split('/').pop().split('-').slice(1)}</span>
+                                        <span class="file-name">${item.tds.split('/').pop().split('___')[1]}</span>
                                         <img id="tds-preview" src="../../../images/pdf-icon.png" style="margin-top:10px; max-width:20px" type="application/pdf" />
                                         `
                                     : html`
@@ -139,7 +139,7 @@ export async function editItemPage(ctx) {
 
         item = await getItem(itemId);
 
-        item.drawings = item.itemDrawing.map(d => d.split('/').pop().split('-').slice(1)).join(' / ');
+        item.drawings = item.itemDrawing.map(d => d.split('/').pop().split('___')[1]).join(' / ');
 
         ctx.render(editItemTemplate(item, false));
 

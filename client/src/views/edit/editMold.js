@@ -114,8 +114,7 @@ export async function editMoldPage(ctx) {
 
         mold = await getById(moldId);
 
-        mold.drawings = mold.moldDrawing.map(d => d.split('/')[3]).join(' / ');
-        
+        mold.drawings = mold.moldDrawing.map(d => d.split('/').pop().split('___')[1]).join(' / ');
         ctx.render(editMoldTemplate(mold, false));
 
         showHideHRSNInput();
