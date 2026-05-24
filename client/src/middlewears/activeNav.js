@@ -31,17 +31,18 @@ export function setActiveNav(currentPath) {
             };
         }
     });
-};
 
-document.querySelectorAll('.create-dropdown').forEach(dropdown => {
-    // const parentLink = dropdown.firstElementChild;
-    const parentLink = dropdown.querySelector('.ipoma > a, .user > a, .guest > a');
-    const childLinks = dropdown.querySelectorAll('.dropdown-menu a');
+    document.querySelectorAll('.create-dropdown').forEach(dropdown => {
+        // const parentLink = dropdown.firstElementChild;
+        const parentLink = dropdown.querySelector('.ipoma > a, .user > a, .guest > a');
+        const childLinks = dropdown.querySelectorAll('.dropdown-menu a');
 
-    let hasActiveChild = [...childLinks].some(link => {
-        const linkPath = normalize(new URL(link.href).pathname)
-        return linkPath === currentPath2;
+        let hasActiveChild = [...childLinks].some(link => {
+            const linkPath = normalize(new URL(link.href).pathname);
+            
+            return linkPath === currentPath2;
+        });
+
+        parentLink?.classList.toggle('active', hasActiveChild);
     });
-
-    parentLink?.classList.toggle('active', hasActiveChild);
-});
+}
