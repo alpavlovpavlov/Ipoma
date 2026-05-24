@@ -54,6 +54,16 @@ const editImmTemplate = (imm, isLoading) => html`
                             <label>Injection unit</label>
                         </div>
 
+                        <div class="input-group select-group">
+                            <select type="text" name="type">
+                                <option value="" disabled selected>${imm.type}</option>
+                                <option>Hydraulic</option>
+                                <option>Hybrid</option>
+                                <option>Fully electric</option>
+                            </select>
+                            <label>Type</label>
+                        </div>
+
                         <div id="drawing-group" class="input-group file-group not-required">
                             <input id="file" type="file" name="immDrawing" accept="application/pdf" multiple hidden />
                             
@@ -61,7 +71,7 @@ const editImmTemplate = (imm, isLoading) => html`
                                 <span class="file-text">Choose files</span>
                                 ${imm.drawings
                                     ? html`
-                                        <span class="file-name">${imm.drawings}</span>
+                                        <span class="file-name">${imm.drawings.split('/').pop().split('-').slice(1)}</span>
                                         <img id="file-preview" src="../../../images/pdf-icon.png" style="margin-top:10px; max-width:20px" type="application/pdf" />
                                         `
                                     : html`
@@ -72,16 +82,6 @@ const editImmTemplate = (imm, isLoading) => html`
                             </div>
 
                             <label class="floating-label">Upload drawings</label>
-                        </div>
-
-                        <div class="input-group select-group">
-                            <select type="text" name="type">
-                                <option value="" disabled selected>${imm.type}</option>
-                                <option>Hydraulic</option>
-                                <option>Hybrid</option>
-                                <option>Fully electric</option>
-                            </select>
-                            <label>Type</label>
                         </div>
 
                         <input type="submit" class="registerbtn button" value="Edit IMM"/>
