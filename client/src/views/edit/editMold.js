@@ -63,6 +63,15 @@ const editMoldTemplate = (mold, isLoading) => html`
                             <label>Pitch distance, mm</label>
                         </div>
 
+                        <div class="input-group select-group">
+                            <select type="text" name="wayOfInjection">
+                                <option value="" disabled selected>${mold.wayOfInjection}</option>
+                                <option>inside</option>
+                                <option>outside</option>
+                            </select>
+                            <label>Way of injection</label>
+                        </div>
+
                         <div class="input-group file-group not-required">
                             <input id="file" type="file" name="moldDrawing" accept="application/pdf" multiple hidden />
                             
@@ -80,15 +89,6 @@ const editMoldTemplate = (mold, isLoading) => html`
                                 }
                             </div>
                             <label class="floating-label">Upload drawings</label>
-                        </div>
-
-                        <div class="input-group select-group">
-                            <select type="text" name="wayOfInjection">
-                                <option value="" disabled selected>${mold.wayOfInjection}</option>
-                                <option>inside</option>
-                                <option>outside</option>
-                            </select>
-                            <label>Way of injection</label>
                         </div>
 
                         <input type="submit" class="registerbtn button" value="Edit mold">
