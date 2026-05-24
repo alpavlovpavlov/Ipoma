@@ -35,18 +35,17 @@ export function setActiveNav(currentPath) {
             };
         }
     });
-
-    document.querySelectorAll('.create-dropdown').forEach(dropdown => {
-        // const parentLink = dropdown.firstElementChild;
-        const parentLink = dropdown.querySelector('.ipoma > a, .user > a, .guest > a, :scope > a');
-        const childLinks = dropdown.querySelectorAll('.dropdown-menu a');
-
-        const hasActiveChild = [...childLinks].some(link => {
-            const linkPath = normalize(new URL(link.href).pathname);
-            
-            return linkPath === currentPath2;
-        });
-
-        parentLink?.classList.toggle('active', hasActiveChild);
-    });
 }
+
+document.querySelectorAll('.create-dropdown').forEach(dropdown => {
+    const parentLink = dropdown.firstElementChild;
+    const childLinks = dropdown.querySelectorAll('.dropdown-menu a');
+
+    const hasActiveChild = [...childLinks].some(link => {
+        const linkPath = normalize(new URL(link.href).pathname);
+        
+        return linkPath === currentPath2;
+    });
+
+    parentLink?.classList.toggle('active', hasActiveChild);
+});
