@@ -10,6 +10,7 @@ export function nameSanitizer(formData, files, param) {
             const renamedFile = file.name.replace(/\s+/g, '-').replace(/-/g, '_');
             sanitizedFileName = new File([file], renamedFile, { type: file.type });
 
+            console.log(sanitizedFileName);
             formData.append(param, sanitizedFileName);
         })
     } else if (files instanceof File) {
@@ -17,10 +18,10 @@ export function nameSanitizer(formData, files, param) {
 
         const renamedFile = files.name.replace(/\s+/g, '-').replace(/-/g, '_');
         sanitizedFileName = new File([files], renamedFile, { type: files.type });
-
+        
+        console.log(sanitizedFileName);
         formData.set(param, sanitizedFileName);
     }
 
-    console.log(formData.getAll(sanitizedFileName));
     return formData;
 }
