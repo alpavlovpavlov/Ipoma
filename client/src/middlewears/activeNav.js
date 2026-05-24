@@ -26,7 +26,7 @@ export function setActiveNav(currentPath) {
             const dropdown = link.closest('.create-dropdown');
             
             if (dropdown) {
-                const parent = dropdown.querySelector('a');
+                const parent = dropdown.querySelector(':scope > a');
                 parent?.classList.add('active');
             };
         }
@@ -34,7 +34,8 @@ export function setActiveNav(currentPath) {
 };
 
 document.querySelectorAll('.create-dropdown').forEach(dropdown => {
-    const parentLink = dropdown.firstElementChild;
+    // const parentLink = dropdown.firstElementChild;
+    const parentLink = dropdown.querySelector('.ipoma > a, .user > a, .guest > a');
     const childLinks = dropdown.querySelectorAll('.dropdown-menu a');
 
     let hasActiveChild = [...childLinks].some(link => {
