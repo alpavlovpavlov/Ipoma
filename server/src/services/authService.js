@@ -133,7 +133,7 @@ async function createToken({ _id, email, username, role }) {
     email,
     username,
     role,
-    accessToken: await sign(payload, JWT_SECRET),
+    accessToken: await sign(payload, JWT_SECRET, { expiresIn: '8h' }),
   }
 }
 
