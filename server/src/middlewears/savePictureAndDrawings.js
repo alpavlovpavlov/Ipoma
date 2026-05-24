@@ -40,7 +40,7 @@ const storage = new CloudinaryStorage({
     return {
       folder,
       resource_type: 'image',
-      public_id: `${Date.now()}-${safeName}`,
+      public_id: `${Date.now()}___${safeName}`,
     };
   }
 });
