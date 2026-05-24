@@ -137,15 +137,6 @@ async function onCreate(event) {
       }
 
       let mold = Object.assign({ _itemId: item._id }, data);
-
-      // if (files[0].name == '') {
-      //   mold.moldDrawing = [];
-      // } else {
-      //   mold.moldDrawing = [];
-      //   files.forEach(element => {
-      //     mold.moldDrawing.push(`uploads/drawings/mold/${element.name}`);
-      //   })
-      // }
       
       mold.name = item.name;
       mold["_ownerId"] = user._id;

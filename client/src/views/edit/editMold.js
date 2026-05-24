@@ -80,7 +80,7 @@ const editMoldTemplate = (mold, isLoading) => html`
                                 ${mold.moldDrawing
                                     ? html`
                                         <span class="file-name">${mold.drawings}</span>
-                                        <img id="file-preview" src="../../../images/pdf-icon.png" style="margin-top:10px; max-width:20px" type="application/pdf" />
+                                        <img id="file-preview" src="../../../images/pdf-icon.png" style="display:none; margin-top:10px; max-width:20px" type="application/pdf" />
                                     `
                                     : html`
                                         <span class="file-name">No file selected</span>
