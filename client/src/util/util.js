@@ -1,11 +1,11 @@
 export function setUser(user) {
-    localStorage.setItem('userData', JSON.stringify(user));
+    sessionStorage.setItem('userData', JSON.stringify(user));
 }
 
 export function getUser() {
-    return JSON.parse(localStorage.getItem('userData'));
+    return JSON.parse(sessionStorage.getItem('userData'));
 }
 
 export function clearUserData() {
-    localStorage.removeItem('userData');
+    sessionStorage.removeItem('userData');
 }
