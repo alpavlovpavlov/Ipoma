@@ -34,7 +34,7 @@ export function setActiveNav(currentPath) {
 
     document.querySelectorAll('.create-dropdown').forEach(dropdown => {
         // const parentLink = dropdown.firstElementChild;
-        const parentLink = dropdown.querySelector('.ipoma > a, .user > a, .guest > a');
+        const parentLink = dropdown.querySelector('a[href="#"]');
         const childLinks = dropdown.querySelectorAll('.dropdown-menu a');
 
         let hasActiveChild = [...childLinks].some(link => {
