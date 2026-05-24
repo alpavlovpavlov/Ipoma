@@ -150,19 +150,6 @@ body {
   list-style: none;
 
   min-width: 160px;
-
-  /* display: none;
-
-  background: gray;
-  border-radius: 8px;
-  border: 1px solid #e5e7eb;
-
-  padding: 8px 0;
-  margin: 0;
-  list-style: none;
-
-  min-width: 160px;
-  z-index: 1000; */
 }
 
 /* show submenu on hover */
@@ -201,12 +188,6 @@ body {
   width: 100%;
   padding: 8px 16px;
 }
-
-/* увери се, че ul няма flex */
-/* .submenu {
-  display: none;
-  flex-direction: column;
-} */
 
 .dropdown-menu a,
 .submenu a {

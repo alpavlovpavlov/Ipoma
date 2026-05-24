@@ -1,55 +1,55 @@
-export function changeState(element1, element2, element3) {
-  const input = document.getElementById(element1);
-  const label = document.getElementById(element2);
-  const preview = document.getElementById(element3);
+// export function changeState(element1, element2, element3) {
+//   const input = document.getElementById(element1);
+//   const label = document.getElementById(element2);
+//   const preview = document.getElementById(element3);
 
-  input.addEventListener("change", () => {
-    const file = input.files[0];
-    if (!file) return;
-    label.textContent = file.name;
-    const url = URL.createObjectURL(file);
-    preview.src = url;
-    preview.style.display = 'block';
-  });
-};
+//   input.addEventListener("change", () => {
+//     const file = input.files[0];
+//     if (!file) return;
+//     label.textContent = file.name;
+//     const url = URL.createObjectURL(file);
+//     preview.src = url;
+//     preview.style.display = 'block';
+//   });
+// };
 
-export function changePdfElement(element1, element2) {
-  const fileInput = document.getElementById(element1);
-  const filename = document.getElementById(element2);
+// export function changePdfElement(element1, element2) {
+//   const fileInput = document.getElementById(element1);
+//   const filename = document.getElementById(element2);
 
-  fileInput.addEventListener("change", () => {
-    const file = fileInput.files[0];
+//   fileInput.addEventListener("change", () => {
+//     const file = fileInput.files[0];
 
-    if (!file) {
-      filename.textContent = "No file selected";
-      return;
-    } else {
-      filename.textContent = file.name;
-    };
-  });
-};
+//     if (!file) {
+//       filename.textContent = "No file selected";
+//       return;
+//     } else {
+//       filename.textContent = file.name;
+//     };
+//   });
+// };
 
-export function changePdfElements(element1, element2) {
-  const fileInput = document.getElementById(element1);
-  const filename = document.getElementById(element2);
+// export function changePdfElements(element1, element2) {
+//   const fileInput = document.getElementById(element1);
+//   const filename = document.getElementById(element2);
 
-  fileInput.addEventListener("change", () => {
-    const files = Array.from(fileInput.files);
+//   fileInput.addEventListener("change", () => {
+//     const files = Array.from(fileInput.files);
 
-    if (files.length == 0) {
-      filename.textContent = "No file selected";
-      return;
-    };
+//     if (files.length == 0) {
+//       filename.textContent = "No file selected";
+//       return;
+//     };
     
-    files.forEach(file => {
-      if (file.type !== "application/pdf") {
-        return alert('Only .pdf files are accepted!');
-      };
-    });
+//     files.forEach(file => {
+//       if (file.type !== "application/pdf") {
+//         return alert('Only .pdf files are accepted!');
+//       };
+//     });
     
-    filename.textContent = files.map(f => f.name).join(' / ');
-  });
-};
+//     filename.textContent = files.map(f => f.name).join(' / ');
+//   });
+// };
 
 // New design
 export function newInput(file) {
