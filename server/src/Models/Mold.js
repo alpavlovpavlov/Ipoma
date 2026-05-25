@@ -53,8 +53,7 @@ const moldSchema = new mongoose.Schema({
     },
 
     pitchDistance: {
-        type: Number,
-        min: [0, 'Pitch distance must be a positive number']
+        type: String,
     },
 
     wayOfInjection: {

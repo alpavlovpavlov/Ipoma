@@ -57,7 +57,7 @@ const moldTemplate = (item) => html`
         </div>
 
         <div class="input-group">
-          <input id="pitchDistance" class="input-create" type="number" placeholder="" name="pitchDistance" />
+          <input id="pitchDistance" class="input-create" type="text" placeholder="" name="pitchDistance" />
           <label>Mold pitch distance, mm</label>
         </div>
 
