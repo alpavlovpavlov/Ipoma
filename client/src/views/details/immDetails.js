@@ -92,7 +92,7 @@ const immDetailsTemplate = (imm, isLoading, items, currentUser) => html`
                                         ${items.map(item => html`
                                             <tr>
                                                 <td>
-                                                    <img src="${host}/${item.image}" width="24">
+                                                    <img src="${item.image}" width="24">
                                                 </td>
 
                                                 <td class="clickable" @click=${() => itemDtls(item._id)}>${item.name}</td>
@@ -160,7 +160,6 @@ async function showItems() {
         button.textContent = 'Hide items';
     } else {
         div.style.display = 'none';
-        // table.removeAttribute('style');
         button.textContent = 'Show items';
     }
 }
