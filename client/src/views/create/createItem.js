@@ -4,9 +4,8 @@ import { onSubmit } from "../../middlewears/submit.js";
 import { sendDrawing } from "../../data/item.js";
 import { getUser } from "../../util/util.js";
 import { titleChange } from '../../util/title.js';
-import { pdfPreview, fileInput, imagePreview, inputValidation, handleImputAndSelect } from "../../util/changeElementState.js";
+import { pdfPreview, fileInput, imagePreview, inputValidation, handleImputAndSelect, inputSanitizer } from "../../util/changeElementState.js";
 import { notifyNoEvent } from "../notify.js";
-import { removeSpaces } from '../../util/sanitizer.js';
 
 const itemTemplate = () => html`
   <section id="create-item">
@@ -15,7 +14,7 @@ const itemTemplate = () => html`
         <h1>Item Data</h1>
 
         <div class="input-group">
-          <input class="input-create" type="text" placeholder="" name="name" oninput="removeSpaces(this)" />
+          <input class="input-create name" type="text" placeholder="" name="name" oninput="removeSpaces(this)" />
           <label>Item name</label>
         </div>
 
@@ -111,6 +110,7 @@ export function createItemPage(ctx) {
   pdfPreview('drawing');
   pdfPreview('tds');
   imagePreview();
+  inputSanitizer();
   inputValidation();
 }
 

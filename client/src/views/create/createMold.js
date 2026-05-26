@@ -7,7 +7,7 @@ import { titleChange } from '../../util/title.js';
 import { showHideHRSNInput, showHidePitchInput } from "../../util/swowHideinputElement.js";
 import { pdfPreview, fileInput, handleImputAndSelect, inputValidation } from "../../util/changeElementState.js";
 import { notifyNoEvent } from "../notify.js";
-import { removeSpaces } from '../../util/sanitizer.js';
+import { removeSpaces } from '../../util/inputsSanitizer.js';
 
 const moldTemplate = (item) => html`
   <section id="create-item">

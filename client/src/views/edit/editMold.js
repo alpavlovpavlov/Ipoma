@@ -7,7 +7,7 @@ import { showHideHRSNInput, showHidePitchInput } from "../../util/swowHideinputE
 import { handleImputAndSelect, fileInput, pdfPreview, inputValidation, editForm } from "../../util/changeElementState.js";
 import { drawingGroup } from '../../util/drawingGroupActivation.js';
 import { notifyNoEvent } from '../notify.js';
-import { removeSpaces } from '../../util/sanitizer.js';
+import { removeSpaces } from '../../util/inputsSanitizer.js';
 
 const editMoldTemplate = (mold, isLoading) => html`
     <section id="edit-meme">
