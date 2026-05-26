@@ -163,6 +163,7 @@ export function inputSanitizer() {
       if (input.classList.contains('name')) {
         input.value = input.value.replace(/\s/g, '');
         input.value = input.value.replace(/([A-Za-z]+)(\d+)/, '$1 $2');
+        input.value = input.value.toUpperCase();
       } else {
         input.value = input.value.replace(/\s/g, '');
       }
