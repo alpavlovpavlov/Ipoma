@@ -50,7 +50,7 @@ const itemTemplate = (result, extention) => html`
         <div class="card">
             <div class="info">
                 <p class="meme-title">${result.name}</p>
-                <img class="meme-image" alt="meme-img" src="http://localhost:3030/${result.image}">
+                <img class="meme-image" alt="meme-img" src="${result.image}">
             </div>
             <div id="data-buttons">
                 ${extention == 'ipoma'
