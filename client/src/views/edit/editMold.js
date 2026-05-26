@@ -7,6 +7,7 @@ import { showHideHRSNInput, showHidePitchInput } from "../../util/swowHideinputE
 import { handleImputAndSelect, fileInput, pdfPreview, inputValidation, editForm } from "../../util/changeElementState.js";
 import { drawingGroup } from '../../util/drawingGroupActivation.js';
 import { notifyNoEvent } from '../notify.js';
+import { removeSpaces } from '../../util/sanitizer.js';
 
 const editMoldTemplate = (mold, isLoading) => html`
     <section id="edit-meme">
@@ -22,17 +23,17 @@ const editMoldTemplate = (mold, isLoading) => html`
                         </div>
 
                         <div class="input-group">
-                            <input class="input-create" id="date" type="number" placeholder="" name="date" .value=${mold.date} min="1990" max="2099" />
+                            <input class="input-create" id="date" type="number" placeholder="" name="date" .value=${mold.date} min="1990" max="2099" oninput="removeSpaces(this)" />
                             <label>Year of manufactoring</label>
                         </div>
 
                         <div class="input-group">
-                            <input class="input-create" id="producer" type="text" placeholder="" name="producer" .value=${mold.producer} />
+                            <input class="input-create" id="producer" type="text" placeholder="" name="producer" .value=${mold.producer} oninput="removeSpaces(this)" />
                             <label>Mold producer</label>
                         </div>
 
                         <div class="input-group">
-                            <input class="input-create" id="serialNumber" type="text" placeholder="" name="serialNumber" .value=${mold.serialNumber} />
+                            <input class="input-create" id="serialNumber" type="text" placeholder="" name="serialNumber" .value=${mold.serialNumber} oninput="removeSpaces(this)" />
                             <label>Mold number</label>
                         </div>
 
@@ -49,17 +50,17 @@ const editMoldTemplate = (mold, isLoading) => html`
                         </div>
 
                         <div class="input-group">
-                            <input class="input-create" id="hotRunnerSer" type="text" placeholder="" name="hotRunnerSer" .value=${mold.hotRunnerSer} />
+                            <input class="input-create" id="hotRunnerSer" type="text" placeholder="" name="hotRunnerSer" .value=${mold.hotRunnerSer} oninput="removeSpaces(this)" />
                             <label>Hot-runner number</label>
                         </div>
 
                         <div class="input-group">
-                            <input class="input-create" id="numberOfCavities" type="number" placeholder="" name="numberOfCavities" .value=${mold.numberOfCavities} />
+                            <input class="input-create" id="numberOfCavities" type="number" placeholder="" name="numberOfCavities" .value=${mold.numberOfCavities} oninput="removeSpaces(this)" />
                             <label>Number of cavities</label>
                         </div>
 
                         <div class="input-group">
-                            <input class="input-create" id="pitchDistance" type="text" placeholder="" name="pitchDistance" .value=${mold.pitchDistance} />
+                            <input class="input-create" id="pitchDistance" type="text" placeholder="" name="pitchDistance" .value=${mold.pitchDistance} oninput="removeSpaces(this)" />
                             <label>Pitch distance, mm</label>
                         </div>
 

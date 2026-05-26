@@ -15,7 +15,7 @@ const detailsTemplate = (item, isLogged) => html`
                     <div>
                         <img class="meme-image" alt="meme-img" src="${item.image}">
                     </div>
-                    <a class="button" href="/item-details/${item._id}">Item details</a>
+                    <a class="button" href="/item-details/${item._id}">Item</a>
                 </div>
                 ${isLogged
                     ? html`
@@ -23,7 +23,7 @@ const detailsTemplate = (item, isLogged) => html`
                             <div>
                                 <img class="meme-image" alt="meme-img" src="/images/mould.jpg">
                             </div>
-                            <a class="button" href="/mold-details/${item._id}">Mold details</a>
+                            <a class="button" href="/mold-details/${item._id}">Mold</a>
                         </div>
                         `
                     : null

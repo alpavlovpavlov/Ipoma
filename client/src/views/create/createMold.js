@@ -7,6 +7,7 @@ import { titleChange } from '../../util/title.js';
 import { showHideHRSNInput, showHidePitchInput } from "../../util/swowHideinputElement.js";
 import { pdfPreview, fileInput, handleImputAndSelect, inputValidation } from "../../util/changeElementState.js";
 import { notifyNoEvent } from "../notify.js";
+import { removeSpaces } from '../../util/sanitizer.js';
 
 const moldTemplate = (item) => html`
   <section id="create-item">
@@ -20,7 +21,7 @@ const moldTemplate = (item) => html`
         </div>
 
         <div class="input-group">
-          <input class="input-create" type="number" placeholder="" name="date" min="1990" max="2099" />
+          <input class="input-create" type="number" placeholder="" name="date" min="1990" max="2099" oninput="removeSpaces(this)" />
           <label>Year of manufactoring</label>
         </div>
 
@@ -30,7 +31,7 @@ const moldTemplate = (item) => html`
         </div>
 
         <div class="input-group">
-          <input class="input-create" type="text" placeholder="" name="serialNumber" />
+          <input class="input-create" type="text" placeholder="" name="serialNumber" oninput="removeSpaces(this)" />
           <label>Mold serial number</label>
         </div>
 
@@ -47,17 +48,17 @@ const moldTemplate = (item) => html`
         </div>
 
         <div class="input-group">
-          <input id="hotRunnerSer" class="input-create" type="text" placeholder="" name="hotRunnerSer" />
+          <input id="hotRunnerSer" class="input-create" type="text" placeholder="" name="hotRunnerSer" oninput="removeSpaces(this)" />
           <label>Hot-runner serial number</label>
         </div>
 
         <div class="input-group">
-          <input id="numberOfCavities" class="input-create" type="number" placeholder="" name="numberOfCavities" />
+          <input id="numberOfCavities" class="input-create" type="number" placeholder="" name="numberOfCavities" oninput="removeSpaces(this)" />
           <label>Number of cavities</label>
         </div>
 
         <div class="input-group">
-          <input id="pitchDistance" class="input-create" type="text" placeholder="" name="pitchDistance" />
+          <input id="pitchDistance" class="input-create" type="text" placeholder="" name="pitchDistance" oninput="removeSpaces(this)" />
           <label>Mold pitch distance, mm</label>
         </div>
 
