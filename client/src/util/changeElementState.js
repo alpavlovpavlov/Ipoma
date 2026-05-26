@@ -158,18 +158,13 @@ export function editForm() {
 }
 
 export function inputSanitizer() {
-  const inputs = Array.from(document.querySelectorAll('.input-create'));
-  inputs.forEach(input => console.log(input.value));
-  
-  inputs.forEach(input => {
+  Array.from(document.querySelectorAll('.input-create')).forEach(input => {
     input.addEventListener('input', () => {
       if (input.classList.contains('name')) {
         input.value = input.value.replace(/\s/g, '');
         input.value = input.value.replace(/([A-Za-z]+)(\d+)/, '$1 $2');
-        console.log(input.value);
       } else {
         input.value = input.value.replace(/\s/g, '');
-        console.log(input.value);
       }
     })
   })
