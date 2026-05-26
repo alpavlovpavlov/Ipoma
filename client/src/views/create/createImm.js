@@ -4,7 +4,7 @@ import { onSubmit } from '../../middlewears/submit.js';
 import { createIMM, saveDrawing } from '../../data/imm.js';
 import { getUser } from '../../util/util.js';
 import { titleChange } from '../../util/title.js';
-import { handleImputAndSelect, fileInput, pdfPreview, inputValidation } from "../../util/changeElementState.js";
+import { handleImputAndSelect, fileInput, pdfPreview, inputValidation, inputSanitizer } from "../../util/changeElementState.js";
 import { notifyNoEvent } from '../notify.js';
 
 const immTemplate = () => html`
@@ -29,7 +29,7 @@ const immTemplate = () => html`
                 
                 <div class="input-group">
                     <input class="input-create" type="number" placeholder="" name="date" min="1990" max="2099" />
-                    <label>Year of manufactoring</label>
+                    <label>Year of manufacturing</label>
                 </div>
                  
                 <div class="input-group">
@@ -88,6 +88,7 @@ export function createImmPage(ctx) {
     pdfPreview('drawing');
     fileInput();
     handleImputAndSelect();
+    inputSanitizer();
     inputValidation();
 }
 

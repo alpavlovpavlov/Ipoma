@@ -4,10 +4,9 @@ import { editMold, getById, sendDrawing } from '../../data/mold.js';
 import { onSubmit } from '../../middlewears/submit.js';
 import { titleChange } from '../../util/title.js';
 import { showHideHRSNInput, showHidePitchInput } from "../../util/swowHideinputElement.js";
-import { handleImputAndSelect, fileInput, pdfPreview, inputValidation, editForm } from "../../util/changeElementState.js";
+import { handleImputAndSelect, fileInput, pdfPreview, inputValidation, inputSanitizer, editForm } from "../../util/changeElementState.js";
 import { drawingGroup } from '../../util/drawingGroupActivation.js';
 import { notifyNoEvent } from '../notify.js';
-import { removeSpaces } from '../../util/inputsSanitizer.js';
 
 const editMoldTemplate = (mold, isLoading) => html`
     <section id="edit-meme">
@@ -23,17 +22,17 @@ const editMoldTemplate = (mold, isLoading) => html`
                         </div>
 
                         <div class="input-group">
-                            <input class="input-create" id="date" type="number" placeholder="" name="date" .value=${mold.date} min="1990" max="2099" oninput="removeSpaces(this)" />
+                            <input class="input-create" id="date" type="number" placeholder="" name="date" .value=${mold.date} min="1990" max="2099" />
                             <label>Year of manufactoring</label>
                         </div>
 
                         <div class="input-group">
-                            <input class="input-create" id="producer" type="text" placeholder="" name="producer" .value=${mold.producer} oninput="removeSpaces(this)" />
+                            <input class="input-create" id="producer" type="text" placeholder="" name="producer" .value=${mold.producer} />
                             <label>Mold producer</label>
                         </div>
 
                         <div class="input-group">
-                            <input class="input-create" id="serialNumber" type="text" placeholder="" name="serialNumber" .value=${mold.serialNumber} oninput="removeSpaces(this)" />
+                            <input class="input-create" id="serialNumber" type="text" placeholder="" name="serialNumber" .value=${mold.serialNumber} />
                             <label>Mold number</label>
                         </div>
 
@@ -50,17 +49,17 @@ const editMoldTemplate = (mold, isLoading) => html`
                         </div>
 
                         <div class="input-group">
-                            <input class="input-create" id="hotRunnerSer" type="text" placeholder="" name="hotRunnerSer" .value=${mold.hotRunnerSer} oninput="removeSpaces(this)" />
+                            <input class="input-create" id="hotRunnerSer" type="text" placeholder="" name="hotRunnerSer" .value=${mold.hotRunnerSer} />
                             <label>Hot-runner number</label>
                         </div>
 
                         <div class="input-group">
-                            <input class="input-create" id="numberOfCavities" type="number" placeholder="" name="numberOfCavities" .value=${mold.numberOfCavities} oninput="removeSpaces(this)" />
+                            <input class="input-create" id="numberOfCavities" type="number" placeholder="" name="numberOfCavities" .value=${mold.numberOfCavities} />
                             <label>Number of cavities</label>
                         </div>
 
                         <div class="input-group">
-                            <input class="input-create" id="pitchDistance" type="text" placeholder="" name="pitchDistance" .value=${mold.pitchDistance} oninput="removeSpaces(this)" />
+                            <input class="input-create" id="pitchDistance" type="text" placeholder="" name="pitchDistance" .value=${mold.pitchDistance} />
                             <label>Pitch distance, mm</label>
                         </div>
 

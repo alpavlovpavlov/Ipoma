@@ -4,7 +4,7 @@ import { host } from '../../data/api.js';
 import { editItem, getItem, sendDrawing } from '../../data/item.js';
 import { onSubmit } from '../../middlewears/submit.js';
 import { titleChange } from '../../util/title.js';
-import { handleImputAndSelect, fileInput, pdfPreview, inputValidation, editForm, imagePreview } from "../../util/changeElementState.js";
+import { handleImputAndSelect, fileInput, pdfPreview, inputValidation, inputSanitizer, editForm, imagePreview } from "../../util/changeElementState.js";
 import { drawingGroup } from '../../util/drawingGroupActivation.js';
 import { notifyNoEvent } from '../notify.js';
 
@@ -150,6 +150,7 @@ export async function editItemPage(ctx) {
         pdfPreview('tds');
         fileInput();
         handleImputAndSelect();
+        inputSanitizer();
         inputValidation();
     } catch (error) {
         notifyNoEvent(error);

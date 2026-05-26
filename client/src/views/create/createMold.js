@@ -5,9 +5,8 @@ import { onSubmit } from "../../middlewears/submit.js";
 import { getUser } from "../../util/util.js";
 import { titleChange } from '../../util/title.js';
 import { showHideHRSNInput, showHidePitchInput } from "../../util/swowHideinputElement.js";
-import { pdfPreview, fileInput, handleImputAndSelect, inputValidation } from "../../util/changeElementState.js";
+import { pdfPreview, fileInput, handleImputAndSelect, inputValidation, inputSanitizer } from "../../util/changeElementState.js";
 import { notifyNoEvent } from "../notify.js";
-import { removeSpaces } from '../../util/inputsSanitizer.js';
 
 const moldTemplate = (item) => html`
   <section id="create-item">
@@ -21,7 +20,7 @@ const moldTemplate = (item) => html`
         </div>
 
         <div class="input-group">
-          <input class="input-create" type="number" placeholder="" name="date" min="1990" max="2099" oninput="removeSpaces(this)" />
+          <input class="input-create" type="number" placeholder="" name="date" min="1990" max="2099" />
           <label>Year of manufactoring</label>
         </div>
 
@@ -31,7 +30,7 @@ const moldTemplate = (item) => html`
         </div>
 
         <div class="input-group">
-          <input class="input-create" type="text" placeholder="" name="serialNumber" oninput="removeSpaces(this)" />
+          <input class="input-create" type="text" placeholder="" name="serialNumber" />
           <label>Mold serial number</label>
         </div>
 
@@ -48,17 +47,17 @@ const moldTemplate = (item) => html`
         </div>
 
         <div class="input-group">
-          <input id="hotRunnerSer" class="input-create" type="text" placeholder="" name="hotRunnerSer" oninput="removeSpaces(this)" />
+          <input id="hotRunnerSer" class="input-create" type="text" placeholder="" name="hotRunnerSer" />
           <label>Hot-runner serial number</label>
         </div>
 
         <div class="input-group">
-          <input id="numberOfCavities" class="input-create" type="number" placeholder="" name="numberOfCavities" oninput="removeSpaces(this)" />
+          <input id="numberOfCavities" class="input-create" type="number" placeholder="" name="numberOfCavities" />
           <label>Number of cavities</label>
         </div>
 
         <div class="input-group">
-          <input id="pitchDistance" class="input-create" type="text" placeholder="" name="pitchDistance" oninput="removeSpaces(this)" />
+          <input id="pitchDistance" class="input-create" type="text" placeholder="" name="pitchDistance" />
           <label>Mold pitch distance, mm</label>
         </div>
 
@@ -106,6 +105,7 @@ export async function createMoldPage(ctx) {
     pdfPreview('drawing');
     fileInput();
     handleImputAndSelect();
+    inputSanitizer();
     inputValidation();
 
     localStorage.removeItem('item');
