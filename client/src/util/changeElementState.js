@@ -158,7 +158,10 @@ export function editForm() {
 }
 
 export function inputSanitizer() {
-  Array.from(document.querySelectorAll('.input-create')).forEach(input => {
+  const inputs = Array.from(document.querySelectorAll('.input-create'));
+  console.log(inputs);
+  
+  inputs.forEach(input => {
     input.addEventListener('input', () => {
       if (input.classList.contains('name')) {
         input.value = input.value.replace(/\s/g, '');
