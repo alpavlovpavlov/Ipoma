@@ -166,6 +166,7 @@ export function inputSanitizer() {
         input.value = input.value.toUpperCase();
       } else {
         input.value = input.value.replace(/\s/g, '');
+        input.value = input.value.toUpperCase();
       }
     })
   })
