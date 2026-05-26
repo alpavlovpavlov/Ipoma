@@ -9,7 +9,7 @@ import { notifyNoEvent } from '../notify.js';
 const detailsTemplate = (item, isLogged) => html`
     <section id="meme-feed">
         <div class="meme">
-            <h1>All ${item.name} Details</h1>
+            <h1>${item.name} Details</h1>
             <div id="memes">
                 <div class="info">
                     <div>
