@@ -14,7 +14,7 @@ const itemTemplate = () => html`
         <h1>Item Data</h1>
 
         <div class="input-group">
-          <input class="input-create name" type="text" placeholder="" name="name" oninput="removeSpaces(this)" />
+          <input class="input-create name" type="text" placeholder="" name="name" />
           <label>Item name</label>
         </div>
 
