@@ -165,7 +165,7 @@ export function inputSanitizer() {
     input.addEventListener('input', () => {
       if (input.classList.contains('name')) {
         input.value = input.value.replace(/\s/g, '');
-        input.value = value.replace(/([A-Za-z]+)(\d+)/, '$1 $2');
+        input.value = input.value.replace(/([A-Za-z]+)(\d+)/, '$1 $2');
         console.log(input.value);
       } else {
         input.value = input.value.replace(/\s/g, '');
