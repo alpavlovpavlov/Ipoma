@@ -50,8 +50,8 @@ const itemDetailsTemplate = (item, isLoading, currentUser) => html`
                     
                     <div class="meme-description-mold">
                         <h2>Details</h2>
-                        <p><strong>Shape</strong> ${item.shape}</p>
                         <p><strong>Type</strong> ${item.type}</p>
+                        <p><strong>Shape</strong> ${item.shape}</p>
                         <p><strong>Cavity numbers</strong> ${item.cavityNumbers}</p>
                         <p><strong>Volume</strong> ${item.volume} ml</p>
                         <p><strong>Weight</strong> ${item.weight} gr</p>

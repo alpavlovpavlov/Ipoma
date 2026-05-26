@@ -19,6 +19,16 @@ const itemTemplate = () => html`
         </div>
 
         <div class="input-group select-group">
+          <select class="option-create" id="type" type="text" name="type">
+            <option value="" disabled selected hidden>--Select--</option>
+            <option>Container</option>
+            <option>Lid</option>
+            <option>Handle</option>
+          </select>
+          <label>Item type</label>
+        </div>
+
+        <div class="input-group select-group">
           <select class="option-create" type="text" name="shape">
             <option value="" disabled selected hidden>--Select--</option>
             <option>Round</option>
@@ -28,16 +38,6 @@ const itemTemplate = () => html`
             <option>Other</option>
           </select>
           <label>Item shape</label>
-        </div>
-
-        <div class="input-group select-group">
-          <select class="option-create" id="type" type="text" name="type">
-            <option value="" disabled selected hidden>--Select--</option>
-            <option>Container</option>
-            <option>Lid</option>
-            <option>Handle</option>
-          </select>
-          <label>Item type</label>
         </div>
 
         <div class="input-group">

@@ -27,6 +27,16 @@ const editItemTemplate = (item, isLoading) => html`
                         </div>
 
                         <div class="input-group select-group">
+                            <select type="text" name="type">
+                                <option value="" disabled selected>${item.type}</option>
+                                <option>Container</option>
+                                <option>Lid</option>
+                                <option>Handle</option>
+                            </select>
+                            <label>Type</label>
+                        </div>
+
+                        <div class="input-group select-group">
                             <select type="text" name="shape">
                                 <option value="" disabled selected>${item.shape}</option>
                                 <option>Round</option>
@@ -36,16 +46,6 @@ const editItemTemplate = (item, isLoading) => html`
                                 <option>Ather</option>
                             </select>
                             <label>Shape</label>
-                        </div>
-
-                        <div class="input-group select-group">
-                            <select type="text" name="type">
-                                <option value="" disabled selected>${item.type}</option>
-                                <option>Container</option>
-                                <option>Lid</option>
-                                <option>Handle</option>
-                            </select>
-                            <label>Type</label>
                         </div>
 
                         <div class="input-group">
