@@ -9,7 +9,7 @@ import { notifyNoEvent } from '../notify.js';
 const detailsTemplate = (item, isLogged) => html`
     <section id="meme-feed">
         <div class="meme">
-            <h1>All Details</h1>
+            <h1>All ${item.name} Details</h1>
             <div id="memes">
                 <div class="info">
                     <div>
@@ -26,11 +26,10 @@ const detailsTemplate = (item, isLogged) => html`
                             <a class="button" href="/mold-details/${item._id}">Mold details</a>
                         </div>
                         `
-                    : ''
+                    : null
                 }
                 <div class="middle">
                     <button class="button" @click=${onBackClick}>< Back</button>
-                    <!-- <a class="button" href="/${item.type}s-catalog/${item.shape}">< Back</a> -->
                 </div>
             </div>
         </div>
