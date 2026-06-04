@@ -1,6 +1,7 @@
 import { clearUserData, getUser } from "../util/util.js";
+import { settings } from "../config.js";
 
-export const host = "https://ipoma.onrender.com";
+export const host = settings.host;
 
 async function request(method, url, data, isFile = false) {
   const options = {
