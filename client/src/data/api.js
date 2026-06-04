@@ -1,7 +1,7 @@
 import { clearUserData, getUser } from "../util/util.js";
 import { settings } from "../config.js";
 
-export const host = settings.host;
+export const host = "https://api.ipoma.cloud";
 
 async function request(method, url, data, isFile = false) {
   const options = {
