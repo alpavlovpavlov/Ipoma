@@ -1,5 +1,4 @@
 import { clearUserData, getUser } from "../util/util.js";
-import { settings } from "../config.js";
 
 export const host = "https://api.ipoma.cloud";
 
