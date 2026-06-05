@@ -70,6 +70,7 @@ page('/chg-pass', changePassPage);
 page('/searchItem', searchItemPage);
 page('/searchImm', searchImmPage);
 page('/contacts', contactPage);
+// page('/verify-email/${req.params.token}', '');
 page('*', notFoundPage);
 
 page();
