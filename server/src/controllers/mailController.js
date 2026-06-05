@@ -7,6 +7,7 @@ const { generateEmailToken, hashPass } = require('../services/authService');
 const { sendVerificationEmail } = require('../services/mailService');
 
 router.get('/verify-email/:token', async (req, res) => {
+  // res.redirect(`${FRONTEND_URL}/verify-email/${req.params.token}`);
   const token = req.params.token;
   
   const hash = crypto.createHash('sha256').update(token).digest('hex');
@@ -34,6 +35,35 @@ router.get('/verify-email/:token', async (req, res) => {
     res.status(400).json({ message });
   }
 });
+
+// router.post('/verify-email', async (req, res) => {
+//   const token = req.params.token;
+  
+//   const hash = crypto.createHash('sha256').update(token).digest('hex');
+
+//   const payload = {
+//     emailVerificationTokenHash: hash,
+//     emailVerificationExpires: { $gt: Date.now() }
+//   };
+
+//   try {
+//     const user = await userService.findUserByToken(payload);
+
+//     if (!user) {
+//       throw new Error('Invalid or expired token');
+//     }
+
+//     user.isVerified = true;
+//     user.emailVerificationTokenHash = undefined;
+//     user.emailVerificationExpires = undefined;
+
+//     await user.save();
+//     res.json({ message: 'Your email was confirmed successfully'});
+//   } catch (error) {
+//     const message = parseError(error);
+//     res.status(400).json({ message });
+//   }
+// });
 
 router.post('/forgot-password/:email', async (req, res) => {
   const email = req.params.email;
