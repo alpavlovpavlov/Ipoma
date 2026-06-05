@@ -36,12 +36,12 @@ function createRole(email) {
 async function register(username, email, password) {
   const isUsernameExists = await User.findOne({ username });
   
-  if (isUsernameExists == true) {
+  if (isUsernameExists) {
     throw new Error("This user name is already exists in DB!");
   }
   
   const isEmailExists = await User.findOne({ email });
-  if (isEmailExists == true) {
+  if (isEmailExists) {
     throw new Error("This email is already exists in DB!");
   }
   
