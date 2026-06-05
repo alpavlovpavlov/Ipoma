@@ -64,13 +64,13 @@ page('/edit-mold/:moldId', editMoldPage);
 page('/edit-imm/:immId', editImmPage);
 page('/forgot', forgotPassPage);
 page('/renew/:token', renewPassPage);
+// page('/verify-email/:token', '');
 page('/profile', profilePage);
 page('/edit-profile', editProfilePage);
 page('/chg-pass', changePassPage);
 page('/searchItem', searchItemPage);
 page('/searchImm', searchImmPage);
 page('/contacts', contactPage);
-// page('/verify-email/${req.params.token}', '');
 page('*', notFoundPage);
 
 page();
@@ -117,7 +117,7 @@ function updateNav() {
     }
 
     function ipomaAcc() {
-         ipomaArr.forEach(element => {
+        ipomaArr.forEach(element => {
             element.style.display = 'block';
         })
 
