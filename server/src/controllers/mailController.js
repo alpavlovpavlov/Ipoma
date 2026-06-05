@@ -7,7 +7,7 @@ const { generateEmailToken, hashPass } = require('../services/authService');
 const { sendVerificationEmail } = require('../services/mailService');
 
 router.get('/verify-email/:token', async (req, res) => {
-  // res.redirect(`${FRONTEND_URL}/verify-email/${req.params.token}`);
+  // res.redirect(`${https://ipoma.cloud}/verify-email/${req.params.token}`);
   const token = req.params.token;
   
   const hash = crypto.createHash('sha256').update(token).digest('hex');
