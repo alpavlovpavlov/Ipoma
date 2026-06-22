@@ -118,7 +118,7 @@ export function createItemPage(ctx) {
 
 async function onCreate(event) {
   const { data, form, formData } = onSubmit(event);
-  console.log(data);
+  console.log(data.type);
   
   const image = formData.get('image');
   const tds = formData.get('tds');
@@ -153,9 +153,9 @@ async function onCreate(event) {
       };
 
       const action = {
-        'container': () => container(),
-        'lid': () => lidAndHandle(),
-        'handle': () => lidAndHandle()
+        'Container': () => container(),
+        'Lid': () => lidAndHandle(),
+        'Handle': () => lidAndHandle()
       }
 
       action[data.type]();
