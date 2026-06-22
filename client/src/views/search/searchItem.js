@@ -5,13 +5,14 @@ import { searchItem } from '../../data/item.js';
 import { titleChange } from '../../util/title.js';
 import { getUser } from '../../util/util.js';
 import { notifyNoEvent } from '../notify.js';
+import { inputSanitizer } from "../../util/changeElementState.js";
 
 const searchTemplate = (results, isLoading, extention) => html`
     <section class="search">
         <h1>Search Item</h1>
 
         <form class="form-group" action="/search" method="post" @submit=${onSearch}>
-            <input id="item" type="text" class="input-create" name="name" placeholder="Search by Name...">
+            <input id="item" type="text" class="input-create name" name="name" placeholder="Search by Name...">
             <select type="text" placeholder="Item shape" name="shape">
                 <option value="" disabled selected>--Choose product shape--</option>
                 <option>Round</option>
@@ -70,6 +71,8 @@ export function searchItemPage(ctx) {
     titleChange('Search Item Page');
 
     ctx.render(searchTemplate());
+
+    inputSanitizer();
 }
 
 async function onSearch(event) {
