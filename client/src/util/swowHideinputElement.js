@@ -1,5 +1,6 @@
 export function showHidePitchInput() {
   const div = document.getElementById('pitchDistance').parentElement;
+
   document.getElementById('numberOfCavities').addEventListener("input", function() {
     if (this.value > 1) {
       div.style.display = 'block';
@@ -14,6 +15,18 @@ export function showHideHRSNInput() {
   
   document.getElementById('hotRunnerMan').addEventListener("input", function() {
     if (this.value == 'n.a.') {
+      div.style.display = 'none';
+    } else {
+      div.style.display = 'block';
+    }
+  })
+}
+
+export function showHideVolumeElement() {
+  const div = document.getElementById('volume').parentElement;
+  
+  document.getElementById('item-type').addEventListener("input", function() {
+    if (this.value == 'Lid' || this.value == 'Handle') {
       div.style.display = 'none';
     } else {
       div.style.display = 'block';

@@ -5,6 +5,7 @@ import { sendDrawing } from "../../data/item.js";
 import { getUser } from "../../util/util.js";
 import { titleChange } from '../../util/title.js';
 import { pdfPreview, fileInput, imagePreview, inputValidation, handleImputAndSelect, inputSanitizer } from "../../util/changeElementState.js";
+import { showHideVolumeElement } from "../../util/swowHideinputElement.js";
 import { notifyNoEvent } from "../notify.js";
 
 const itemTemplate = () => html`
@@ -19,7 +20,7 @@ const itemTemplate = () => html`
         </div>
 
         <div class="input-group select-group">
-          <select class="option-create" id="type" type="text" name="type">
+          <select id="item-type" class="option-create" id="type" type="text" name="type">
             <option value="" disabled selected hidden>--Select--</option>
             <option>Container</option>
             <option>Lid</option>
@@ -106,6 +107,7 @@ export function createItemPage(ctx) {
   ctx.render(itemTemplate());
   
   handleImputAndSelect();
+  showHideVolumeElement();
   fileInput();
   pdfPreview('drawing');
   pdfPreview('tds');
