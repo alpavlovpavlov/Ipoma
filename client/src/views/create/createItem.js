@@ -125,16 +125,38 @@ async function onCreate(event) {
   
   try {
     if (data) {
-      if (
-        data.name == "" ||
-        data.shape == "" ||
-        data.type == "" ||
-        data.cavityNumbers == "" ||
-        data.volume == "" ||
-        data.weight == ""
-      ) {
-        throw "All fields in red are required!";
+      function container() {
+        if (
+          data.name == "" ||
+          data.shape == "" ||
+          data.type == "" ||
+          data.cavityNumbers == "" ||
+          data.volume == "" ||
+          data.weight == ""
+        ) {
+          throw "All fields in red are required!";
+        }
+      };
+
+      function lidAndHandle() {
+        if (
+          data.name == "" ||
+          data.shape == "" ||
+          data.type == "" ||
+          data.cavityNumbers == "" ||
+          data.weight == ""
+        ) {
+          throw "All fields in red are required!";
+        }
+      };
+
+      const action = {
+        'container': () => container(),
+        'lid': () => lidAndHandle(),
+        'handle': () => lidAndHandle()
       }
+
+      action[data.type]();
 
       if (!image || image.size === 0) {
         throw 'All fields in red are required!';
