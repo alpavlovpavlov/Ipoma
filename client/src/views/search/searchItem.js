@@ -13,13 +13,22 @@ const searchTemplate = (results, isLoading, extention) => html`
 
         <form class="form-group" action="/search" method="post" @submit=${onSearch}>
             <input id="item" type="text" class="input-create name" name="name" placeholder="Search by Name...">
-            <select type="text" placeholder="Item shape" name="shape">
+            
+            <select type="text" name="type">
+                <option value="" disabled selected>--Choose product type--</option>
+                <option>Container</option>
+                <option>Lid</option>
+                <option>Handle</option>
+            </select>
+        
+            <select type="text" name="shape">
                 <option value="" disabled selected>--Choose product shape--</option>
                 <option>Round</option>
                 <option>Square</option>
                 <option>Rectangular</option>
                 <option>Oval</option>
             </select>
+            
             <button type="submit" class="searchbtn">Search</button>
         </form>
 
