@@ -25,7 +25,6 @@ const itemSchema = new mongoose.Schema({
 
     volume: {
         type: Number,
-        reuired: [true, 'Volume is required'],
         min: [0, 'Volume must be a positive number']
     },
 
