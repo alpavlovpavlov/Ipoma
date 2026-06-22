@@ -69,12 +69,12 @@ router.put("/item/:itemId", userStatus('item'), async (req, res) => {
   }
 })
 
-// Search item by name or shape
+// Search item by name, type or shape
 router.post('/search', async (req, res) => {
-  const { name, shape } = req.body;
+  const { name, type, shape } = req.body;
 
   try {
-    const result = await itemService.search(name, shape);
+    const result = await itemService.search(name, type, shape);
   
     res.json(result);
   } catch (error) {
