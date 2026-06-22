@@ -118,8 +118,6 @@ export function createItemPage(ctx) {
 
 async function onCreate(event) {
   const { data, form, formData } = onSubmit(event);
-  console.log(data.type);
-  
   const image = formData.get('image');
   const tds = formData.get('tds');
   const files = formData.getAll('itemDrawing');
