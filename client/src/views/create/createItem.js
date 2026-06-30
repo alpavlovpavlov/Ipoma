@@ -52,7 +52,7 @@ const itemTemplate = () => html`
         </div>
 
         <div class="input-group">
-          <input class="input-create" id="cavityNumbers" type="text" placeholder="" name="cavityNumbers" />
+          <input class="input-create cav-num" id="cavityNumbers" type="text" pattern="^\d+(?:-\d+)*$" placeholder="" name="cavityNumbers" />
           <label>Cavity numbers</label>
         </div>
         
