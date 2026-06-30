@@ -136,7 +136,7 @@ function getDownloadUrl(url) {
 }
 
 function view(file) {
-    window.open(`${host}/${file}`, "_blank");
+    window.open(`${file}`, "_blank");
 }
 
 async function onDelete() {
