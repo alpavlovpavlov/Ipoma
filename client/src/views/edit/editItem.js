@@ -162,7 +162,7 @@ async function onEdit(event) {
     const image = formData.get('image');
     const drawings = formData.getAll('itemDrawing');
     const tds = formData.get('tds');
-    console.log(image.size, drawings.name, tds.size);
+    console.log(image.size, drawings[0].name, tds.size);
 
     try {
         if(data) {
@@ -176,7 +176,9 @@ async function onEdit(event) {
                 throw "All fields in red are required!";
             }
 
-            if (image && image.size > 0 || tds && tds.size > 0 || drawings[0].name != '') {
+            if (image && image.size > 0 || tds && tds.size > 0 || drawings[0].name != undefined) {
+                console.log('Got in');
+                
                 const uploadedFiles = await sendDrawing(formData);
 
                 if (!image || image.size == 0) {
