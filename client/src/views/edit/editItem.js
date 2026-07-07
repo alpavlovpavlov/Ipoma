@@ -160,8 +160,9 @@ export async function editItemPage(ctx) {
 async function onEdit(event) {
     const { data, form, formData } = onSubmit(event);
     const image = formData.get('image');
+    const drawings = formData.getAll('itemDrawing');
     const tds = formData.get('tds');
-    const files = formData.getAll('itemDrawing');
+    console.log(image, drawings, tds);
 
     try {
         if(data) {
@@ -175,7 +176,7 @@ async function onEdit(event) {
                 throw "All fields in red are required!";
             }
 
-            if (image && image.size > 0 || tds && tds.size > 0 || files[0].name != '') {
+            if (image && image.size > 0 || tds && tds.size > 0 || drawings[0].name != '') {
                 const uploadedFiles = await sendDrawing(formData);
 
                 if (!image || image.size == 0) {
@@ -190,7 +191,7 @@ async function onEdit(event) {
                     data.tds = uploadedFiles.tds;
                 }
     
-                if (files[0].name == '') {
+                if (drawings[0].name == '') {
                     data.itemDrawing = item.itemDrawing;
                 } else {
                     data.itemDrawing = uploadedFiles.itemDrawings;
