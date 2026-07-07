@@ -162,6 +162,7 @@ async function onEdit(event) {
     const image = formData.get('image');
     const drawings = formData.getAll('itemDrawing');
     const tds = formData.get('tds');
+    const uploadedFiles = {};
     console.log(image.size, drawings[0].name, tds.size);
 
     try {
@@ -179,26 +180,25 @@ async function onEdit(event) {
             if (image && image.size > 0 || tds && tds.size > 0 || drawings[0].name != '') {
                 console.log('Got in');
                 
-                const uploadedFiles = await sendDrawing(formData);
+                uploadedFiles = await sendDrawing(formData);
+            }
 
-                if (!image || image.size == 0) {
-                    data.image = item.image;
-                } else {
-                    data.image = uploadedFiles.image;
-                }
-    
-                if (!tds || tds.size == 0) {
-                    data.tds = item.tds;
-                } else {
-                    data.tds = uploadedFiles.tds;
-                }
-    
-                if (drawings[0].name == '') {
-                    data.itemDrawing = item.itemDrawing;
-                } else {
-                    data.itemDrawing = uploadedFiles.itemDrawings;
-                }
+            if (!image || image.size == 0) {
+                data.image = item.image;
+            } else {
+                data.image = uploadedFiles.image;
+            }
 
+            if (!tds || tds.size == 0) {
+                data.tds = item.tds;
+            } else {
+                data.tds = uploadedFiles.tds;
+            }
+
+            if (drawings[0].name == '') {
+                data.itemDrawing = item.itemDrawing;
+            } else {
+                data.itemDrawing = uploadedFiles.itemDrawings;
             }
 
             await editItem(itemId, data);
