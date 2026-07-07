@@ -178,7 +178,6 @@ async function onEdit(event) {
             }
 
             if (image && image.size > 0 || tds && tds.size > 0 || drawings[0].name != '') {
-                console.log('Got in');
                 
                 uploadedFiles = await sendDrawing(formData);
             }
