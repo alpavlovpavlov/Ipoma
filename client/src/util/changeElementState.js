@@ -165,13 +165,15 @@ export function inputSanitizer() {
         input.value = input.value.replace(/([A-Za-z]+)(\d+)/, '$1 $2');
         input.value = input.value.toUpperCase();
       } else {
-        input.value = input.value.replace(/\s/g, '');
-        input.value = input.value.toUpperCase();
+        // input.value = input.value.replace(/\s/g, '');
+        // input.value = input.value.toUpperCase();
       }
 
       if (input.classList.contains('cav-num')) {
         input.value = input.value.replace(/[^0-9-]/g, '');
       }
+
+      if (input.className.contains('num')) {}
     })
   })
 }

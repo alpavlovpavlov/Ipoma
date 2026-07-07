@@ -49,12 +49,12 @@ const editItemTemplate = (item, isLoading) => html`
                         </div>
 
                         <div class="input-group">
-                            <input class="input-create" id="volume" type="number" step="0.01" placeholder="" name="volume" .value="${item.volume}" >
+                            <input class="input-create num" id="volume" type="number" step="0.1" placeholder="" name="volume" .value="${item.volume}" >
                             <label>Volume, ml</label>
                         </div>
 
                         <div class="input-group">
-                            <input class="input-create" id="weight" type="number" step="0.01" placeholder="" name="weight" .value="${item.weight}" >
+                            <input class="input-create num" id="weight" type="number" step="0.1" placeholder="" name="weight" .value="${item.weight}" >
                             <label>Weight, gr</label>
                         </div>
 
