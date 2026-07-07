@@ -176,7 +176,7 @@ async function onEdit(event) {
                 throw "All fields in red are required!";
             }
 
-            if (image && image.size > 0 || tds && tds.size > 0 || drawings[0].name != undefined) {
+            if (image && image.size > 0 || tds && tds.size > 0 || drawings[0].name != '') {
                 console.log('Got in');
                 
                 const uploadedFiles = await sendDrawing(formData);
