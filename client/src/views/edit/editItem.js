@@ -163,7 +163,6 @@ async function onEdit(event) {
     const drawings = formData.getAll('itemDrawing');
     const tds = formData.get('tds');
     let uploadedFiles = {};
-    console.log(image.size, drawings[0].name, tds.size);
 
     try {
         if(data) {
