@@ -22,7 +22,7 @@ const editItemTemplate = (item, isLoading) => html`
                         </div>
 
                         <div class="input-group">
-                            <input class="input-create" type="text" placeholder="" name="cavityNumbers" .value=${item.cavityNumbers} >
+                            <input class="input-create cav-num" type="text" placeholder="" name="cavityNumbers" .value=${item.cavityNumbers} >
                             <label>Cavity numbers</label>
                         </div>
 
