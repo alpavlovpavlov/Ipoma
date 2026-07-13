@@ -167,7 +167,7 @@ export function inputSanitizer() {
       }
 
       if (input.classList.contains('cav-num')) {
-        input.value = input.value.replace(/[^0-9-]/g, '');
+        input.value = input.value.replace(/[^0-9+]/g, '');
       }
     })
   })
