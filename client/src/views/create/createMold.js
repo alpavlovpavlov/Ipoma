@@ -52,7 +52,7 @@ const moldTemplate = (item) => html`
         </div>
 
         <div class="input-group">
-          <input id="numberOfCavities" class="input-create mold-cav" type="number" placeholder="" name="numberOfCavities" />
+          <input id="numberOfCavities" class="input-create mold-cav" type="text" placeholder="" name="numberOfCavities" />
           <label>Number of cavities</label>
         </div>
 
