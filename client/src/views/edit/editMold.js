@@ -54,7 +54,7 @@ const editMoldTemplate = (mold, isLoading) => html`
                         </div>
 
                         <div class="input-group">
-                            <input class="input-create" id="numberOfCavities" type="text" placeholder="" name="numberOfCavities" .value=${mold.numberOfCavities} />
+                            <input class="input-create" id="numberOfCavities" type="number" placeholder="" name="numberOfCavities" .value=${mold.numberOfCavities} />
                             <label>Number of cavities</label>
                         </div>
 
