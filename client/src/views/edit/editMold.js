@@ -133,6 +133,7 @@ export async function editMoldPage(ctx) {
 async function onEdit(event) {
     const { data, form, formData } = onSubmit(event);
     const files = formData.getAll('moldDrawing');
+    const numberOfCav = data.numberOfCavities.split('+')[0];
 
     try {
         if (!data) throw "All fields are required!";
@@ -145,10 +146,11 @@ async function onEdit(event) {
             data.hotRunnerMan == "" ||
             data.hotRunnerSer == "" ||
             data.numberOfCavities == "" ||
-            data.pitchDistance == "" ||
             data.dataUrl == "" ||
             data.wayOfInjection == ""
         ) throw "All fields are required!";
+
+        if (numberOfCav > 1 && data.pitchDistance == "") throw "All fields are required";
 
         if (files[0].name == '') {
             data.moldDrawing = mold.moldDrawing;
