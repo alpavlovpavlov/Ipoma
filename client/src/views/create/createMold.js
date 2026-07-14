@@ -118,6 +118,7 @@ async function onCreate(event) {
   const { data, form, formData } = onSubmit(event);
   const user = getUser();
   const files = formData.getAll('moldDrawing');
+  const numberOfCav = data.numberOfCavities.split('+')[0];
 
   try {
     if (data) {
@@ -133,9 +134,7 @@ async function onCreate(event) {
         throw 'All fields in red are required!';
       }
 
-      if (data.numberOfCavities > 1 && data.pitchDistance == "") {
-        throw 'All fields in red are required!';
-      }
+      if (numberOfCav > 1 && data.pitchDistance == "") throw 'All fields in red are required!';
 
       let mold = Object.assign({ _itemId: item._id }, data);
       
