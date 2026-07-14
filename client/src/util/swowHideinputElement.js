@@ -2,10 +2,9 @@ export function showHidePitchInput() {
   const div = document.getElementById('pitchDistance').parentElement;
 
   document.getElementById('numberOfCavities').addEventListener("input", function() {
-    // const value = Number(this.value.split('+')[0]);
-    // console.log(value);
+    const value = Number(this.value.split('+')[0]);
 
-    if (this.value > 1) {
+    if (value > 1) {
       div.style.display = 'block';
     } else {
       div.style.display = 'none';
