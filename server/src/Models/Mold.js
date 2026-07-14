@@ -14,7 +14,7 @@ const moldSchema = new mongoose.Schema({
     },
 
     numberOfCavities: {
-        type: String,
+        type: Number,
         required: [true, 'Cavity number is required'],
         min: [1, 'Cavity number must be a positive number']
     },
