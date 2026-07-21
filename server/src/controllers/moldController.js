@@ -91,6 +91,20 @@ router.delete("/molds/:itemId", hasUser(), isItemOwner(), async (req, res) => {
   }
 })
 
+// Search mold by item name, type or shape
+router.post('/search', async (req, res) => {
+  const { name, type, shape, hotRunnerMan } = req.body;
+
+  try {
+    const result = await itemService.search(name, type, shape, hotRunnerMan);
+  
+    res.json(result);
+  } catch (error) {
+    const message = parseError(error);
+    res.status(400).json({ message });
+  }
+})
+
 // Save drawing
 router.post('/upload',
   uploadPicturesAndDrawings.fields([{ name: 'moldDrawing', maxCount: 10 }]),

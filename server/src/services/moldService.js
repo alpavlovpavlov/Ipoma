@@ -50,7 +50,7 @@ function edit(id, data) {
     return Mold.findByIdAndUpdate(id, data, { runValidators: true });
 }
 
-function search(name, type) {
+function search(name = '', type = '', shape = '', hotRunnerMan = '') {
     const query = {};
 
     if (name) {
@@ -61,6 +61,14 @@ function search(name, type) {
         query.type = new RegExp(type, 'i');
     }
 
+    if (shape) {
+        query.shape = new RegExp(shape, 'i');
+    }
+
+    if (hotRunnerMan) {
+        query.hotRunnerMan = new RegExp(hotRunnerMan, 'i');
+    }
+    
     return Mold.find(query);
 }
 
