@@ -70,7 +70,7 @@ const moldTemplate = (result) => html`
                 <p class="meme-title">${result.name}</p>
             </div>
             <div id="data-buttons">
-                <a class="button" href="/item-details/${result._id}">Details</a>
+                <a class="button" href="/details/${result._id}">Details</a>
             </div>
         </div>
     </div>
