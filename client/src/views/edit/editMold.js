@@ -43,7 +43,7 @@ const editMoldTemplate = (mold, isLoading) => html`
                                 <option>Maenner</option>
                                 <option>DME</option>
                                 <option>Mold Masters</option>
-                                <option>Huskey</option>
+                                <option>Husky</option>
                             </select>
                             <label>Hot-runner manufacturer</label>
                         </div>
