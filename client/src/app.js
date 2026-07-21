@@ -30,6 +30,7 @@ import { editProfilePage } from './views/edit/editProfile.js';
 import { changePassPage } from './views/auth/changePasswordPage.js'
 import { notFoundPage } from './views/404.js';
 import { searchItemPage } from './views/search/searchItem.js';
+import { searchMoldPage } from './views/search/searchMold.js';
 import { searchImmPage } from './views/search/searchImm.js';
 import { contactPage } from './views/contacts.js';
 import { containersCatalogPage } from './views/catalog/containersCatalog.js';
@@ -69,6 +70,7 @@ page('/profile', profilePage);
 page('/edit-profile', editProfilePage);
 page('/chg-pass', changePassPage);
 page('/searchItem', searchItemPage);
+page('/searchMold', searchMoldPage);
 page('/searchImm', searchImmPage);
 page('/contacts', contactPage);
 page('*', notFoundPage);
