@@ -1,32 +1,41 @@
 import { html } from 'https://unpkg.com/lit?module';
 
 import { onSubmit } from '../../middlewears/submit.js';
-import { searchItem } from '../../data/item.js';
+import { searchMold } from '../../data/mold.js';
 import { titleChange } from '../../util/title.js';
 import { getUser } from '../../util/util.js';
 import { notifyNoEvent } from '../notify.js';
 import { inputSanitizer } from "../../util/changeElementState.js";
+import { searchMold } from '../../data/mold.js';
 
 const searchTemplate = (results, isLoading, extention) => html`
     <section class="search">
-        <h1>Search Item</h1>
+        <h1>Search Mold</h1>
 
         <form class="form-group" action="/search" method="post" @submit=${onSearch}>
-            <input id="item" type="text" class="input-create name" name="name" placeholder="Search by Name...">
+            <input id="item" type="text" class="input-create name" name="name" placeholder="Search by Item name...">
             
             <select type="text" name="type">
-                <option value="" disabled selected>--Choose product type--</option>
+                <option value="" disabled selected>Search by product type</option>
                 <option>Container</option>
                 <option>Lid</option>
                 <option>Handle</option>
             </select>
         
             <select type="text" name="shape">
-                <option value="" disabled selected>--Choose product shape--</option>
+                <option value="" disabled selected>Search by product shape</option>
                 <option>Round</option>
                 <option>Square</option>
                 <option>Rectangular</option>
                 <option>Oval</option>
+            </select>
+
+            <select type="text" name="hot-runner">
+                <option value="" disabled selected>Search by Hot-Runner</option>
+                <option>DME</option>
+                <option>Maenner</option>
+                <option>Mold Masters</option>
+                <option>Husky</option>
             </select>
             
             <button type="submit" class="searchbtn">Search</button>
@@ -60,7 +69,6 @@ const moldTemplate = (result, extention) => html`
         <div class="card">
             <div class="info">
                 <p class="meme-title">${result.name}</p>
-                <img class="meme-image" alt="meme-img" src="${result.image}">
             </div>
             <div id="data-buttons">
                 ${extention == 'ipoma'
@@ -96,7 +104,7 @@ async function onSearch(event) {
     try {
         context.render(searchTemplate('', true, extention));
         
-        const results = await searchItem(data);
+        const results = await searchMold(data);
         
         context.render(searchTemplate(results, false, extention));
 

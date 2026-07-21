@@ -5,6 +5,7 @@ const endpoints = {
     getByItemId: '/moldData/mold/',
     getById: '/moldData/molds/',
     create: '/moldData/mold',
+    search: '/moldData/search',
     getFiles: '/files',
     sendDrawing: '/moldData/upload'
 };
@@ -39,6 +40,10 @@ export async function editMold(id, data) {
 
 export async function deleteMoldAndItem(id) {
     del(endpoints.getById + id);
+};
+
+export async function searchMold(query) {
+    return post(endpoints.search, query);
 };
 
 export async function sendDrawing(data) {
