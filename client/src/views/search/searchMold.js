@@ -30,7 +30,7 @@ const searchTemplate = (results, isLoading, extention) => html`
                 <option>Oval</option>
             </select>
 
-            <select type="text" name="hotrunner">
+            <select type="text" name="hotRunnerMan">
                 <option value="" disabled selected>Search by Hot-Runner</option>
                 <option>DME</option>
                 <option>Maenner</option>
