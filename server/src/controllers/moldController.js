@@ -96,7 +96,7 @@ router.post('/search', async (req, res) => {
   const { name, type, shape, hotRunnerMan } = req.body;
 
   try {
-    const result = await itemService.search(name, type, shape, hotRunnerMan);
+    const result = await moldService.search(name, type, shape, hotRunnerMan);
   
     res.json(result);
   } catch (error) {
