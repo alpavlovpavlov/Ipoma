@@ -13,21 +13,6 @@ const searchTemplate = (results, isLoading) => html`
 
         <form class="form-group" action="/search" method="post" @submit=${onSearch}>
             <input id="item" type="text" class="input-create name" name="name" placeholder="Search by Item name...">
-            
-            <select type="text" name="type">
-                <option value="" disabled selected>Search by product type</option>
-                <option>Container</option>
-                <option>Lid</option>
-                <option>Handle</option>
-            </select>
-        
-            <select type="text" name="shape">
-                <option value="" disabled selected>Search by product shape</option>
-                <option>Round</option>
-                <option>Square</option>
-                <option>Rectangular</option>
-                <option>Oval</option>
-            </select>
 
             <select type="text" name="hotRunnerMan">
                 <option value="" disabled selected>Search by Hot-Runner</option>
