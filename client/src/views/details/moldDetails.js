@@ -79,7 +79,10 @@ const moldDetalsTemplate = (mold, isLoading, currentUser) => html`
                             : null
                         }
 
-                        <p><strong>Hot-runner: </strong>${mold.hotRunnerMan}</p>
+                        ${mold.hotRunnerMan !== 'n.a.'
+                            ? html`<p><strong>Hot-runner: </strong>${mold.hotRunnerMan}</p>`
+                            : null
+                        }
                    
                         ${mold.hotRunnerMan !== 'n.a.'
                             ? html`<p><strong>Hot-runner serial number: </strong>${mold.hotRunnerSer}</p>`
