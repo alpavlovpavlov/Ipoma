@@ -6,7 +6,6 @@ import { titleChange } from '../../util/title.js';
 import { getUser } from '../../util/util.js';
 import { notifyNoEvent } from '../notify.js';
 import { inputSanitizer } from "../../util/changeElementState.js";
-import { searchMold } from '../../data/mold.js';
 
 const searchTemplate = (results, isLoading, extention) => html`
     <section class="search">
