@@ -7,7 +7,7 @@ import { getUser } from '../../util/util.js';
 import { notifyNoEvent } from '../notify.js';
 import { inputSanitizer } from "../../util/changeElementState.js";
 
-const searchTemplate = (results, isLoading, extention) => html`
+const searchTemplate = (results, isLoading) => html`
     <section class="search">
         <h1>Search Mold</h1>
 
@@ -47,7 +47,7 @@ const searchTemplate = (results, isLoading, extention) => html`
                     ? html`
                         <div class="search-result">
                             ${results.length > 0
-                                ? html`${results.map((result) => moldTemplate(result, extention))}`
+                                ? html`${results.map((result) => moldTemplate(result))}`
                                 : html`
                                     <div class="no-match">
                                         <p>No match was found!</p>
@@ -63,18 +63,14 @@ const searchTemplate = (results, isLoading, extention) => html`
     </section>
 `;
 
-const moldTemplate = (result, extention) => html`
+const moldTemplate = (result) => html`
     <div class="result">
         <div class="card">
             <div class="info">
                 <p class="meme-title">${result.name}</p>
             </div>
             <div id="data-buttons">
-                ${extention == 'ipoma'
-                    ? html`<a class="button" href="/details/${result._id}">Details</a>`
-                    : html`<a class="button" href="/item-details/${result._id}">Details</a>`
-                }
-                
+                <a class="button" href="/item-details/${result._id}">Details</a>
             </div>
         </div>
     </div>
@@ -95,17 +91,13 @@ async function onSearch(event) {
     const { data, form } = onSubmit(event);
     const user = getUser();
     let extention = null;
-
-    if (user != null) {
-        extention = user.email.split('@')[1].split('.')[0];
-    }
     
     try {
-        context.render(searchTemplate('', true, extention));
+        context.render(searchTemplate('', true));
         
         const results = await searchMold(data);
         
-        context.render(searchTemplate(results, false, extention));
+        context.render(searchTemplate(results, false));
 
         form.reset();
     } catch (error) {
