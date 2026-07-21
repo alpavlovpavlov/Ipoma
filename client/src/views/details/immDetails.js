@@ -60,7 +60,7 @@ const immDetailsTemplate = (imm, isLoading, items, currentUser) => html`
                         <p><strong>Machine description:</strong> ${imm.description}</p>
                         <p><strong>Ipoma identification:</strong> ${imm.label}</p>
                         <p><strong>Serial number:</strong> ${imm.immNumber}</p>
-                        <p><strong>Year of manufactoring:</strong> ${imm.date}</p>
+                        <p><strong>Year of manufacturing:</strong> ${imm.date}</p>
                         <p><strong>Clamping force:</strong> ${imm.force} t</p>
                         <p><strong>Injection unit:</strong> ${imm.injectionUnit}</p>
                         <p><strong>Type:</strong> ${imm.type}</p>
