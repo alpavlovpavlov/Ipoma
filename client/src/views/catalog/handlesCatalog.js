@@ -15,7 +15,7 @@ const handlesCatalogTemplate = (lids, isLoading) => html`
                 <h1>All handles</h1>
                 <div id="memes">
                     ${lids.length == 0
-                        ? html`<p class="no-memes">No lids in database.</p>`
+                        ? html`<p class="no-memes">No handles in database.</p>`
                         : html`${lids.map(lidTemplate)}
                             <div class="middle">
                                 <button class="paginbtn" id="prevlid">< Previous</button>

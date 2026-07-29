@@ -20,7 +20,7 @@ const catalogTemplate = (items, isLoading, shape, extention) => html`
                 <div id="memes">
                     ${items.length == 0
                         ? html`
-                            <p class="no-memes">No items in database.</p>
+                            <p class="no-memes">No containers in database.</p>
                             <div class="middle">
                                 <a href="/containers-shape" class="button">< Back</a>
                             </div>
