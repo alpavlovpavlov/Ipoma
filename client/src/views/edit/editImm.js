@@ -64,6 +64,26 @@ const editImmTemplate = (imm, isLoading) => html`
                             <label>Type</label>
                         </div>
 
+                        <div id="datasheet-group" class="input-group file-group not-required">
+                            <input id="file" type="file" name="immDataSheet" accept="application/pdf" multiple hidden />
+                            
+                            <div class="file-box">
+                                <span class="file-text">Choose files</span>
+                                ${imm.dataSheet.length > 0
+                                    ? html`
+                                        <span class="file-name">${imm.dataSheet}</span>
+                                        <img id="file-preview" src="../../../images/pdf-icon.png" style="display:none; margin-top:10px; max-width:20px" type="application/pdf" />
+                                        `
+                                    : html`
+                                        <span class="file-name">No file selected</span>
+                                        <img id="file-preview" src="../../../images/pdf-icon.png" style="display:none; margin-top:10px; max-width:20px" type="application/pdf" />
+                                    `
+                                }
+                            </div>
+
+                            <label class="floating-label">Upload drawings</label>
+                        </div>
+
                         <div id="drawing-group" class="input-group file-group not-required">
                             <input id="file" type="file" name="immDrawing" accept="application/pdf" multiple hidden />
                             
@@ -126,6 +146,8 @@ export async function editImmPage(ctx) {
 async function onEdit(event) {
     const { data, form, formData } = onSubmit(event);
     const files = formData.getAll("immDrawing");
+    const dataSheets = formData.getAll("immDataSheet");
+    let uploadedFiles = {};
 
     try {
         if (data) {
@@ -142,11 +164,19 @@ async function onEdit(event) {
             throw "All fields are required!";
         }
 
+        if (dataSheet[0].name != '' || files[0].name != '') {
+            uploadedFiles = await saveDrawing(formData);
+        }
+
+        if (dataSheets[0].name == '') {
+            data.immDataSheet = imm.immDataSheet;
+        } else {
+            data.immDataSheet = uploadedFiles.immDataSheets;
+        }
+
         if (files[0].name == '') {
             data.immDrawing = imm.immDrawing;
-        } else {
-            const uploadedFiles = await saveDrawing(formData);
-            
+        } else { 
             data.immDrawing = uploadedFiles.immDrawings;
         }
 

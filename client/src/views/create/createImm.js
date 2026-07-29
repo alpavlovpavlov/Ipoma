@@ -62,6 +62,18 @@ const immTemplate = () => html`
                 </div>
 
                 <div class="input-group file-group not-required">
+                    <input id="datasheet" type="file" name="immDataSheet" accept="application/pdf" multiple hidden />
+                    
+                    <div class="file-box">
+                        <span class="file-text">Choose files</span>
+                        <span class="file-name">No file selected</span>
+                        <img id="drawing-preview" src="../../../images/pdf-icon.png" style="display:none; margin-top:10px; max-width:20px" type="application/pdf" />
+                    </div>
+
+                    <label class="floating-label">Upload data sheet</label>
+                </div>
+
+                <div class="input-group file-group not-required">
                     <input id="drawing" type="file" name="immDrawing" accept="application/pdf" multiple hidden />
                     
                     <div class="file-box">
@@ -94,7 +106,10 @@ export function createImmPage(ctx) {
 
 async function onCreate(event) {
     const { data, form, formData } = onSubmit(event);
+    const files = formData.getAll('immDrawing');
+    const dataSheets = formData.getAll('immDataSheet');
     const user = getUser();
+    let uploadedFiles = {};
 
     try {
         if(data) {
@@ -113,10 +128,18 @@ async function onCreate(event) {
 
             let imm = Object.assign({ _ownerId: user._id }, data);
 
-            const uploadedFiles = await saveDrawing(formData);
-            
-            imm.immDrawing = uploadedFiles.immDrawings;
+            if (dataSheets[0].name != '' || files[0].name != '') {
+                uploadedFiles = await saveDrawing(formData);
+            }
 
+            if (dataSheets[0].name != '') {
+                imm.immDataSheet = uploadedFiles.immDataSheets;
+            }
+
+            if (files[0].name != '') {
+                imm.immDrawing = uploadedFiles.immDrawings;
+            }
+            
             await createIMM(imm);
             context.page.redirect('/imms-catalog');
         }
