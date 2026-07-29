@@ -58,7 +58,7 @@ const immDetailsTemplate = (imm, isLoading, items, currentUser) => html`
                     <table class="files-table">
                         <thead>
                             <tr>
-                                ${imm.immDrawing.length == 0
+                                ${imm.immDataSheet.length == 0
                                     ? html`
                                         <th>File Name</th>
                                     `
@@ -71,10 +71,10 @@ const immDetailsTemplate = (imm, isLoading, items, currentUser) => html`
                             </tr>
                         </thead>
 
-                        ${imm.immDrawing.length > 0
+                        ${imm.immDataSheet.length > 0
                             ? html`
                                 <tbody>
-                                    ${imm.immDrawing.map(file => html`
+                                    ${imm.immDataSheet.map(file => html`
                                         <tr>
                                             <td>
                                                 <img src="/images/pdf-icon.png" width="24">
@@ -90,7 +90,7 @@ const immDetailsTemplate = (imm, isLoading, items, currentUser) => html`
                                     `)}
                                 </tbody>
                             `
-                            : html`<h3 class="heading3">No drawings available</h3>`
+                            : html`<h3 class="heading3">No available data sheets</h3>`
                         }
                     </table>
                     
