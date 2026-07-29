@@ -35,7 +35,7 @@ const lidTemplate = (lid) => html`
         <div class="card">
             <div class="info">
                 <p class="meme-title">${lid.name}</p>
-                <img class="meme-image" alt="meme-img" src="${host}/${lid.image}">
+                <img class="meme-image" alt="meme-img" src="${lid.image}">
             </div>
             <div id="data-buttons">
                 <a class="button" href="/details/${lid._id}">Details</a>

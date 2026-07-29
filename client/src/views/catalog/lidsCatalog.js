@@ -48,7 +48,7 @@ const lidTemplate = (lid, extention) => html`
         <div class="card">
             <div class="info">
                 <p class="meme-title">${lid.name}</p>
-                <img class="meme-image" alt="meme-img" src="${host}/${lid.image}">
+                <img class="meme-image" alt="meme-img" src="${lid.image}">
             </div>
             <div id="data-buttons">
                 ${extention == 'ipoma'
