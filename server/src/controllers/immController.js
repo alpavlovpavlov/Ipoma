@@ -110,14 +110,19 @@ router.delete('/imm/:immId', userStatus('imm'), async (req, res) => {
     }
 })
 
-// Upload drawings
+// Upload drawings and data sheets
 router.post('/upload',
-    uploadPicturesAndDrawings.fields([{ name: 'immDrawing', maxCount: 10 }]),
+    uploadPicturesAndDrawings.fields([
+        { name: 'immDrawing', maxCount: 10 },
+        { name: 'immDataSheet', maxCount: 10 }
+    ]),
     async (req, res) => {
         try {
+        const immDataSheets = req.files.immDataSheet?.map(x => x.path) || [];
         const immDrawings = req.files.immDrawing?.map(x => x.path) || [];
 
         res.json({
+            immDataSheets,
             immDrawings
         });
 

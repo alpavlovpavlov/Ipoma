@@ -83,7 +83,7 @@ router.post('/search', async (req, res) => {
   }
 })
 
-// Save image datasheets and drawings
+// Save image and drawing
 router.post('/upload',
   uploadPicturesAndDrawings.fields([
     { name: 'image', maxCount: 1 },
