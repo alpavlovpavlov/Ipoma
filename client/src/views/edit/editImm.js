@@ -164,7 +164,7 @@ async function onEdit(event) {
             throw "All fields are required!";
         }
 
-        if (dataSheet[0].name != '' || files[0].name != '') {
+        if (dataSheets[0].name != '' || files[0].name != '') {
             uploadedFiles = await saveDrawing(formData);
         }
 
