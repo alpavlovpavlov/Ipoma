@@ -54,6 +54,45 @@ const immDetailsTemplate = (imm, isLoading, items, currentUser) => html`
                             : html`<h3 class="heading3">No drawings available</h3>`
                         }
                     </table>
+
+                    <table class="files-table">
+                        <thead>
+                            <tr>
+                                ${imm.immDrawing.length == 0
+                                    ? html`
+                                        <th>File Name</th>
+                                    `
+                                    : html`
+                                        <th></th>
+                                        <th>File Name</th>
+                                        <th>Actions</th>
+                                    `
+                                }
+                            </tr>
+                        </thead>
+
+                        ${imm.immDrawing.length > 0
+                            ? html`
+                                <tbody>
+                                    ${imm.immDrawing.map(file => html`
+                                        <tr>
+                                            <td>
+                                                <img src="/images/pdf-icon.png" width="24">
+                                            </td>
+                                            <td class="point" @click=${() => view(file)}>${file.split('/').pop().split('___')[1]}</td>
+                                            <td>
+                                                <div class="actions">
+                                                    <a href="${file}" target="_blank">View</a>
+                                                    <a href="${getDownloadUrl(file)}">Download</a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    `)}
+                                </tbody>
+                            `
+                            : html`<h3 class="heading3">No drawings available</h3>`
+                        }
+                    </table>
                     
                     <div class="meme-description-mold">
                         <h2>Details</h2>
