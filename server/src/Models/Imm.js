@@ -43,6 +43,17 @@ const immSchema = new mongoose.Schema({
         required: [true, 'Injection unit is required']
     },
 
+    immDatasheet: {
+        type: [String],
+        validate: {validator: function (value) {
+            value.forEach(element => {
+                return element.toLowerCase().endsWith(".pdf");
+            });
+        },
+            message: "File must be PDF"
+        }
+    },
+
     immDrawing: {
         type: [String],
         validate: {validator: function (value) {
