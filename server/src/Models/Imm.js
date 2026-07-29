@@ -43,7 +43,7 @@ const immSchema = new mongoose.Schema({
         required: [true, 'Injection unit is required']
     },
 
-    immDatasheet: {
+    immDataSheet: {
         type: [String],
         validate: {validator: function (value) {
             value.forEach(element => {
