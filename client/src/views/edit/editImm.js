@@ -65,7 +65,7 @@ const editImmTemplate = (imm, isLoading) => html`
                         </div>
 
                         <div id="datasheet-group" class="input-group file-group not-required">
-                            <input id="file" type="file" name="immDataSheet" accept="application/pdf" multiple hidden />
+                            <input id="dataSheet" type="file" name="immDataSheet" accept="application/pdf" multiple hidden />
                             
                             <div class="file-box">
                                 <span class="file-text">Choose files</span>
