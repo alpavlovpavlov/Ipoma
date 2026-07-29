@@ -71,7 +71,7 @@ const editImmTemplate = (imm, isLoading) => html`
                                 <span class="file-text">Choose files</span>
                                 ${imm.immDataSheet.length > 0
                                     ? html`
-                                        <span class="file-name">${imm.immDataSheet}</span>
+                                        <span class="file-name">${imm.datasheets}</span>
                                         <img id="file-preview" src="../../../images/pdf-icon.png" style="display:none; margin-top:10px; max-width:20px" type="application/pdf" />
                                         `
                                     : html`
@@ -127,6 +127,7 @@ export async function editImmPage(ctx) {
 
         imm = await getById(immId);
 
+        imm.datasheets = imm.immDataSheet.map(d => d.split('/').pop().split('___')[1]).join(' / ');
         imm.drawings = imm.immDrawing.map(d => d.split('/').pop().split('___')[1]).join(' / ');
 
         ctx.render(editImmTemplate(imm, false));
