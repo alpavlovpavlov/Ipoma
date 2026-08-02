@@ -4,7 +4,7 @@ import { editMold, getById, sendDrawing } from '../../data/mold.js';
 import { onSubmit } from '../../middlewears/submit.js';
 import { titleChange } from '../../util/title.js';
 import { showHideHRSNInput, showHidePitchInput } from "../../util/swowHideinputElement.js";
-import { handleImputAndSelect, fileInput, pdfPreview, inputValidation, inputSanitizer, editForm } from "../../util/changeElementState.js";
+import { handleImputAndSelect, fileInput, inputValidation, inputSanitizer, editForm } from "../../util/changeElementState.js";
 import { drawingGroup } from '../../util/drawingGroupActivation.js';
 import { notifyNoEvent } from '../notify.js';
 
@@ -80,11 +80,10 @@ const editMoldTemplate = (mold, isLoading) => html`
                                 ${mold.moldDrawing.length > 0
                                     ? html`
                                         <span class="file-name">${mold.drawings}</span>
-                                        <img id="file-preview" src="../../../images/pdf-icon.png" style="display:none; margin-top:10px; max-width:20px" type="application/pdf" />
+                                        <img id="file-preview" src="../../../images/pdf-icon.png" style="margin-top:10px; max-width:20px" type="application/pdf" />
                                     `
                                     : html`
                                         <span class="file-name">No file selected</span>
-                                        <img id="file-preview" src="../../../images/pdf-icon.png" style="display:none; margin-top:10px; max-width:20px" type="application/pdf" />
                                     `
                                 }
                             </div>
@@ -121,7 +120,6 @@ export async function editMoldPage(ctx) {
         showHidePitchInput();
         editForm();
         drawingGroup(mold);
-        pdfPreview('file');
         fileInput();
         handleImputAndSelect();
         inputValidation();
