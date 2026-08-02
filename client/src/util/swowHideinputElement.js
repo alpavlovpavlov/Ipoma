@@ -16,6 +16,8 @@ export function showHideHRSNInput() {
   const div = document.getElementById('hotRunnerSer').parentElement;
   
   document.getElementById('hotRunnerMan').addEventListener("input", function() {
+    console.log(this.value);
+    
     if (this.value == 'n.a.') {
       div.style.display = 'none';
     } else {
