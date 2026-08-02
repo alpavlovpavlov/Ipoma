@@ -135,7 +135,7 @@ export async function editImmPage(ctx) {
         editForm();
         drawingGroup(imm);
         pdfPreview('file');
-        pdfPreview('ds');
+        pdfPreview('dataSheet');
         fileInput();
         handleImputAndSelect();
         inputSanitizer();
