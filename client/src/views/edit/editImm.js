@@ -76,7 +76,7 @@ const editImmTemplate = (imm, isLoading) => html`
                                         `
                                     : html`
                                         <span class="file-name">No file selected</span>
-                                        <img id="file-preview" src="../../../images/pdf-icon.png" style="display:none; margin-top:10px; max-width:20px" type="application/pdf" />
+                                        <img id="dataSheet-preview" src="../../../images/pdf-icon.png" style="display:none; margin-top:10px; max-width:20px" type="application/pdf" />
                                     `
                                 }
                             </div>
