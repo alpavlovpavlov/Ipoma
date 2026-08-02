@@ -22,7 +22,6 @@ const itemDetailsTemplate = (item, isLoading, currentUser) => html`
                                 ${item.itemDrawing.length == 0
                                     ? html`
                                         <th>File Name</th>
-                                        <th>Action</th>
                                     `
                                     : html`
                                         <th></th>
