@@ -76,7 +76,10 @@ const moldDetalsTemplate = (mold, isLoading, currentUser) => html`
                         <p><strong>Manufacturer: </strong>${mold.producer}</p>
                         
                         ${mold.hotRunnerMan !== 'n.a.'
-                            ? html`<p><strong>Serial number: </strong>${mold.serialNumber}</p>`
+                            ? html`
+                                <p><strong>Serial number: </strong>${mold.serialNumber}</p>
+                                <p><strong>Hot-runner: </strong>${mold.hotRunnerMan}</p>
+                                <p><strong>Hot-runner serial number: </strong>${mold.hotRunnerSer}</p>`
                             : null
                         }
 
@@ -90,7 +93,7 @@ const moldDetalsTemplate = (mold, isLoading, currentUser) => html`
                             : null
                         }
                         
-                        ${mold.pitchDistance
+                        ${mold.pitchDistance != ''
                             ? html`<p><strong>Pitch distance: </strong>${mold.pitchDistance}</p>`
                             : null
                         }
