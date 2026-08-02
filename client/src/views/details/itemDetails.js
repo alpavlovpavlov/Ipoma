@@ -24,7 +24,7 @@ const itemDetailsTemplate = (item, isLoading, currentUser) => html`
                                         <th>File Name</th>
                                     `
                                     : html`
-                                        <th></th>
+                                        <th>File Type</th>
                                         <th>Content</th>
                                         <th>File Name</th>
                                         ${currentUser.role != 'guest'
