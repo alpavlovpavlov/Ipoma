@@ -25,7 +25,7 @@ const moldDetalsTemplate = (mold, isLoading, currentUser) => html`
                                         <th>Action</th>
                                     `
                                     : html`
-                                        <th></th>
+                                        <th>File Type</th>
                                         <th>File Name</th>
                                         ${currentUser.role != 'guest'
                                             ? html`<th>Action</th>`
