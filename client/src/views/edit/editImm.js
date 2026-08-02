@@ -81,7 +81,7 @@ const editImmTemplate = (imm, isLoading) => html`
                                 }
                             </div>
 
-                            <label class="floating-label">Upload drawings</label>
+                            <label class="floating-label">Upload data sheet</label>
                         </div>
 
                         <div id="drawing-group" class="input-group file-group not-required">
