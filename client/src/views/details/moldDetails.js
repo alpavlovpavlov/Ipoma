@@ -22,10 +22,10 @@ const moldDetalsTemplate = (mold, isLoading, currentUser) => html`
                                 ${mold.moldDrawing.length == 0
                                     ? html`
                                         <th>File Name</th>
-                                        <th>Action</th>
                                     `
                                     : html`
                                         <th>File Type</th>
+                                        <th>Content</th>
                                         <th>File Name</th>
                                         ${currentUser.role != 'guest'
                                             ? html`<th>Action</th>`
@@ -44,6 +44,7 @@ const moldDetalsTemplate = (mold, isLoading, currentUser) => html`
                                             <td>
                                                 <img src="/images/pdf-icon.png" width="24">
                                             </td>
+                                            <td>Drawing</td>
                                             ${currentUser != 'guest'
                                                 ? html`<td class="point" @click=${() => view(file)}>${file.split('/').pop().split('___')[1]}</td>`
                                                 : html`<td class="point" @click=${(e) => notify('Please register or login to have accesss to the full functionality', e)}>${file.split('/').pop()}</td>`
