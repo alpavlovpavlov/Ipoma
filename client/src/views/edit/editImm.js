@@ -3,7 +3,7 @@ import { html } from 'https://unpkg.com/lit?module';
 import { editIMM, getById, saveDrawing } from "../../data/imm.js";
 import { onSubmit } from "../../middlewears/submit.js";
 import { titleChange } from "../../util/title.js";
-import { handleImputAndSelect, fileInput, pdfPreview, inputValidation, inputSanitizer, editForm } from "../../util/changeElementState.js";
+import { handleImputAndSelect, fileInput, inputValidation, inputSanitizer, editForm } from "../../util/changeElementState.js";
 import { drawingGroup } from "../../util/drawingGroupActivation.js";
 import { notifyNoEvent } from "../notify.js";
 
@@ -132,8 +132,6 @@ export async function editImmPage(ctx) {
 
         editForm();
         drawingGroup(imm);
-        // pdfPreview('file');
-        // pdfPreview('dataSheet');
         fileInput();
         handleImputAndSelect();
         inputSanitizer();
