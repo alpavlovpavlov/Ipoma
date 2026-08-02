@@ -32,7 +32,7 @@ const immDetailsTemplate = (imm, isLoading, items, currentUser) => html`
                             </tr>
                         </thead>
 
-                        ${imm.immDrawing.length > 0
+                        <!-- ${imm.immDrawing.length > 0
                             ? html`
                                 <tbody>
                                     ${imm.immDrawing.map(file => html`
@@ -52,45 +52,16 @@ const immDetailsTemplate = (imm, isLoading, items, currentUser) => html`
                                 </tbody>
                             `
                             : html`<h3 class="heading3">No drawings available</h3>`
-                        }
-                    </table>
+                        } -->
 
-                    <table class="files-table">
-                        <thead>
-                            <tr>
-                                ${imm.immDataSheet.length == 0
-                                    ? html`
-                                        <th>File Name</th>
-                                    `
-                                    : html`
-                                        <th></th>
-                                        <th>File Name</th>
-                                        <th>Actions</th>
-                                    `
-                                }
-                            </tr>
-                        </thead>
-
-                        ${imm.immDataSheet.length > 0
+                        ${item.itemDrawing.length > 0
                             ? html`
                                 <tbody>
-                                    ${imm.immDataSheet.map(file => html`
-                                        <tr>
-                                            <td>
-                                                <img src="/images/pdf-icon.png" width="24">
-                                            </td>
-                                            <td class="point" @click=${() => view(file)}>${file.split('/').pop().split('___')[1]}</td>
-                                            <td>
-                                                <div class="actions">
-                                                    <a href="${file}" target="_blank">View</a>
-                                                    <a href="${getDownloadUrl(file)}">Download</a>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    `)}
+                                    ${imm.immDrawing.map((file) => tableTemplate(file, true, currentUser.role))}
+                                    ${imm.immDataSheet.map((file) => tableTemplate(file, false, currentUser.role))}
                                 </tbody>
                             `
-                            : html`<h3 class="heading3">No available data sheets</h3>`
+                            : html`<h3 class="heading3">No drawings available</h3>`
                         }
                     </table>
                     
@@ -147,6 +118,37 @@ const immDetailsTemplate = (imm, isLoading, items, currentUser) => html`
             `
         }
     </section>
+`;
+
+const tableTemplate = (file, dr, role) => html`
+    <tr>
+        <td>
+            <img src="/images/pdf-icon.png" width="24">
+        </td>
+
+        ${dr
+            ? html`<td>Drawing</td>`
+            : html`<td>Data Sheet</td>`
+        }    
+
+        ${role != 'guest'
+            ? html`<td class="point" @click=${() => view(file)}>${file.split('/').pop().split('___')[1]}</td>`
+            : html`<td class="point" @click=${(e) => notify('Please register or login to have accesss to the full functionality', e)}>${file.split('/').pop().split('___')[1]}</td>`
+        }
+
+        <td>
+            <div class="actions">
+                ${role != 'guest'
+                    ? html`
+                        <a href="${file}" target="_blank">View</a>
+                        <a href="${getDownloadUrl(file)}">Download</a>
+                    `
+                    : null
+                }
+                
+            </div>
+        </td>
+    </tr>
 `;
 
 let context = null;
