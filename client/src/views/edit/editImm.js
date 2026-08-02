@@ -72,7 +72,7 @@ const editImmTemplate = (imm, isLoading) => html`
                                 ${imm.immDataSheet.length > 0
                                     ? html`
                                         <span class="file-name">${imm.datasheets}</span>
-                                        <img id="dataSheet-preview" src="../../../images/pdf-icon.png" margin-top:10px; max-width:20px" type="application/pdf" />
+                                        <img id="dataSheet-preview" src="../../../images/pdf-icon.png" style="margin-top:10px; max-width:20px" type="application/pdf" />
                                         `
                                     : html`
                                         <span class="file-name">No file selected</span>
@@ -91,7 +91,7 @@ const editImmTemplate = (imm, isLoading) => html`
                                 ${imm.drawings.length > 0
                                     ? html`
                                         <span class="file-name">${imm.drawings}</span>
-                                        <img id="file-preview" src="../../../images/pdf-icon.png" margin-top:10px; max-width:20px" type="application/pdf" />
+                                        <img id="file-preview" src="../../../images/pdf-icon.png" style="margin-top:10px; max-width:20px" type="application/pdf" />
                                         `
                                     : html`
                                         <span class="file-name">No file selected</span>
