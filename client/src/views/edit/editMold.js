@@ -48,21 +48,32 @@ const editMoldTemplate = (mold, isLoading) => html`
                             <label>Hot-runner manufacturer</label>
                         </div>
 
-                        <div class="input-group">
-                            <input class="input-create" id="hotRunnerSer" type="text" placeholder="" name="hotRunnerSer" .value=${mold.hotRunnerSer} />
-                            <label>Hot-runner number</label>
-                        </div>
+                        ${mold.hotRunnerMan != 'n.a.'
+                            ? html`
+                                <div class="input-group">
+                                    <input class="input-create" id="hotRunnerSer" type="text" placeholder="" name="hotRunnerSer" .value=${mold.hotRunnerSer} />
+                                    <label>Hot-runner number</label>
+                                </div>
+                            `
+                            : null
+                        }
+                       
 
                         <div class="input-group">
                             <input class="input-create" id="numberOfCavities" type="text" placeholder="" name="numberOfCavities" .value=${mold.numberOfCavities} />
                             <label>Number of cavities</label>
                         </div>
 
-                        <div class="input-group">
-                            <input class="input-create" id="pitchDistance" type="text" placeholder="" name="pitchDistance" .value=${mold.pitchDistance} />
-                            <label>Pitch distance, mm</label>
-                        </div>
-
+                        ${mold.numberOfCav > 0
+                            ? html`
+                                <div class="input-group">
+                                    <input class="input-create" id="pitchDistance" type="text" placeholder="" name="pitchDistance" .value=${mold.pitchDistance} />
+                                    <label>Pitch distance, mm</label>
+                                </div>
+                            `
+                            : null
+                        }
+                       
                         <div class="input-group select-group">
                             <select type="text" name="wayOfInjection">
                                 <option value="" disabled selected>${mold.wayOfInjection}</option>
