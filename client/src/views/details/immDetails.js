@@ -25,34 +25,13 @@ const immDetailsTemplate = (imm, isLoading, items, currentUser) => html`
                                     `
                                     : html`
                                         <th></th>
+                                        <th>Content</th>
                                         <th>File Name</th>
                                         <th>Actions</th>
                                     `
                                 }
                             </tr>
                         </thead>
-
-                        <!-- ${imm.immDrawing.length > 0
-                            ? html`
-                                <tbody>
-                                    ${imm.immDrawing.map(file => html`
-                                        <tr>
-                                            <td>
-                                                <img src="/images/pdf-icon.png" width="24">
-                                            </td>
-                                            <td class="point" @click=${() => view(file)}>${file.split('/').pop().split('___')[1]}</td>
-                                            <td>
-                                                <div class="actions">
-                                                    <a href="${file}" target="_blank">View</a>
-                                                    <a href="${getDownloadUrl(file)}">Download</a>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    `)}
-                                </tbody>
-                            `
-                            : html`<h3 class="heading3">No drawings available</h3>`
-                        } -->
 
                         ${imm.immDrawing.length > 0 || imm.immDataSheet.length > 0
                             ? html`
