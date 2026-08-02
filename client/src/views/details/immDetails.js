@@ -24,7 +24,7 @@ const immDetailsTemplate = (imm, isLoading, items, currentUser) => html`
                                         <th>File Name</th>
                                     `
                                     : html`
-                                        <th></th>
+                                        <th>File Type</th>
                                         <th>Content</th>
                                         <th>File Name</th>
                                         <th>Actions</th>
