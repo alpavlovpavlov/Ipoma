@@ -54,7 +54,7 @@ const immDetailsTemplate = (imm, isLoading, items, currentUser) => html`
                             : html`<h3 class="heading3">No drawings available</h3>`
                         } -->
 
-                        ${item.itemDrawing.length > 0
+                        ${imm.immDrawing.length > 0 || imm.immDataSheet.length > 0
                             ? html`
                                 <tbody>
                                     ${imm.immDrawing.map((file) => tableTemplate(file, true, currentUser.role))}

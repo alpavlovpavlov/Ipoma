@@ -36,7 +36,7 @@ const itemDetailsTemplate = (item, isLoading, currentUser) => html`
                             </tr>
                         </thead>
 
-                        ${item.itemDrawing.length > 0
+                        ${item.itemDrawing.length > 0 || item.tds.length > 0
                             ? html`
                                 <tbody>
                                     ${item.itemDrawing.map((file) => tableTemplate(file, true, currentUser.role))}
