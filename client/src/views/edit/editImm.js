@@ -72,7 +72,7 @@ const editImmTemplate = (imm, isLoading) => html`
                                 ${imm.immDataSheet.length > 0
                                     ? html`
                                         <span class="file-name">${imm.datasheets}</span>
-                                        <img id="file-preview" src="../../../images/pdf-icon.png" style="display:none; margin-top:10px; max-width:20px" type="application/pdf" />
+                                        <img id="ds-preview" src="../../../images/pdf-icon.png" style="display:none; margin-top:10px; max-width:20px" type="application/pdf" />
                                         `
                                     : html`
                                         <span class="file-name">No file selected</span>
@@ -135,6 +135,7 @@ export async function editImmPage(ctx) {
         editForm();
         drawingGroup(imm);
         pdfPreview('file');
+        pdfPreview('ds');
         fileInput();
         handleImputAndSelect();
         inputSanitizer();
