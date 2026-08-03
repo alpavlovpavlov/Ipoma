@@ -37,7 +37,7 @@ const editMoldTemplate = (mold, isLoading) => html`
                         </div>
 
                         <div class="input-group select-group">
-                            <select id="hotRunnerMan" class="option-create" type="text" name="hotRunnerMan">
+                            <select id="hotRunnerMan" type="text" name="hotRunnerMan">
                                 <option value="" disabled selected>${mold.hotRunnerMan}</option>
                                 <option>n.a.</option>
                                 <option>Maenner</option>
