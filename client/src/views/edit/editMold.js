@@ -66,13 +66,13 @@ const editMoldTemplate = (mold, isLoading) => html`
 
                         ${mold.numberOfCav > 1
                             ? html`
-                                <div class="input-group" style="display:none;">
+                                <div class="input-group" style="display:block;">
                                     <input class="input-create" id="pitchDistance" type="text" placeholder="" name="pitchDistance" .value=${mold.pitchDistance} />
                                     <label>Pitch distance, mm</label>
                                 </div>
                             `
                             : html`
-                                <div class="input-group" style="display:block;">
+                                <div class="input-group" style="display:none;">
                                     <input class="input-create" id="pitchDistance" type="text" placeholder="" name="pitchDistance" .value=${mold.pitchDistance} />
                                     <label>Pitch distance, mm</label>
                                 </div>
