@@ -152,7 +152,7 @@ export async function editMoldPage(ctx) {
 async function onEdit(event) {
     const { data, form, formData } = onSubmit(event);
     const files = formData.getAll('moldDrawing');
-    const numberOfCav = data.numberOfCavities.split('+')[0];
+    const numberOfCav = Number(data.numberOfCavities.split('+')[0]);
 
     try {
         if (!data) throw "All fields are required!";
