@@ -142,7 +142,6 @@ async function onEdit(event) {
             data.producer == "" ||
             data.serialNumber == "" ||
             data.hotRunnerMan == "" ||
-            data.hotRunnerSer == "" ||
             data.numberOfCavities == "" ||
             data.dataUrl == "" ||
             data.wayOfInjection == ""
