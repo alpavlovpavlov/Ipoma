@@ -68,7 +68,7 @@ const editMoldTemplate = (mold, isLoading) => html`
                             <label>Number of cavities</label>
                         </div>
 
-                        ${Number(mold.numberOfCav.split('+')[0]) > 1
+                        ${Number(mold.numberOfCavities.split('+')[0]) > 1
                             ? html`
                                 <div class="input-group" style="display:block;">
                                     <input class="input-create" id="pitchDistance" type="text" placeholder="" name="pitchDistance" .value=${mold.pitchDistance} />
@@ -132,7 +132,7 @@ export async function editMoldPage(ctx) {
         ctx.render(editMoldTemplate({}, true));
 
         mold = await getById(moldId);
-        console.log(Number(mold.numberOfCav.split('+')[0]));
+        console.log(Number(mold.numberOfCavities.split('+')[0]));
         
 
         mold.drawings = mold.moldDrawing.map(d => d.split('/').pop().split('___')[1]).join(' / ');
