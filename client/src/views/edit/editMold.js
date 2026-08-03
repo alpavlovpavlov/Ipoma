@@ -175,6 +175,8 @@ async function onEdit(event) {
         }
 
         if (numberOfCav > 1 && data.pitchDistance == "") {
+            console.log(numberOfCav, data.pitchDistance);
+            
             throw "All fields are required";
         } else if (numberOfCav == 1) {
             data.pitchDistance = "";
