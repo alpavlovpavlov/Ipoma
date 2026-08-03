@@ -170,13 +170,13 @@ async function onEdit(event) {
 
         if (data.hotRunnerMan != "n.a." && data.hotRunnerSer == "") {
             throw "All fields are required";
-        } else {
+        } else if (data.hotRunnerMan == "n.a.") {
             data.hotRunnerSer = "";
         }
-        
+
         if (numberOfCav > 1 && data.pitchDistance == "") {
             throw "All fields are required";
-        } else {
+        } else if (numberOfCav == 1) {
             data.pitchDistance = "";
         }
 
