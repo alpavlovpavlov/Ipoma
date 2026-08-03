@@ -50,12 +50,17 @@ const editMoldTemplate = (mold, isLoading) => html`
 
                         ${mold.hotRunnerMan != 'n.a.'
                             ? html`
-                                <div class="input-group">
+                                <div class="input-group" style="display:block;">
                                     <input class="input-create" id="hotRunnerSer" type="text" placeholder="" name="hotRunnerSer" .value=${mold.hotRunnerSer} />
                                     <label>Hot-runner number</label>
                                 </div>
                             `
-                            : null
+                            : html`
+                                <div class="input-group" style="display:none;">
+                                    <input class="input-create" id="hotRunnerSer" type="text" placeholder="" name="hotRunnerSer" .value=${mold.hotRunnerSer} />
+                                    <label>Hot-runner number</label>
+                                </div>
+                            `
                         }
                         
 
@@ -133,7 +138,7 @@ export async function editMoldPage(ctx) {
         mold.drawings = mold.moldDrawing.map(d => d.split('/').pop().split('___')[1]).join(' / ');
         ctx.render(editMoldTemplate(mold, false));
 
-        // showHideHRSNInput();
+        showHideHRSNInput();
         showHidePitchInput();
         editForm();
         drawingGroup(mold);
