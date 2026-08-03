@@ -122,8 +122,8 @@ export async function editMoldPage(ctx) {
         mold.drawings = mold.moldDrawing.map(d => d.split('/').pop().split('___')[1]).join(' / ');
         ctx.render(editMoldTemplate(mold, false));
 
-        showHideHRSNInput();
-        showHidePitchInput();
+        // showHideHRSNInput();
+        // showHidePitchInput();
         editForm();
         drawingGroup(mold);
         fileInput();
