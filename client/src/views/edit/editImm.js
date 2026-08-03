@@ -46,7 +46,7 @@ const editImmTemplate = (imm, isLoading) => html`
                         </div>
 
                         <div class="input-group select-group">
-                            <select class="option-create" type="text" name="injectionUnit">
+                            <select type="text" name="injectionUnit">
                                 <option value="" disabled selected>${imm.injectionUnit}</option>
                                 <option>Single</option>
                                 <option>2K</option>
