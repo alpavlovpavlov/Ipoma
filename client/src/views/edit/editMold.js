@@ -84,7 +84,6 @@ const editMoldTemplate = (mold, isLoading) => html`
                             `
                         }
                         
-                       
                         <div class="input-group select-group">
                             <select type="text" name="wayOfInjection">
                                 <option value="" disabled selected>${mold.wayOfInjection}</option>
@@ -154,6 +153,7 @@ async function onEdit(event) {
     const { data, form, formData } = onSubmit(event);
     const files = formData.getAll('moldDrawing');
     const numberOfCav = data.numberOfCavities.split('+')[0];
+    const pitchDiv = document.getElementById('pitchDistance').parentElement;
 
     try {
         if (!data) throw "All fields are required!";
@@ -168,6 +168,10 @@ async function onEdit(event) {
             data.dataUrl == "" ||
             data.wayOfInjection == ""
         ) throw "All fields are required!";
+
+        if (pitchDiv.style.display == 'block') {
+            if (data.pitchDistance == "") throw "All fields are required";
+        }
 
         if (numberOfCav > 1 && data.pitchDistance == "") throw "All fields are required";
 
