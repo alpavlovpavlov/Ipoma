@@ -168,8 +168,17 @@ async function onEdit(event) {
             data.wayOfInjection == ""
         ) throw "All fields are required!";
 
-        if (data.hotRunnerMan != "n.a." && data.hotRunnerSer == "") throw "All fields are required";
-        if (numberOfCav > 1 && data.pitchDistance == "") throw "All fields are required";
+        if (data.hotRunnerMan != "n.a." && data.hotRunnerSer == "") {
+            throw "All fields are required";
+        } else {
+            data.hotRunnerSer = "";
+        }
+        
+        if (numberOfCav > 1 && data.pitchDistance == "") {
+            throw "All fields are required";
+        } else {
+            data.pitchDistance = "";
+        }
 
         if (files[0].name == '') {
             data.moldDrawing = mold.moldDrawing;
