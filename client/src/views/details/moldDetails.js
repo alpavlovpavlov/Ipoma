@@ -74,16 +74,16 @@ const moldDetalsTemplate = (mold, isLoading, currentUser) => html`
                         <p><strong>Year of manufactoring: </strong>${mold.date}</p>
                         <p><strong>Number of cavities: </strong>${mold.numberOfCavities}</p>
                         <p><strong>Manufacturer: </strong>${mold.producer}</p>
+                        <p><strong>Mold serial number: </strong>${mold.serialNumber}</p>
                         
                         ${mold.hotRunnerMan !== 'n.a.'
                             ? html`
-                                <p><strong>Serial number: </strong>${mold.serialNumber}</p>
                                 <p><strong>Hot-runner: </strong>${mold.hotRunnerMan}</p>
                                 <p><strong>Hot-runner serial number: </strong>${mold.hotRunnerSer}</p>`
                             : null
                         }
 
-                        ${mold.hotRunnerMan !== 'n.a.'
+                        <!-- ${mold.hotRunnerMan !== 'n.a.'
                             ? html`<p><strong>Hot-runner: </strong>${mold.hotRunnerMan}</p>`
                             : null
                         }
@@ -91,7 +91,7 @@ const moldDetalsTemplate = (mold, isLoading, currentUser) => html`
                         ${mold.hotRunnerMan !== 'n.a.'
                             ? html`<p><strong>Hot-runner serial number: </strong>${mold.hotRunnerSer}</p>`
                             : null
-                        }
+                        } -->
                         
                         ${mold.pitchDistance != ''
                             ? html`<p><strong>Pitch distance: </strong>${mold.pitchDistance}</p>`
