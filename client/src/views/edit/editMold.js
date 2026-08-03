@@ -154,6 +154,8 @@ async function onEdit(event) {
     const files = formData.getAll('moldDrawing');
     const numberOfCav = Number(data.numberOfCavities.split('+')[0]);
 
+    console.log(numberOfCav, data.pitchDistance);
+
     try {
         if (!data) throw "All fields are required!";
 
@@ -175,8 +177,6 @@ async function onEdit(event) {
         }
 
         if (numberOfCav > 1 && data.pitchDistance == "") {
-            console.log(numberOfCav, data.pitchDistance);
-            
             throw "All fields are required";
         } else if (numberOfCav == 1) {
             data.pitchDistance = "";
