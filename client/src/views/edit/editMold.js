@@ -154,8 +154,6 @@ async function onEdit(event) {
     const files = formData.getAll('moldDrawing');
     const numberOfCav = Number(data.numberOfCavities.split('+')[0]);
 
-    console.log(numberOfCav, data.pitchDistance);
-
     try {
         // if (!data) throw "All fields are required!";
 
@@ -168,14 +166,11 @@ async function onEdit(event) {
             data.numberOfCavities == "" ||
             data.dataUrl == "" ||
             data.wayOfInjection == ""
-        ) {
-            console.log('Or here');
-            
-            throw "All fields are required!"
-        };
+        ) throw "All fields are required!"
 
         if (data.hotRunnerMan != "n.a." && data.hotRunnerSer == "") {
             console.log('Got here');
+            console.log(data.hotRunnerMan, data.hotRunnerSer);
             
             throw "All fields are required";
         } else if (data.hotRunnerMan == "n.a.") {
@@ -183,8 +178,6 @@ async function onEdit(event) {
         }
 
         if (numberOfCav > 1 && data.pitchDistance == "") {
-            console.log('Or finally here');
-            
             throw "All fields are required";
         } else if (numberOfCav == 1) {
             data.pitchDistance = "";
