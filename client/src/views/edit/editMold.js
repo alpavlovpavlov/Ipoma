@@ -157,7 +157,7 @@ async function onEdit(event) {
     console.log(numberOfCav, data.pitchDistance);
 
     try {
-        if (!data) throw "All fields are required!";
+        // if (!data) throw "All fields are required!";
 
         if (
             data.name == "" ||
@@ -168,15 +168,23 @@ async function onEdit(event) {
             data.numberOfCavities == "" ||
             data.dataUrl == "" ||
             data.wayOfInjection == ""
-        ) throw "All fields are required!";
+        ) {
+            console.log('Or here');
+            
+            throw "All fields are required!"
+        };
 
         if (data.hotRunnerMan != "n.a." && data.hotRunnerSer == "") {
+            console.log('Got here');
+            
             throw "All fields are required";
         } else if (data.hotRunnerMan == "n.a.") {
             data.hotRunnerSer = "";
         }
 
         if (numberOfCav > 1 && data.pitchDistance == "") {
+            console.log('Or finally here');
+            
             throw "All fields are required";
         } else if (numberOfCav == 1) {
             data.pitchDistance = "";
