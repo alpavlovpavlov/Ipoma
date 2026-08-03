@@ -169,7 +169,7 @@ async function onEdit(event) {
 
         if (data.hotRunnerMan != "n.a." && data.hotRunnerSer == "") {
             console.log('Got here');
-            console.log(data.hotRunnerMan, data.hotRunnerSer);
+            console.log(data.hotRunnerMan, data.hotRunnerSer, data.wayOfInjection);
             
             throw "All fields are required";
         } else if (data.hotRunnerMan == "n.a.") {
