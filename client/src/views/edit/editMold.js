@@ -48,10 +48,16 @@ const editMoldTemplate = (mold, isLoading) => html`
                             <label>Hot-runner manufacturer</label>
                         </div>
 
-                        <div class="input-group">
-                            <input class="input-create" id="hotRunnerSer" type="text" placeholder="" name="hotRunnerSer" .value=${mold.hotRunnerSer} />
-                            <label>Hot-runner number</label>
-                        </div>
+                        ${mold.hotRunnerMan != 'n.a.'
+                            ? html`
+                                <div class="input-group">
+                                    <input class="input-create" id="hotRunnerSer" type="text" placeholder="" name="hotRunnerSer" .value=${mold.hotRunnerSer} />
+                                    <label>Hot-runner number</label>
+                                </div>
+                            `
+                            : null
+                        }
+                        
 
                         <div class="input-group">
                             <input class="input-create" id="numberOfCavities" type="text" placeholder="" name="numberOfCavities" .value=${mold.numberOfCavities} />
