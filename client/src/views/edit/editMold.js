@@ -64,10 +64,16 @@ const editMoldTemplate = (mold, isLoading) => html`
                             <label>Number of cavities</label>
                         </div>
 
-                        <div class="input-group">
-                            <input class="input-create" id="pitchDistance" type="text" placeholder="" name="pitchDistance" .value=${mold.pitchDistance} />
-                            <label>Pitch distance, mm</label>
-                        </div>
+                        ${mold.numberOfCav > 1
+                            ? html`
+                                <div class="input-group">
+                                    <input class="input-create" id="pitchDistance" type="text" placeholder="" name="pitchDistance" .value=${mold.pitchDistance} />
+                                    <label>Pitch distance, mm</label>
+                                </div>
+                            `
+                            : null
+                        }
+                        
                        
                         <div class="input-group select-group">
                             <select type="text" name="wayOfInjection">
