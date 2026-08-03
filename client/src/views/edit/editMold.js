@@ -66,12 +66,17 @@ const editMoldTemplate = (mold, isLoading) => html`
 
                         ${mold.numberOfCav > 1
                             ? html`
-                                <div class="input-group">
+                                <div class="input-group" style="display:none;">
                                     <input class="input-create" id="pitchDistance" type="text" placeholder="" name="pitchDistance" .value=${mold.pitchDistance} />
                                     <label>Pitch distance, mm</label>
                                 </div>
                             `
-                            : null
+                            : html`
+                                <div class="input-group" style="display:block;">
+                                    <input class="input-create" id="pitchDistance" type="text" placeholder="" name="pitchDistance" .value=${mold.pitchDistance} />
+                                    <label>Pitch distance, mm</label>
+                                </div>
+                            `
                         }
                         
                        
@@ -129,7 +134,7 @@ export async function editMoldPage(ctx) {
         ctx.render(editMoldTemplate(mold, false));
 
         // showHideHRSNInput();
-        // showHidePitchInput();
+        showHidePitchInput();
         editForm();
         drawingGroup(mold);
         fileInput();
