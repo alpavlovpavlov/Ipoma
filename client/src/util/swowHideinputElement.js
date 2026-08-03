@@ -3,7 +3,6 @@ export function showHidePitchInput() {
 
   document.getElementById('numberOfCavities').addEventListener("input", function() {
     const value = Number(this.value.split('+')[0]);
-    console.log(this.value, value);
     
     if (value > 1) {
       div.style.display = 'block';
@@ -17,8 +16,6 @@ export function showHideHRSNInput() {
   const div = document.getElementById('hotRunnerSer').parentElement;
   
   document.getElementById('hotRunnerMan').addEventListener("input", function() {
-    console.log(this.textContent);
-    
     if (this.value == 'n.a.') {
       div.style.display = 'none';
     } else {
