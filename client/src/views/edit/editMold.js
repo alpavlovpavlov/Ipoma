@@ -63,13 +63,12 @@ const editMoldTemplate = (mold, isLoading) => html`
                             `
                         }
                         
-
                         <div class="input-group">
                             <input class="input-create" id="numberOfCavities" type="text" placeholder="" name="numberOfCavities" .value=${mold.numberOfCavities} />
                             <label>Number of cavities</label>
                         </div>
 
-                        ${mold.numberOfCav > 1
+                        ${Number(mold.numberOfCav) > 1
                             ? html`
                                 <div class="input-group" style="display:block;">
                                     <input class="input-create" id="pitchDistance" type="text" placeholder="" name="pitchDistance" .value=${mold.pitchDistance} />
