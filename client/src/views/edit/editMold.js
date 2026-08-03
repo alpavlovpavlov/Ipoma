@@ -153,7 +153,6 @@ async function onEdit(event) {
     const { data, form, formData } = onSubmit(event);
     const files = formData.getAll('moldDrawing');
     const numberOfCav = data.numberOfCavities.split('+')[0];
-    const pitchDiv = document.getElementById('pitchDistance').parentElement;
 
     try {
         if (!data) throw "All fields are required!";
@@ -169,10 +168,7 @@ async function onEdit(event) {
             data.wayOfInjection == ""
         ) throw "All fields are required!";
 
-        if (pitchDiv.style.display == 'block') {
-            if (data.pitchDistance == "") throw "All fields are required";
-        }
-
+        if (data.hotRunnerMan != "n.a." && data.hotRunnerSer == "") throw "All fields are required";
         if (numberOfCav > 1 && data.pitchDistance == "") throw "All fields are required";
 
         if (files[0].name == '') {
