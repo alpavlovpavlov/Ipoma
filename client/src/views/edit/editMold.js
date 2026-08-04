@@ -48,7 +48,7 @@ const editMoldTemplate = (mold, isLoading) => html`
                             <label>Hot-runner manufacturer</label>
                         </div>
 
-                        ${mold.hotRunnerMan != 'n.a.'
+                        ${mold.hotRunnerMan != "n.a."
                             ? html`
                                 <div class="input-group" style="display:block;">
                                     <input class="input-create" id="hotRunnerSer" type="text" placeholder="" name="hotRunnerSer" .value=${mold.hotRunnerSer} />
@@ -168,7 +168,6 @@ async function onEdit(event) {
         ) throw "All fields are required!"
 
         if (data.hotRunnerMan != "n.a." && data.hotRunnerSer == "") {
-            console.log('Got here');
             console.log(data.hotRunnerMan, data.hotRunnerSer, data.wayOfInjection);
             
             throw "All fields are required";
