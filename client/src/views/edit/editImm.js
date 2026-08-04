@@ -147,43 +147,44 @@ async function onEdit(event) {
     const dataSheets = formData.getAll("immDataSheet");
     let uploadedFiles = {};
     console.log(data);
+    console.log(data.type, data.injectionUnit);
 
     try {
         if (data) {
-        if (
-            data.producer == "" ||
-            data.description == "" ||
-            data.label == "" ||
-            data.date == "" ||
-            data.immNumber == "" ||
-            data.force == "" ||
-            data.injectionUnit == '' ||
-            data.type == ""
-        ) {
-            throw "All fields are required!";
+            if (
+                data.producer == "" ||
+                data.description == "" ||
+                data.label == "" ||
+                data.date == "" ||
+                data.immNumber == "" ||
+                data.force == "" ||
+                data.injectionUnit == '' ||
+                data.type == ""
+            ) {
+                throw "All fields are required!";
+            }
+
+            if (dataSheets[0].name != '' || files[0].name != '') {
+                uploadedFiles = await saveDrawing(formData);
+            }
+
+            if (dataSheets[0].name == '') {
+                data.immDataSheet = imm.immDataSheet;
+            } else {
+                data.immDataSheet = uploadedFiles.immDataSheets;
+            }
+
+            if (files[0].name == '') {
+                data.immDrawing = imm.immDrawing;
+            } else { 
+                data.immDrawing = uploadedFiles.immDrawings;
+            }
+
+            const result = await editIMM(immId, data);
+
+            context.page.redirect(`/imm-details/${result._id}`);
         }
-
-        if (dataSheets[0].name != '' || files[0].name != '') {
-            uploadedFiles = await saveDrawing(formData);
-        }
-
-        if (dataSheets[0].name == '') {
-            data.immDataSheet = imm.immDataSheet;
-        } else {
-            data.immDataSheet = uploadedFiles.immDataSheets;
-        }
-
-        if (files[0].name == '') {
-            data.immDrawing = imm.immDrawing;
-        } else { 
-            data.immDrawing = uploadedFiles.immDrawings;
-        }
-
-        const result = await editIMM(immId, data);
-
-        context.page.redirect(`/imm-details/${result._id}`);
-    }
-    form.reset();
+        form.reset();
     } catch (error) {
         notifyNoEvent(error);
     }
