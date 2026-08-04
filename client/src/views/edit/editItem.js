@@ -28,22 +28,20 @@ const editItemTemplate = (item, isLoading) => html`
 
                         <div class="input-group select-group">
                             <select type="text" name="type">
-                                <option value="" disabled selected>${item.type}</option>
-                                <option>Container</option>
-                                <option>Lid</option>
-                                <option>Handle</option>
+                                <option value="Container" ${item.type === "Container" ? "selected" : ""}>Container</option>
+                                <option value="Lid" ${item.type === "Lid" ? "selected" : ""}>Lid</option>
+                                <option value="Handle" ${item.type === "Handle" ? "selected" : ""}>Handle</option>
                             </select>
                             <label>Type</label>
                         </div>
 
                         <div class="input-group select-group">
                             <select type="text" name="shape">
-                                <option value=${item.shape} selected>${item.shape}</option>
-                                <option>Round</option>
-                                <option>Square</option>
-                                <option>Rectangular</option>
-                                <option>Oval</option>
-                                <option>Ather</option>
+                                <option value="Round" ${item.shape === "Round" ? "selected" : ""}>Round</option>
+                                <option value="Square" ${item.shape === "Square" ? "selected" : ""}>Square</option>
+                                <option value="Rectangular" ${item.shape === "Rectangular" ? "selected" : ""}>Rectangular</option>
+                                <option value="Oval" ${item.shape === "Oval" ? "selected" : ""}>Oval</option>
+                                <option value="Other" ${item.shape === "Other" ? "selected" : ""}>Other</option>
                             </select>
                             <label>Shape</label>
                         </div>
@@ -163,7 +161,6 @@ async function onEdit(event) {
     const drawings = formData.getAll('itemDrawing');
     const tds = formData.get('tds');
     let uploadedFiles = {};
-    console.log(data);
 
     try {
         if(data) {
