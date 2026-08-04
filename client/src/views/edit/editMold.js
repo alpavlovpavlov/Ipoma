@@ -38,12 +38,17 @@ const editMoldTemplate = (mold, isLoading) => html`
 
                         <div class="input-group select-group">
                             <select id="hotRunnerMan" type="text" name="hotRunnerMan">
-                                <option value="" disabled selected>${mold.hotRunnerMan}</option>
+                                <!-- <option value="" disabled selected>${mold.hotRunnerMan}</option>
                                 <option>n.a.</option>
                                 <option>Maenner</option>
                                 <option>DME</option>
                                 <option>Mold Masters</option>
-                                <option>Husky</option>
+                                <option>Husky</option> -->
+                                <option value="n.a." ${mold.hotRunnerMan === "n.a." ? "selected" : ""}>n.a.</option>
+                                <option value="Maenner" ${mold.hotRunnerMan === "Maenner" ? "selected" : ""}>Maenner</option>
+                                <option value="DME" ${mold.hotRunnerMan === "DME" ? "selected" : ""}>DME</option>
+                                <option value="Mold Masters" ${mold.hotRunnerMan === "Mold Masters" ? "selected" : ""}>Mold Masters</option>
+                                <option value="Husky" ${mold.hotRunnerMan === "Husky" ? "selected" : ""}>Husky</option>
                             </select>
                             <label>Hot-runner manufacturer</label>
                         </div>
