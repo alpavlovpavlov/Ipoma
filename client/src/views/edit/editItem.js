@@ -38,7 +38,7 @@ const editItemTemplate = (item, isLoading) => html`
 
                         <div class="input-group select-group">
                             <select type="text" name="shape">
-                                <option value="" disabled selected>${item.shape}</option>
+                                <option value=${item.shape} selected>${item.shape}</option>
                                 <option>Round</option>
                                 <option>Square</option>
                                 <option>Rectangular</option>
@@ -163,6 +163,7 @@ async function onEdit(event) {
     const drawings = formData.getAll('itemDrawing');
     const tds = formData.get('tds');
     let uploadedFiles = {};
+    console.log(data);
 
     try {
         if(data) {
