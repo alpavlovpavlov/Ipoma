@@ -132,7 +132,7 @@ export async function editMoldPage(ctx) {
         ctx.render(editMoldTemplate({}, true));
 
         mold = await getById(moldId);
-
+        
         mold.drawings = mold.moldDrawing.map(d => d.split('/').pop().split('___')[1]).join(' / ');
         ctx.render(editMoldTemplate(mold, false));
 
@@ -152,6 +152,7 @@ async function onEdit(event) {
     const { data, form, formData } = onSubmit(event);
     const files = formData.getAll('moldDrawing');
     const numberOfCav = Number(data.numberOfCavities.split('+')[0]);
+    console.log(data);
 
     try {
         // if (!data) throw "All fields are required!";
