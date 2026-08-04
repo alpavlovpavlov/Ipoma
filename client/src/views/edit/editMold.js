@@ -150,7 +150,6 @@ async function onEdit(event) {
     const { data, form, formData } = onSubmit(event);
     const files = formData.getAll('moldDrawing');
     const numberOfCav = Number(data.numberOfCavities.split('+')[0]);
-    console.log(data);
 
     try {
         // if (!data) throw "All fields are required!";
@@ -167,8 +166,6 @@ async function onEdit(event) {
         ) throw "All fields are required!"
 
         if (data.hotRunnerMan != "n.a." && data.hotRunnerSer == "") {
-            console.log(data.hotRunnerMan, data.hotRunnerSer, data.wayOfInjection);
-            
             throw "All fields are required";
         } else if (data.hotRunnerMan == "n.a.") {
             data.hotRunnerSer = "";
