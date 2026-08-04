@@ -146,6 +146,7 @@ async function onEdit(event) {
     const files = formData.getAll("immDrawing");
     const dataSheets = formData.getAll("immDataSheet");
     let uploadedFiles = {};
+    console.log(data);
 
     try {
         if (data) {
