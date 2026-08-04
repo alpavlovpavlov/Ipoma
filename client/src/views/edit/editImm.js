@@ -47,16 +47,15 @@ const editImmTemplate = (imm, isLoading) => html`
 
                         <div class="input-group select-group">
                             <select type="text" name="injectionUnit">
-                                <option value="" disabled selected>${imm.injectionUnit}</option>
-                                <option>Single</option>
-                                <option>2K</option>
+                                <option value="Single" ${imm.injectionUnit === "Single" ? "selected" : ""}>Single</option>
+                                <option value="2K" ${imm.injectionUnit === "2K" ? "selected" : ""}>2K</option>
                             </select>
                             <label>Injection unit</label>
                         </div>
 
                         <div class="input-group select-group">
                             <select type="text" name="type">
-                                <option value="" disabled selected>${imm.type}</option>
+                                <option value=${imm.type} disabled selected>${imm.type}</option>
                                 <option>Hydraulic</option>
                                 <option>Hybrid</option>
                                 <option>Fully electric</option>
@@ -146,6 +145,7 @@ async function onEdit(event) {
     const files = formData.getAll("immDrawing");
     const dataSheets = formData.getAll("immDataSheet");
     let uploadedFiles = {};
+    console.log(data);
 
     try {
         if (data) {
