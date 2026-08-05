@@ -188,6 +188,7 @@ async function onEdit(event) {
             }
 
             if (data.type == "Container" && data.volume == "") throw "All fields in red are required!";
+            if (data.type !== "Container") data.volume = "";
 
             if (image && image.size > 0 || tds && tds.size > 0 || drawings[0].name != '') {
                 uploadedFiles = await sendDrawing(formData);
