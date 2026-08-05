@@ -38,11 +38,11 @@ const editMoldTemplate = (mold, isLoading) => html`
 
                         <div class="input-group select-group">
                             <select id="hotRunnerMan" type="text" name="hotRunnerMan">
-                                <option value="n.a." ?select=${mold.hotRunnerMan === "n.a."}>n.a.</option>
-                                <option value="Maenner" ?select=${mold.hotRunnerMan === "Maenner"}>Maenner</option>
-                                <option value="DME" ?select=${mold.hotRunnerMan === "DME"}>DME</option>
-                                <option value="Mold Masters" ?select=${mold.hotRunnerMan === "Mold Masters"}>Mold Masters</option>
-                                <option value="Husky" ?select=${mold.hotRunnerMan === "Husky"}>Husky</option>
+                                <option value="n.a." ?selected=${mold.hotRunnerMan === "n.a."}>n.a.</option>
+                                <option value="Maenner" ?selected=${mold.hotRunnerMan === "Maenner"}>Maenner</option>
+                                <option value="DME" ?selected=${mold.hotRunnerMan === "DME"}>DME</option>
+                                <option value="Mold Masters" ?selected=${mold.hotRunnerMan === "Mold Masters"}>Mold Masters</option>
+                                <option value="Husky" ?selected=${mold.hotRunnerMan === "Husky"}>Husky</option>
                             </select>
                             <label>Hot-runner manufacturer</label>
                         </div>
@@ -84,8 +84,8 @@ const editMoldTemplate = (mold, isLoading) => html`
                         
                         <div class="input-group select-group">
                             <select type="text" name="wayOfInjection">
-                                <option value="inside" ?select=${mold.wayOfInjection === "inside"}>inside</option>
-                                <option value="outside" ?select=${mold.wayOfInjection === "outside"}>outside</option>
+                                <option value="inside" ?selected=${mold.wayOfInjection === "inside"}>inside</option>
+                                <option value="outside" ?selected=${mold.wayOfInjection === "outside"}>outside</option>
                             </select>
                             <label>Way of injection</label>
                         </div>
