@@ -46,10 +46,16 @@ const editItemTemplate = (item, isLoading) => html`
                             <label>Shape</label>
                         </div>
 
-                        <div class="input-group">
-                            <input class="input-create num" id="volume" type="number" step="0.1" placeholder="" name="volume" .value="${item.volume}" >
-                            <label>Volume, ml</label>
-                        </div>
+                        ${item.type === "Container"
+                            ? html`
+                                <div class="input-group">
+                                    <input class="input-create num" id="volume" type="number" step="0.1" placeholder="" name="volume" .value="${item.volume}" >
+                                    <label>Volume, ml</label>
+                                </div>
+                            `
+                            : null
+                        }
+                        
 
                         <div class="input-group">
                             <input class="input-create num" id="weight" type="number" step="0.1" placeholder="" name="weight" .value="${item.weight}" >
@@ -166,13 +172,15 @@ async function onEdit(event) {
         if(data) {
             if (
                 data.name == "" ||
+                data.type == "" ||
                 data.shape == "" ||
                 data.cavityNumbers == "" ||
-                data.volume == "" ||
                 data.weight == ""
             ) {
                 throw "All fields in red are required!";
             }
+
+            if (data.type == "Container" && data.volume == "") throw "All fields in red are required!";
 
             if (image && image.size > 0 || tds && tds.size > 0 || drawings[0].name != '') {
                 uploadedFiles = await sendDrawing(formData);

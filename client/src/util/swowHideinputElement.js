@@ -28,10 +28,10 @@ export function showHideVolumeElement() {
   const div = document.getElementById('volume').parentElement;
   
   document.getElementById('item-type').addEventListener("input", function() {
-    if (this.value == 'Lid' || this.value == 'Handle') {
-      div.style.display = 'none';
-    } else {
+    if (this.value === 'Container') {
       div.style.display = 'block';
+    } else {
+      div.style.display = 'none';
     }
   })
 }
