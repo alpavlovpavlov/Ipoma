@@ -122,6 +122,8 @@ export async function editImmPage(ctx) {
         ctx.render(editImmTemplate({}, true));
 
         imm = await getById(immId);
+        const ttt = imm.type === 'Hybrid' ? 'Hybrid' : "not Hybrid"
+        console.log(ttt);
 
         imm.datasheets = imm.immDataSheet.map(d => d.split('/').pop().split('___')[1]).join(' / ');
         imm.drawings = imm.immDrawing.map(d => d.split('/').pop().split('___')[1]).join(' / ');
