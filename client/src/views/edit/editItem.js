@@ -37,11 +37,11 @@ const editItemTemplate = (item, isLoading) => html`
 
                         <div class="input-group select-group">
                             <select type="text" name="shape">
-                                <option value="Round" ?selected=${item.shape === "Round"}>Round</option>
-                                <option value="Square" ?selected=${item.shape === "Square"}>Square</option>
-                                <option value="Rectangular" ?selected=${item.shape === "Rectangular"}>Rectangular</option>
-                                <option value="Oval" ?selected=${item.shape === "Oval"}>Oval</option>
-                                <option value="Other" ?selected=${item.shape === "Other"}>Other</option>
+                                <option value="Round" ?select=${item.shape === "Round"}>Round</option>
+                                <option value="Square" ?select=${item.shape === "Square"}>Square</option>
+                                <option value="Rectangular" ?select=${item.shape === "Rectangular"}>Rectangular</option>
+                                <option value="Oval" ?select=${item.shape === "Oval"}>Oval</option>
+                                <option value="Other" ?select=${item.shape === "Other"}>Other</option>
                             </select>
                             <label>Shape</label>
                         </div>
