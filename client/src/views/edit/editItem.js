@@ -4,6 +4,7 @@ import { host } from '../../data/api.js';
 import { editItem, getItem, sendDrawing } from '../../data/item.js';
 import { onSubmit } from '../../middlewears/submit.js';
 import { titleChange } from '../../util/title.js';
+import { showHideVolumeElement } from '../../util/swowHideinputElement.js';
 import { handleImputAndSelect, fileInput, pdfPreview, inputValidation, inputSanitizer, editForm, imagePreview } from "../../util/changeElementState.js";
 import { drawingGroup } from '../../util/drawingGroupActivation.js';
 import { notifyNoEvent } from '../notify.js';
@@ -152,6 +153,7 @@ export async function editItemPage(ctx) {
 
         ctx.render(editItemTemplate(item, false));
 
+        showHideVolumeElement();
         editForm();
         drawingGroup(item);
         imagePreview();
