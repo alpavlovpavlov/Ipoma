@@ -29,8 +29,8 @@ const editItemTemplate = (item, isLoading) => html`
                         <div class="input-group select-group">
                             <select type="text" name="type">
                                 <option value="Container" ?select=${item.type === "Container"}>Container</option>
-                                <option value="Lid" ?selected=${item.type === "Lid"}>Lid</option>
-                                <option value="Handle" ?selected=${item.type === "Handle"}>Handle</option>
+                                <option value="Lid" ?select=${item.type === "Lid"}>Lid</option>
+                                <option value="Handle" ?select=${item.type === "Handle"}>Handle</option>
                             </select>
                             <label>Type</label>
                         </div>
