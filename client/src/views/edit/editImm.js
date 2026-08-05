@@ -55,9 +55,9 @@ const editImmTemplate = (imm, isLoading) => html`
 
                         <div class="input-group select-group">
                             <select type="text" name="type">
-                                <option value="Hydraulic" ${imm.type === "Hydraulic" ? "selected" : ""}>Hydraulic</option>
-                                <option value="Hybrid" ${imm.type === "Hybrid" ? "selected" : ""}>Hybrid</option>
-                                <option value="Fully electric" ${imm.type === "Fully electric" ? "selected" : ""}>Fully electric</option>
+                                <option value="Hydraulic" ?selected=${imm.type === "Hydraulic"}>Hydraulic</option>
+                                <option value="Hybrid" ?selected=${imm.type === "Hybrid"}>Hybrid</option>
+                                <option value="Fully electric" ?selected=${imm.type === "Fully electric"}>Fully electric</option>
                             </select>
                             <label>Type</label>
                         </div>
@@ -122,8 +122,6 @@ export async function editImmPage(ctx) {
         ctx.render(editImmTemplate({}, true));
 
         imm = await getById(immId);
-        const ttt = imm.type === 'Hybrid' ? 'Hybrid' : "not Hybrid"
-        console.log(ttt);
 
         imm.datasheets = imm.immDataSheet.map(d => d.split('/').pop().split('___')[1]).join(' / ');
         imm.drawings = imm.immDrawing.map(d => d.split('/').pop().split('___')[1]).join(' / ');
