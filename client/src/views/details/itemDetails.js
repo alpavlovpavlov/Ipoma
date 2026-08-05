@@ -52,7 +52,12 @@ const itemDetailsTemplate = (item, isLoading, currentUser) => html`
                         <p><strong>Type</strong> ${item.type}</p>
                         <p><strong>Shape</strong> ${item.shape}</p>
                         <p><strong>Cavity numbers</strong> ${item.cavityNumbers}</p>
-                        <p><strong>Volume</strong> ${item.volume} ml</p>
+                        
+                        ${item.type == 'lid' || item.type == 'handle'
+                            ? null
+                            : html`<p><strong>Volume</strong> ${item.volume} ml</p>`
+                        }
+                        
                         <p><strong>Weight</strong> ${item.weight} gr</p>
 
                         <div class="buttons-row">
