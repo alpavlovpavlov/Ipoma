@@ -52,8 +52,8 @@ const itemDetailsTemplate = (item, isLoading, currentUser) => html`
                         <p><strong>Type</strong> ${item.type}</p>
                         <p><strong>Shape</strong> ${item.shape}</p>
                         <p><strong>Cavity numbers</strong> ${item.cavityNumbers}</p>
-                        
-                        ${item.type == 'lid' || item.type == 'handle'
+
+                        ${item.type == 'Lid' || item.type == 'Handle'
                             ? null
                             : html`<p><strong>Volume</strong> ${item.volume} ml</p>`
                         }
