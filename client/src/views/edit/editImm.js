@@ -47,17 +47,17 @@ const editImmTemplate = (imm, isLoading) => html`
 
                         <div class="input-group select-group">
                             <select type="text" name="injectionUnit">
-                                <option value="Single" ?select=${imm.injectionUnit === "Single"}>Single</option>
-                                <option value="2K" ?select=${imm.injectionUnit === "2K"}>2K</option>
+                                <option value="Single" ?selected=${imm.injectionUnit === "Single"}>Single</option>
+                                <option value="2K" ?selected=${imm.injectionUnit === "2K"}>2K</option>
                             </select>
                             <label>Injection unit</label>
                         </div>
 
                         <div class="input-group select-group">
                             <select type="text" name="type">
-                                <option value="Hydraulic" ?select=${imm.type === "Hydraulic"}>Hydraulic</option>
-                                <option value="Hybrid" ?select=${imm.type === "Hybrid"}>Hybrid</option>
-                                <option value="Fully electric" ?select=${imm.type === "Fully electric"}>Fully electric</option>
+                                <option value="Hydraulic" ?selected=${imm.type === "Hydraulic"}>Hydraulic</option>
+                                <option value="Hybrid" ?selected=${imm.type === "Hybrid"}>Hybrid</option>
+                                <option value="Fully electric" ?selected=${imm.type === "Fully electric"}>Fully electric</option>
                             </select>
                             <label>Type</label>
                         </div>
