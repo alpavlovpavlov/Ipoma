@@ -19,7 +19,7 @@ const immDetailsTemplate = (imm, isLoading, items, currentUser) => html`
                     <table class="files-table">
                         <thead>
                             <tr>
-                                ${imm.immDrawing.length == 0 || imm.immDataSheet.length == 0
+                                ${imm.immDrawing.length == 0 && imm.immDataSheet.length == 0
                                     ? html`
                                         <th>File Name</th>
                                     `
