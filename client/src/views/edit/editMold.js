@@ -3,7 +3,7 @@ import { html } from 'https://unpkg.com/lit?module';
 import { editMold, getById, sendDrawing } from '../../data/mold.js';
 import { onSubmit } from '../../middlewears/submit.js';
 import { titleChange } from '../../util/title.js';
-import { showHideHRSNInput, showHidePitchInput } from "../../util/swowHideinputElement.js";
+import { showHideHRSNInput, showHidePitchInput, showHideVolumeElement } from "../../util/swowHideinputElement.js";
 import { handleImputAndSelect, fileInput, inputValidation, inputSanitizer, editForm } from "../../util/changeElementState.js";
 import { drawingGroup } from '../../util/drawingGroupActivation.js';
 import { notifyNoEvent } from '../notify.js';
@@ -136,6 +136,7 @@ export async function editMoldPage(ctx) {
 
         showHideHRSNInput();
         showHidePitchInput();
+        showHideVolumeElement();
         editForm();
         drawingGroup(mold);
         fileInput();

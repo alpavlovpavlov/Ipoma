@@ -48,12 +48,17 @@ const editItemTemplate = (item, isLoading) => html`
 
                         ${item.type === "Container"
                             ? html`
-                                <div class="input-group">
+                                <div class="input-group" style="display:block;">
                                     <input class="input-create num" id="volume" type="number" step="0.1" placeholder="" name="volume" .value="${item.volume}" >
                                     <label>Volume, ml</label>
                                 </div>
                             `
-                            : null
+                            : html`
+                                <div class="input-group" style="display:none;">
+                                    <input class="input-create num" id="volume" type="number" step="0.1" placeholder="" name="volume" .value="${item.volume}" >
+                                    <label>Volume, ml</label>
+                                </div>
+                            `
                         }
                         
 
