@@ -53,9 +53,9 @@ const itemDetailsTemplate = (item, isLoading, currentUser) => html`
                         <p><strong>Shape</strong> ${item.shape}</p>
                         <p><strong>Cavity numbers</strong> ${item.cavityNumbers}</p>
 
-                        ${item.type == 'Lid' || item.type == 'Handle'
-                            ? null
-                            : html`<p><strong>Volume</strong> ${item.volume} ml</p>`
+                        ${item.type == "Container"
+                            ? html`<p><strong>Volume</strong> ${item.volume} ml</p>`
+                            : null
                         }
                         
                         <p><strong>Weight</strong> ${item.weight} gr</p>
