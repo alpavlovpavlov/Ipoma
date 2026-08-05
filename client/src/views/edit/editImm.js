@@ -47,8 +47,8 @@ const editImmTemplate = (imm, isLoading) => html`
 
                         <div class="input-group select-group">
                             <select type="text" name="injectionUnit">
-                                <option value="Single" ${imm.injectionUnit === "Single" ? "selected" : ""}>Single</option>
-                                <option value="2K" ${imm.injectionUnit === "2K" ? "selected" : ""}>2K</option>
+                                <option value="Single" ?selected=${imm.injectionUnit === "Single"}>Single</option>
+                                <option value="2K" ?selected=${imm.injectionUnit === "2K"}>2K</option>
                             </select>
                             <label>Injection unit</label>
                         </div>
