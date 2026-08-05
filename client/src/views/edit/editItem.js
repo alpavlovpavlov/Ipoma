@@ -28,20 +28,20 @@ const editItemTemplate = (item, isLoading) => html`
 
                         <div class="input-group select-group">
                             <select type="text" name="type">
-                                <option value="Container" ?select=${item.type === "Container"}>Container</option>
-                                <option value="Lid" ?select=${item.type === "Lid"}>Lid</option>
-                                <option value="Handle" ?select=${item.type === "Handle"}>Handle</option>
+                                <option value="Container" ?selected=${item.type === "Container"}>Container</option>
+                                <option value="Lid" ?selected=${item.type === "Lid"}>Lid</option>
+                                <option value="Handle" ?selected=${item.type === "Handle"}>Handle</option>
                             </select>
                             <label>Type</label>
                         </div>
 
                         <div class="input-group select-group">
                             <select type="text" name="shape">
-                                <option value="Round" ?select=${item.shape === "Round"}>Round</option>
-                                <option value="Square" ?select=${item.shape === "Square"}>Square</option>
-                                <option value="Rectangular" ?select=${item.shape === "Rectangular"}>Rectangular</option>
-                                <option value="Oval" ?select=${item.shape === "Oval"}>Oval</option>
-                                <option value="Other" ?select=${item.shape === "Other"}>Other</option>
+                                <option value="Round" ?selected=${item.shape === "Round"}>Round</option>
+                                <option value="Square" ?selected=${item.shape === "Square"}>Square</option>
+                                <option value="Rectangular" ?selected=${item.shape === "Rectangular"}>Rectangular</option>
+                                <option value="Oval" ?selected=${item.shape === "Oval"}>Oval</option>
+                                <option value="Other" ?selected=${item.shape === "Other"}>Other</option>
                             </select>
                             <label>Shape</label>
                         </div>
