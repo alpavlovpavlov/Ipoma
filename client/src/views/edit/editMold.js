@@ -85,7 +85,7 @@ const editMoldTemplate = (mold, isLoading) => html`
                         <div class="input-group select-group">
                             <select type="text" name="wayOfInjection">
                                 <option value="inside" ?selected=${mold.wayOfInjection === "inside"}>inside</option>
-                                <option value="outside" ?selectd=${mold.wayOfInjection === "outside"}>outside</option>
+                                <option value="outside" ?selected=${mold.wayOfInjection === "outside"}>outside</option>
                             </select>
                             <label>Way of injection</label>
                         </div>
