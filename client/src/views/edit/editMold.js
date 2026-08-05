@@ -41,8 +41,8 @@ const editMoldTemplate = (mold, isLoading) => html`
                                 <option value="n.a." ?selected=${mold.hotRunnerMan === "n.a."}>n.a.</option>
                                 <option value="Maenner" ?selected=${mold.hotRunnerMan === "Maenner"}>Maenner</option>
                                 <option value="DME" ?selected=${mold.hotRunnerMan === "DME"}>DME</option>
-                                <option value="Mold Masters" ?selected${mold.hotRunnerMan === "Mold Masters"}>Mold Masters</option>
-                                <option value="Husky" ?selected${mold.hotRunnerMan === "Husky"}>Husky</option>
+                                <option value="Mold Masters" ?selected=${mold.hotRunnerMan === "Mold Masters"}>Mold Masters</option>
+                                <option value="Husky" ?selected=${mold.hotRunnerMan === "Husky"}>Husky</option>
                             </select>
                             <label>Hot-runner manufacturer</label>
                         </div>
