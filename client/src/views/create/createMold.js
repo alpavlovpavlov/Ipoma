@@ -26,7 +26,7 @@ const moldTemplate = (item) => html`
 
         <div class="input-group">
           <input class="input-create" type="text" placeholder="" name="producer" />
-          <label>Mold manufacturer</label>
+          <label>Moldmaker</label>
         </div>
 
         <div class="input-group">
