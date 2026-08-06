@@ -28,7 +28,7 @@ const editMoldTemplate = (mold, isLoading) => html`
 
                         <div class="input-group">
                             <input class="input-create" id="producer" type="text" placeholder="" name="producer" .value=${mold.producer} />
-                            <label>Mold producer</label>
+                            <label>Moldmaker</label>
                         </div>
 
                         <div class="input-group">

@@ -73,7 +73,7 @@ const moldDetalsTemplate = (mold, isLoading, currentUser) => html`
                         <h2>Details</h2>
                         <p><strong>Year of manufactoring: </strong>${mold.date}</p>
                         <p><strong>Number of cavities: </strong>${mold.numberOfCavities}</p>
-                        <p><strong>Manufacturer: </strong>${mold.producer}</p>
+                        <p><strong>Moldmaker: </strong>${mold.producer}</p>
                         <p><strong>Mold serial number: </strong>${mold.serialNumber}</p>
                         
                         ${mold.hotRunnerMan !== 'n.a.'
