@@ -167,11 +167,11 @@ export function inputSanitizer() {
       }
 
       if (input.classList.contains('cav-num')) {
-        input.value = input.value.replace(/[^1-9-]/g, '');
+        input.value = input.value.replace(/[^\d+\-]/g, '');
       }
 
       if (input.classList.contains('mold-cav')) {
-        input.value = input.value.replace(/[^\d+\-]/g, '');
+        input.value = input.value.replace(/[^1-9+]/g, '');
       }
     })
   })
