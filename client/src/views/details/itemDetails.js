@@ -49,16 +49,16 @@ const itemDetailsTemplate = (item, isLoading, currentUser) => html`
                     
                     <div class="meme-description-mold">
                         <h2>Details</h2>
-                        <p><strong>Type</strong> ${item.type}</p>
-                        <p><strong>Shape</strong> ${item.shape}</p>
-                        <p><strong>Cavity numbers</strong> ${item.cavityNumbers}</p>
+                        <p><strong>Type:</strong> ${item.type}</p>
+                        <p><strong>Shape:</strong> ${item.shape}</p>
+                        <p><strong>Cavity numbers:</strong> ${item.cavityNumbers}</p>
 
                         ${item.type === "Container"
-                            ? html`<p><strong>Volume</strong> ${item.volume} ml</p>`
+                            ? html`<p><strong>Volume:</strong> ${item.volume} ml</p>`
                             : null
                         }
                         
-                        <p><strong>Weight</strong> ${item.weight} gr</p>
+                        <p><strong>Weight:</strong> ${item.weight} gr</p>
 
                         <div class="buttons-row">
                             ${currentUser.role == 'ipoma-user' || currentUser.role == 'admin'
