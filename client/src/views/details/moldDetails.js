@@ -82,16 +82,6 @@ const moldDetalsTemplate = (mold, isLoading, currentUser) => html`
                                 <p><strong>Hot-runner serial number: </strong>${mold.hotRunnerSer}</p>`
                             : null
                         }
-
-                        <!-- ${mold.hotRunnerMan !== 'n.a.'
-                            ? html`<p><strong>Hot-runner: </strong>${mold.hotRunnerMan}</p>`
-                            : null
-                        }
-                   
-                        ${mold.hotRunnerMan !== 'n.a.'
-                            ? html`<p><strong>Hot-runner serial number: </strong>${mold.hotRunnerSer}</p>`
-                            : null
-                        } -->
                         
                         ${mold.pitchDistance != ''
                             ? html`<p><strong>Pitch distance: </strong>${mold.pitchDistance}</p>`
