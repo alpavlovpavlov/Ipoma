@@ -171,7 +171,7 @@ export function inputSanitizer() {
       }
 
       if (input.classList.contains('mold-cav')) {
-        input.value = input.value.replace(/[^\d+-]/g, '');
+        input.value = input.value.replace(/[^\d+\-]/g, '');
       }
     })
   })
