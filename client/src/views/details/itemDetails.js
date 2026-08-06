@@ -19,7 +19,7 @@ const itemDetailsTemplate = (item, isLoading, currentUser) => html`
                     <table class="files-table">
                         <thead>
                             <tr>
-                                ${item.itemDrawing.length == 0
+                                ${item.itemDrawing.length == 0 && item.tds == 0
                                     ? html`
                                         <th>File Name</th>
                                     `
