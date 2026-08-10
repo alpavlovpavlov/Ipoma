@@ -91,12 +91,12 @@ router.delete("/molds/:itemId", hasUser(), isItemOwner(), async (req, res) => {
   }
 })
 
-// Search mold by item name, type or shape
+// Search mold by item name, hot-runner maker or hot-runner serial number
 router.post('/search', async (req, res) => {
-  const { name, hotRunnerMan } = req.body;
+  const { name, hotRunnerMan, hotRunnerSer } = req.body;
 
   try {
-    const result = await moldService.search(name, hotRunnerMan);
+    const result = await moldService.search(name, hotRunnerMan, hotRunnerSer);
   
     res.json(result);
   } catch (error) {
