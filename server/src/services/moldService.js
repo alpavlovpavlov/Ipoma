@@ -50,21 +50,25 @@ function edit(id, data) {
     return Mold.findByIdAndUpdate(id, data, { runValidators: true });
 }
 
-function search(name = '', hotRunnerMan = '', hotRunnerSer = '') {
+function search(name = '', serialNumber = '', hotRunnerSer = '', hotRunnerMan = '') {
     const query = {};
 
     if (name) {
         query.name = new RegExp(name, 'i');
     }
 
-    if (hotRunnerMan) {
-        query.hotRunnerMan = new RegExp(hotRunnerMan, 'i');
+    if (serialNumber) {
+        query.serialNumber = new RegExp(serialNumber, 'i');
     }
 
     if (hotRunnerSer) {
         query.hotRunnerSer = new RegExp(hotRunnerSer, 'i');
     }
-    
+
+    if (hotRunnerMan) {
+        query.hotRunnerMan = new RegExp(hotRunnerMan, 'i');
+    }
+
     return Mold.find(query);
 }
 

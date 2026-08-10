@@ -47,7 +47,7 @@ function searchImm(producer = '', label = '', force = '', injectionUnit = '', ty
         query.force = Number(force);
     }
 
-     if (injectionUnit) {
+    if (injectionUnit) {
         query.injectionUnit = new RegExp(injectionUnit, 'i');
     }
 
