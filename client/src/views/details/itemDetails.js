@@ -66,6 +66,7 @@ const itemDetailsTemplate = (item, isLoading, currentUser) => html`
                                 : html`<a class="button" href="/${item.type.toLowerCase()}s-catalog/${item.shape}">< Back</a>`
                             }
                             <a class="button" href="/item-options/${item._id}">Options</a>
+                            <button class="button">Related items</button>
                             ${currentUser.isCreator || currentUser.role == 'admin'
                                 ? html`
                                     <a class="button warning" href="/edit-item/${item._id}">Edit</a>
