@@ -5,7 +5,7 @@ function getAll() {
 }
 
 function getAllSorted(filter, sort, skip, limit) {
-    return Item.find(filter).sort(sort).skip(skip).limit(limit);
+    return Item.find(filter).sort({ ...sort, _id: 1 }).skip(skip).limit(limit);
 }
 
 function countDocuments(filter) {
