@@ -15,12 +15,14 @@ const searchTemplate = (results, isLoading) => html`
             <input id="item" type="text" class="input-create name" name="name" placeholder="Search by Item name...">
 
             <select type="text" name="hotRunnerMan">
-                <option value="" disabled selected>Search by Hot-Runner</option>
+                <option value="" disabled selected>Search by Hot-Runner Maker</option>
                 <option>DME</option>
                 <option>Maenner</option>
                 <option>Mold Masters</option>
                 <option>Husky</option>
             </select>
+
+            <input id="hr-ser" type="text" class="input-create name" name="hotRunnerSer" placeholder="Search by hot-runner serial number...">
             
             <button type="submit" class="searchbtn">Search</button>
         </form>
