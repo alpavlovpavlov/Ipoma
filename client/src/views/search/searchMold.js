@@ -13,7 +13,9 @@ const searchTemplate = (results, isLoading) => html`
 
         <form class="form-group" action="/search" method="post" @submit=${onSearch}>
             <input id="item" type="text" class="input-create name" name="name" placeholder="Search by Item name...">
-
+            <input id="moldnr" type="text" class="input-create name" name="serialNumber" placeholder="Search by mold number...">
+            <input id="hr-ser" type="text" class="input-create name" name="hotRunnerSer" placeholder="Search by hot-runner number...">
+            
             <select type="text" name="hotRunnerMan">
                 <option value="" disabled selected>Search by Hot-Runner Maker</option>
                 <option>DME</option>
@@ -21,8 +23,6 @@ const searchTemplate = (results, isLoading) => html`
                 <option>Mold Masters</option>
                 <option>Husky</option>
             </select>
-
-            <input id="hr-ser" type="text" class="input-create name" name="hotRunnerSer" placeholder="Search by hot-runner serial number...">
             
             <button type="submit" class="searchbtn">Search</button>
         </form>
