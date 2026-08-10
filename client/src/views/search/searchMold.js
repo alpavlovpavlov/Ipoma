@@ -76,8 +76,8 @@ export function searchMoldPage(ctx) {
 
 async function onSearch(event) {
     const { data, form } = onSubmit(event);
-    const user = getUser();
-    let extention = null;
+    // const user = getUser();
+    // let extention = null;
     
     try {
         context.render(searchTemplate('', true));
