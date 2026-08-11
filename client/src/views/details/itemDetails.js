@@ -1,7 +1,7 @@
 import { html } from 'https://unpkg.com/lit?module';
 
 import { host } from '../../data/api.js';
-import { getItem } from '../../data/item.js';
+import { getItem, searchItem } from '../../data/item.js';
 import { getUser } from '../../util/util.js';
 import { titleChange } from '../../util/title.js';
 import { notify, notifyNoEvent } from '../notify.js';
@@ -76,7 +76,7 @@ const itemDetailsTemplate = (item, isLoading, currentUser) => html`
                         </div>
                     </div>
 
-                    <div class="wrap-table" id="item-right-table" style="display: none;">
+                    <!-- <div class="wrap-table" id="item-right-table" style="display: none;">
                         ${items.length > 0
                             ? html`
                                 <table class="right-table">
@@ -102,7 +102,7 @@ const itemDetailsTemplate = (item, isLoading, currentUser) => html`
                             `
                             : html`<h3 class="heading3">No items registered on this machine</h3>`
                         }
-                    </div>
+                    </div> -->
 
                 </div>
                 <div class="meme-img">
@@ -175,17 +175,24 @@ function view(file) {
     window.open(`${file}`, "_blank");
 }
 
-async function showRelatedItems() {
-    const button = document.getElementById('related-toggle');
-    const div = document.getElementById('item-right-table');
+// function showRelatedItems() {
+//     const button = document.getElementById('related-toggle');
+//     const div = document.getElementById('item-right-table');
     
-    if(div.style.display == 'none') {
-        div.style.display = 'table';
-        button.textContent = 'Hide related items';
-    } else {
-        div.style.display = 'none';
-        button.textContent = 'Show related items';
-    }
+//     if(div.style.display == 'none') {
+//         div.style.display = 'table';
+//         button.textContent = 'Hide related items';
+//         // call new function here
+//     } else {
+//         div.style.display = 'none';
+//         button.textContent = 'Show related items';
+//     }
+// }
+
+async function matchItems() {
+    const core = item.name.split(' ')[1];
+
+    const result = await searchItem({ core });
 }
 
 async function onDelete() {
