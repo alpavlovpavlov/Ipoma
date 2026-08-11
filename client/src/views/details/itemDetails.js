@@ -159,20 +159,10 @@ async function matchItems() {
     try {
         const searchResult = await searchItem(payload);
 
-        // searchResult.forEach(element => {
-        //     if (element.name.split(' ')[1] == core) {
-        //         if (element.type != item.type) arr.push(element);
-        //     }
-        // });
-
-        // return result;
-
-        const result = searchResult.filter(element => {
+        return searchResult.filter(element => {
             const [, secondWord] = element.name.split(' ');
             return secondWord === core && element.type !== item.type;
         });
-
-        console.log(result);
     } catch (error) {
         notifyNoEvent(error);
     }
