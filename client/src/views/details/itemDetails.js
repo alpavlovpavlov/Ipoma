@@ -88,7 +88,7 @@ const itemDetailsTemplate = (item, isLoading, currentUser) => html`
                                     </thead>
 
                                     <tbody>
-                                        ${items.map(item => html`
+                                        ${map(item => html`
                                             <tr>
                                                 <td>
                                                     <img src="${item.image}" width="24">
