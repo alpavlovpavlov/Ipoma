@@ -159,8 +159,7 @@ export async function itemDetailsPage(ctx) {
 
         item = await getItem(itemId);
 
-        const relatedItems = matchItems();
-        // console.log(relatedItems);
+        const relatedItems = await matchItems();
         console.log(relatedItems);
 
         const currentUser = roleAssignment(user, item);
