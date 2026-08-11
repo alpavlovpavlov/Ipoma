@@ -198,12 +198,10 @@ async function matchItems() {
     try {
         const searchResult = await searchItem(payload);
 
-        const result = searchResult.filter(element => {
+        return searchResult.filter(element => {
             const [, secondWord] = element.name.split(' ');
             return secondWord === core && element.type !== item.type;
         });
-
-        return result;
     } catch (error) {
         notifyNoEvent(error);
     }
