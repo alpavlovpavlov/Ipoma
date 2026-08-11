@@ -8,7 +8,7 @@ import { notify, notifyNoEvent } from '../notify.js';
 import { roleAssignment } from '../../util/role.js'
 import { deleteMoldAndItem } from '../../data/mold.js';
 
-const itemDetailsTemplate = (item, isLoading, currentUser) => html`
+const itemDetailsTemplate = (item, isLoading, currentUser, relatedItems) => html`
     <section id="meme-details">
         ${isLoading
             ? html`<h3>Loading &hellip;</h3>`
@@ -66,7 +66,7 @@ const itemDetailsTemplate = (item, isLoading, currentUser) => html`
                                 : html`<a class="button" href="/${item.type.toLowerCase()}s-catalog/${item.shape}">< Back</a>`
                             }
                             <a class="button" href="/item-options/${item._id}">Options</a>
-                            <button class="button" @click=${matchItems} id="related-toggle">Related items</button>
+                            <button class="button" @click=${showRelatedItems} id="related-toggle">Related items</button>
                             ${currentUser.isCreator || currentUser.role == 'admin'
                                 ? html`
                                     <a class="button warning" href="/edit-item/${item._id}">Edit</a>
@@ -76,7 +76,33 @@ const itemDetailsTemplate = (item, isLoading, currentUser) => html`
                         </div>
                     </div>
 
-                    
+                    <div class="wrap-table" id="item-right-table" style="display: none;">
+                        ${relatedItems.length > 0
+                            ? html`
+                                <table class="right-table">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>Items</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        ${relatedItems.map(item => html`
+                                            <tr>
+                                                <td>
+                                                    <img src="${item.image}" width="24">
+                                                </td>
+
+                                                <td class="clickable" @click=${() => itemDtls(item._id)}>${item.name}</td>
+                                            </tr>
+                                        `)}
+                                    </tbody>
+                                </table>
+                            `
+                            : html`<h3 class="heading3">No related items found</h3>`
+                        }
+                    </div>
 
                 </div>
                 <div class="meme-img">
@@ -133,9 +159,11 @@ export async function itemDetailsPage(ctx) {
 
         item = await getItem(itemId);
 
+        const relatedItems = matchItems();
+
         const currentUser = roleAssignment(user, item);
 
-        ctx.render(itemDetailsTemplate(item, false, currentUser));
+        ctx.render(itemDetailsTemplate(item, false, currentUser, relatedItems));
     } catch (error) {
         notifyNoEvent(error);
     }
@@ -149,12 +177,22 @@ function view(file) {
     window.open(`${file}`, "_blank");
 }
 
-
+function showRelatedItems() {
+    const button = document.getElementById('related-toggle');
+    const div = document.getElementById('item-right-table');
+    
+    if(div.style.display == 'none') {
+        div.style.display = 'table';
+        button.textContent = 'Hide related items';
+        // call new function here
+    } else {
+        div.style.display = 'none';
+        button.textContent = 'Show related items';
+    }
+}
 
 async function matchItems() {
-    const core = item.name.split(' ')[1];
-    const payload = { name: core }
-    const result = [];
+    const payload = { name: item.name.split(' ')[1] }
 
     try {
         const searchResult = await searchItem(payload);
