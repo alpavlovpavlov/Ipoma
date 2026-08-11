@@ -153,10 +153,11 @@ function view(file) {
 
 async function matchItems() {
     const core = item.name.split(' ')[1];
+    const payload = { name: core }
     const result = [];
 
     try {
-        const searchResult = await searchItem({ core });
+        const searchResult = await searchItem(payload);
 
         // searchResult.forEach(element => {
         //     if (element.name.split(' ')[1] == core) {
