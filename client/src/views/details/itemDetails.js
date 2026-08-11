@@ -184,7 +184,6 @@ function showRelatedItems() {
     if(div.style.display == 'none') {
         div.style.display = 'table';
         button.textContent = 'Hide related items';
-        // call new function here
     } else {
         div.style.display = 'none';
         button.textContent = 'Show related items';
@@ -192,7 +191,8 @@ function showRelatedItems() {
 }
 
 async function matchItems() {
-    const payload = { name: item.name.split(' ')[1] }
+    const core = item.name.split(' ')[1];
+    const payload = { name: core };
 
     try {
         const searchResult = await searchItem(payload);
