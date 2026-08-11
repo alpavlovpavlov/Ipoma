@@ -204,7 +204,6 @@ async function matchItems() {
             return secondWord === core && element.type !== item.type;
         });
 
-        console.log(result);
         return result;
     } catch (error) {
         notifyNoEvent(error);
