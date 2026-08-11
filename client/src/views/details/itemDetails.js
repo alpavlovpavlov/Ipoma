@@ -77,7 +77,7 @@ const itemDetailsTemplate = (item, isLoading, currentUser) => html`
                     </div>
 
                     <!-- <div class="wrap-table" id="item-right-table" style="display: none;">
-                        ${items.length > 0
+                        ${i.length > 0
                             ? html`
                                 <table class="right-table">
                                     <thead>
