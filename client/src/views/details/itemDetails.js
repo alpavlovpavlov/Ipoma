@@ -160,7 +160,7 @@ export async function itemDetailsPage(ctx) {
         item = await getItem(itemId);
 
         const relatedItems = matchItems();
-        console.log(relatedItems);
+        // console.log(relatedItems);
 
         const currentUser = roleAssignment(user, item);
 
@@ -198,10 +198,13 @@ async function matchItems() {
     try {
         const searchResult = await searchItem(payload);
 
-        return searchResult.filter(element => {
+        const result = searchResult.filter(element => {
             const [, secondWord] = element.name.split(' ');
             return secondWord === core && element.type !== item.type;
         });
+
+        console.log(result);
+        return result;
     } catch (error) {
         notifyNoEvent(error);
     }
