@@ -83,7 +83,7 @@ const itemDetailsTemplate = (item, isLoading, currentUser, relatedItems) => html
                                     <thead>
                                         <tr>
                                             <th></th>
-                                            <th>Items</th>
+                                            <th>Related items</th>
                                         </tr>
                                     </thead>
 
