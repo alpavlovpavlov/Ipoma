@@ -66,7 +66,7 @@ const itemDetailsTemplate = (item, isLoading, currentUser) => html`
                                 : html`<a class="button" href="/${item.type.toLowerCase()}s-catalog/${item.shape}">< Back</a>`
                             }
                             <a class="button" href="/item-options/${item._id}">Options</a>
-                            
+                            <button class="button" @click=${matchItems} id="related-toggle">Related items</button>
                             ${currentUser.isCreator || currentUser.role == 'admin'
                                 ? html`
                                     <a class="button warning" href="/edit-item/${item._id}">Edit</a>
@@ -153,8 +153,28 @@ function view(file) {
 
 async function matchItems() {
     const core = item.name.split(' ')[1];
+    const result = [];
 
-    const result = await searchItem({ core });
+    try {
+        const searchResult = await searchItem({ core });
+
+        // searchResult.forEach(element => {
+        //     if (element.name.split(' ')[1] == core) {
+        //         if (element.type != item.type) arr.push(element);
+        //     }
+        // });
+
+        // return result;
+
+        const result = searchResult.filter(element => {
+            const [, secondWord] = element.name.split(' ');
+            return secondWord === core && element.type !== item.type;
+        });
+
+        console.log(result);
+    } catch (error) {
+        notifyNoEvent(error);
+    }
 }
 
 async function onDelete() {

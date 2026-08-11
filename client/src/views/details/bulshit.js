@@ -1,4 +1,4 @@
-<button class="button" @click={showRelatedItems} id="related-toggle">Related items</button>
+<button class="button" @click=${showRelatedItems} id="related-toggle">Related items</button>
 
 <div class="wrap-table" id="item-right-table" style="display: none;">
                         ${items.length > 0
