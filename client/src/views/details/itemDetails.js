@@ -66,7 +66,7 @@ const itemDetailsTemplate = (item, isLoading, currentUser) => html`
                                 : html`<a class="button" href="/${item.type.toLowerCase()}s-catalog/${item.shape}">< Back</a>`
                             }
                             <a class="button" href="/item-options/${item._id}">Options</a>
-                            <!-- <button class="button" @click={} id="related-toggle">Related items</button> -->
+                            
                             ${currentUser.isCreator || currentUser.role == 'admin'
                                 ? html`
                                     <a class="button warning" href="/edit-item/${item._id}">Edit</a>
@@ -76,33 +76,7 @@ const itemDetailsTemplate = (item, isLoading, currentUser) => html`
                         </div>
                     </div>
 
-                    <!-- <div class="wrap-table" id="item-right-table" style="display: none;">
-                        ${i.length > 0
-                            ? html`
-                                <table class="right-table">
-                                    <thead>
-                                        <tr>
-                                            <th></th>
-                                            <th>Items</th>
-                                        </tr>
-                                    </thead>
-
-                                    <tbody>
-                                        ${map(item => html`
-                                            <tr>
-                                                <td>
-                                                    <img src="${item.image}" width="24">
-                                                </td>
-
-                                                <td class="clickable" @click=${() => itemDtls(item._id)}>${item.name}</td>
-                                            </tr>
-                                        `)}
-                                    </tbody>
-                                </table>
-                            `
-                            : html`<h3 class="heading3">No items registered on this machine</h3>`
-                        }
-                    </div> -->
+                    
 
                 </div>
                 <div class="meme-img">
@@ -175,19 +149,7 @@ function view(file) {
     window.open(`${file}`, "_blank");
 }
 
-// function showRelatedItems() {
-//     const button = document.getElementById('related-toggle');
-//     const div = document.getElementById('item-right-table');
-    
-//     if(div.style.display == 'none') {
-//         div.style.display = 'table';
-//         button.textContent = 'Hide related items';
-//         // call new function here
-//     } else {
-//         div.style.display = 'none';
-//         button.textContent = 'Show related items';
-//     }
-// }
+
 
 async function matchItems() {
     const core = item.name.split(' ')[1];
