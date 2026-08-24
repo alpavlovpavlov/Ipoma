@@ -190,6 +190,8 @@ function showRelatedItems() {
 }
 
 function itemDtls(itemId) {
+    console.log('Got there');
+    
     context.page.redirect(`/item-details/${itemId}`);
 }
 
