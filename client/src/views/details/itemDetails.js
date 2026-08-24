@@ -160,8 +160,6 @@ export async function itemDetailsPage(ctx) {
         item = await getItem(itemId);
 
         const relatedItems = await matchItems();
-        console.log(relatedItems);
-
         const currentUser = roleAssignment(user, item);
 
         ctx.render(itemDetailsTemplate(item, false, currentUser, relatedItems));
@@ -189,6 +187,10 @@ function showRelatedItems() {
         div.style.display = 'none';
         button.textContent = 'Show related items';
     }
+}
+
+function itemDtls(itemId) {
+    context.page.redirect(`/item-details/${itemId}`);
 }
 
 async function matchItems() {
