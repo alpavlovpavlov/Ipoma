@@ -1,7 +1,6 @@
 import { html } from 'https://unpkg.com/lit?module';
 
-import { host } from '../../data/api.js';
-import { getItem, searchItem } from '../../data/item.js';
+import { getItem, matchItems } from '../../data/item.js';
 import { getUser } from '../../util/util.js';
 import { titleChange } from '../../util/title.js';
 import { notify, notifyNoEvent } from '../notify.js';
@@ -159,7 +158,7 @@ export async function itemDetailsPage(ctx) {
 
         item = await getItem(itemId);
 
-        const relatedItems = await matchItems();
+        const relatedItems = await match();
         const currentUser = roleAssignment(user, item);
 
         ctx.render(itemDetailsTemplate(item, false, currentUser, relatedItems));
@@ -193,12 +192,9 @@ function itemDtls(itemId) {
     context.page.redirect(`/item-details/${itemId}`);
 }
 
-async function matchItems() {
-    const core = item.name.split(' ')[1];
-    const payload = { name: core };
-
+async function match() {
     try {
-        const searchResult = await searchItem(payload);
+        const searchResult = await matchItems(item);
 
         return searchResult.filter(element => {
             const [, secondWord] = element.name.split(' ');
