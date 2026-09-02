@@ -33,8 +33,8 @@ export async function searchItem(query) {
     return post(endpoints.search, query);
 };
 
-export async function matchItems(query) {
-    return get(endpoints.match, query);
+export async function matchItems(item) {
+    return get(endpoints.match, item);
 }
 
 export async function sendDrawing(data) {
