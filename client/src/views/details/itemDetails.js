@@ -196,11 +196,12 @@ async function match() {
     try {
         const matchResult = await matchItems(item);
         console.log(matchResult);
+        return matchResult;
         
-        return matchResult.filter(element => {
-            const [, secondWord] = element.name.split(' ');
-            return secondWord === core && element.type !== item.type;
-        });
+        // return matchResult.filter(element => {
+        //     const [, secondWord] = element.name.split(' ');
+        //     return secondWord === core && element.type !== item.type;
+        // });
     } catch (error) {
         notifyNoEvent(error);
     }
