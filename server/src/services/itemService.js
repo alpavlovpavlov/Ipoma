@@ -23,7 +23,7 @@ function edit(id, data) {
 }
 
 function findOwner(id) {
-    return Item.find({ owner: id});
+    return Item.find({ owner: id });
 }
 
 function search(name = '', type = '', shape = '') {
@@ -47,7 +47,7 @@ function search(name = '', type = '', shape = '') {
 function matchItems(item) {
     return Item.find({
         type: item.type,
-        related: item.related
+        related: { $in: item.related }
     })
 }
 
