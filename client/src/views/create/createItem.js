@@ -173,7 +173,6 @@ async function onCreate(event) {
       } else {
         nameForRelation.push(core);
       }
-      console.log(nameForRelation);
 
       let item = Object.assign({ _ownerId: user._id, related: nameForRelation }, data);
 
