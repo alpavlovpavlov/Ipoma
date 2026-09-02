@@ -44,6 +44,13 @@ function search(name = '', type = '', shape = '') {
     return Item.find(query);
 }
 
+function matchItems(item) {
+    return Item.find({
+        type: item.type,
+        related: item.related
+    })
+}
+
 async function addOptionToAnItem(itemId, optionId) {
     return Item.findByIdAndUpdate(itemId, { $push: { options: optionId } });  
 }
@@ -69,6 +76,7 @@ module.exports = {
     edit,
     findOwner,
     search,
+    matchItems,
     addOptionToAnItem,
     deleteAnOption
 }

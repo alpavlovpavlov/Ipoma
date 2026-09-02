@@ -83,6 +83,19 @@ router.post('/search', async (req, res) => {
   }
 })
 
+router.get('/match', async (req, res) => {
+  const item = req.body;
+
+  try {
+    const result = await itemService.matchItems(item);
+
+    res.json(result);
+  } catch (error) {
+    const message = parseError(error);
+    res.status(400).json({ message });
+  }
+})
+
 // Save image and drawing
 router.post('/upload',
   uploadPicturesAndDrawings.fields([
