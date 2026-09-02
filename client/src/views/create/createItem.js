@@ -120,7 +120,6 @@ async function onCreate(event) {
   const { data, form, formData } = onSubmit(event);
   const image = formData.get('image');
   const tds = formData.get('tds');
-  const files = formData.getAll('itemDrawing');
   const user = getUser();
   
   try {
@@ -166,7 +165,17 @@ async function onCreate(event) {
         throw 'All fields in red are required!';
       }
 
-      let item = Object.assign({ _ownerId: user._id }, data);
+      const nameForRelation = [];
+      const core = data.name.split(' ')[1];
+
+      if (core.includes('/')) {
+        core.split('/').forEach(element => nameForRelation.push(element));
+      } else {
+        nameForRelation.push(core);
+      }
+      console.log(nameForRelation);
+
+      let item = Object.assign({ _ownerId: user._id, related: nameForRelation }, data);
 
       const uploadedFiles = await sendDrawing(formData);
 
