@@ -26,15 +26,11 @@ function findOwner(id) {
     return Item.find({ owner: id});
 }
 
-function escapeRegex(value) {
-    return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-}
-
 function search(name = '', type = '', shape = '') {
     const query = {};
 
     if (name) {
-        query.name = new RegExp(escapeRegex(name), 'i');
+        query.name = new RegExp(name, 'i');
     }
 
     if (type) {

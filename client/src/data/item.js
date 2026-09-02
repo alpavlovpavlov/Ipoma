@@ -4,6 +4,7 @@ const endpoints = {
     getCatalog: (shape, type, state) => `/itemData/catalog?shape=${shape}&type=${type}&sort=volume&order=asc&page=${state.currentPage}&limit=${state.limit}`,
     getById: '/itemData/item/',
     search: '/itemData/search',
+    match: 'itemData/match/:id/related',
     getFiles: '/files',
     sendDrawing: '/itemData/upload'
 };
@@ -31,6 +32,10 @@ export async function deleteItem(id) {
 export async function searchItem(query) {
     return post(endpoints.search, query);
 };
+
+export async function matchItems(query) {
+    return get(endpoints.match, query);
+}
 
 export async function sendDrawing(data) {
     return post(endpoints.sendDrawing, data);
