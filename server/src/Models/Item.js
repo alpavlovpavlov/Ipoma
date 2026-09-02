@@ -60,6 +60,10 @@ const itemSchema = new mongoose.Schema({
         required: [true, 'TDS is required']
     },
 
+    related: {
+        type: [String],
+    },
+
     options: [{
         type: mongoose.Types.ObjectId,
         ref: 'Option'
