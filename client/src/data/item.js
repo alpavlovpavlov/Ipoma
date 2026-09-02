@@ -4,7 +4,7 @@ const endpoints = {
     getCatalog: (shape, type, state) => `/itemData/catalog?shape=${shape}&type=${type}&sort=volume&order=asc&page=${state.currentPage}&limit=${state.limit}`,
     getById: '/itemData/item/',
     search: '/itemData/search',
-    match: 'itemData/match/:id/related',
+    match: 'itemData/match',
     getFiles: '/files',
     sendDrawing: '/itemData/upload'
 };
