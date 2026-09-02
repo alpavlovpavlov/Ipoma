@@ -84,10 +84,8 @@ router.post('/search', async (req, res) => {
 })
 
 router.get('/match', async (req, res) => {
-  const item = req.body;
-
   try {
-    const result = await itemService.matchItems(item);
+    const result = await itemService.matchItems(req.body);
 
     res.json(result);
   } catch (error) {
