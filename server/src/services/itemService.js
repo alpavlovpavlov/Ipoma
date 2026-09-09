@@ -46,7 +46,7 @@ function search(name = '', type = '', shape = '') {
 
 function matchItems(item) {
     return Item.find({
-        type: item.type,
+        type: item.type === 'Lid' ? 'Container' : 'Lid',
         related: { $in: item.related }
     })
 }
