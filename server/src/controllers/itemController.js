@@ -85,8 +85,6 @@ router.post('/search', async (req, res) => {
 
 // Find related items
 router.post('/match', async (req, res) => {
-  console.log('Got in');
-  
   try {
     const result = await itemService.matchItems(req.body);
 
