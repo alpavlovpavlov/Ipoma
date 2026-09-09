@@ -34,7 +34,7 @@ export async function searchItem(query) {
 };
 
 export async function matchItems(item) {
-    return get(endpoints.match, item);
+    return post(endpoints.match, item);
 }
 
 export async function sendDrawing(data) {

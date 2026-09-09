@@ -84,7 +84,7 @@ router.post('/search', async (req, res) => {
 })
 
 // Find related items
-router.get('/match', async (req, res) => {
+router.post('/match', async (req, res) => {
   console.log('Got in');
   
   try {
