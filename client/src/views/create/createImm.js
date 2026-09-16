@@ -134,10 +134,14 @@ async function onCreate(event) {
 
             if (dataSheets[0].name != '') {
                 imm.immDataSheet = uploadedFiles.immDataSheets;
+            } else {
+                imm.immDataSheet = [];
             }
 
             if (files[0].name != '') {
                 imm.immDrawing = uploadedFiles.immDrawings;
+            } else {
+                imm.immDrawing = [];
             }
             
             await createIMM(imm);
