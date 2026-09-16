@@ -61,7 +61,7 @@ const optionTemplate = (item, options, isLoading, imms, role) => html`
             ${options.length > 0
               ? html`
                 <tbody>
-                  ${options.map((option, i) => tbodyTemplate(option, i, role))}
+                  ${options.map((option, i) => tbodyTemplate(option, i, role, imms))}
                 </tbody>
               `
               : html`<tbody></tbody>`
@@ -121,85 +121,90 @@ const optionTemplate = (item, options, isLoading, imms, role) => html`
   </section>
 `;
 
-const tbodyTemplate = (option, i, role) => html`
-  <tr>
-    <td>
-      <span class="check">${i + 1}</span>
-    </td>
-
-    <td>
-      <span class="check">${option.categories?.includes("n.a.") ? "✔" : ""}</span>
-    </td>
-
-    <td>
-      <span class="check">${option.categories?.includes("1 side") ? "✔" : ""}</span>
-    </td>
-
-    <td>
-      <span class="check">${option.categories?.includes("3 sides") ? "✔" : ""}</span>
-    </td>
-
-    <td>
-      <span class="check">${option.categories?.includes("5 sides") ? "✔" : ""}</span>
-    </td>
-
-    <td>
-      <span class="check">${option.categories?.includes("wrap-around") ? "✔" : ""}</span>
-    </td>
-
-    <td>
-      <span class="check">${option.categories?.includes("wrap-around & bottom") ? "✔" : ""}</span>
-    </td>
-
-    <td>
-      <span class="check">${option.categories?.includes("bottom") ? "✔" : ""}</span>
-    </td>
-
-    <td>
-      <span class="check">${option.categories?.includes("plastic handle") ? "✔" : ""}</span>
-    </td>
-
-    <td>
-      <span class="check">${option.categories?.includes("metal handle") ? "✔" : ""}</span>
-    </td>
-
-    <td>
-      <span class="check">${option.categories?.includes("with te") ? "✔" : ""}</span>
-    </td>
-
-    <td>
-      <span class="check">${option.categories?.includes("no te") ? "✔" : ""}</span>
-    </td>
-
-    <td>
-      <span class="check">${option.categories?.includes("bottom holes") ? "✔" : ""}</span>
-    </td>
-
-    <td>
-      <span class="check">${option.categories?.includes("logo insert") ? "✔" : ""}</span>
-    </td>
-
-    <td>
-      <span class="check">${option.categories?.includes("sealing") ? "✔" : ""}</span>
-    </td>
-
-    <td>
-      <span class="check">${option.categories?.includes("printing") ? "✔" : ""}</span>
-    </td>
-
-    ${role == 'ipoma-user' || role == 'admin'
-      ? html`
-        <td >
-          <p class="clickable" data-immid=${option.imm}>${option.immName}</p>
+const tbodyTemplate = (option, i, role, imms) => html`
+  <!-- ${imms.includes(option.imm)
+    ? html` -->
+      <tr>
+        <td>
+          <span class="check">${i + 1}</span>
         </td>
 
         <td>
-          <button class="delete-btn danger" data-optionid=${option._id} data-itemid=${option.item} data-immid=${option.imm} @click=${onDelete}>Delete</button>
+          <span class="check">${option.categories?.includes("n.a.") ? "✔" : ""}</span>
         </td>
-      `
-      : ''
-    }
-  </tr>
+
+        <td>
+          <span class="check">${option.categories?.includes("1 side") ? "✔" : ""}</span>
+        </td>
+
+        <td>
+          <span class="check">${option.categories?.includes("3 sides") ? "✔" : ""}</span>
+        </td>
+
+        <td>
+          <span class="check">${option.categories?.includes("5 sides") ? "✔" : ""}</span>
+        </td>
+
+        <td>
+          <span class="check">${option.categories?.includes("wrap-around") ? "✔" : ""}</span>
+        </td>
+
+        <td>
+          <span class="check">${option.categories?.includes("wrap-around & bottom") ? "✔" : ""}</span>
+        </td>
+
+        <td>
+          <span class="check">${option.categories?.includes("bottom") ? "✔" : ""}</span>
+        </td>
+
+        <td>
+          <span class="check">${option.categories?.includes("plastic handle") ? "✔" : ""}</span>
+        </td>
+
+        <td>
+          <span class="check">${option.categories?.includes("metal handle") ? "✔" : ""}</span>
+        </td>
+
+        <td>
+          <span class="check">${option.categories?.includes("with te") ? "✔" : ""}</span>
+        </td>
+
+        <td>
+          <span class="check">${option.categories?.includes("no te") ? "✔" : ""}</span>
+        </td>
+
+        <td>
+          <span class="check">${option.categories?.includes("bottom holes") ? "✔" : ""}</span>
+        </td>
+
+        <td>
+          <span class="check">${option.categories?.includes("logo insert") ? "✔" : ""}</span>
+        </td>
+
+        <td>
+          <span class="check">${option.categories?.includes("sealing") ? "✔" : ""}</span>
+        </td>
+
+        <td>
+          <span class="check">${option.categories?.includes("printing") ? "✔" : ""}</span>
+        </td>
+
+        ${role == 'ipoma-user' || role == 'admin'
+          ? html`
+            <td >
+              <p class="clickable" data-immid=${option.imm}>${option.immName}</p>
+            </td>
+
+            <td>
+              <button class="delete-btn danger" data-optionid=${option._id} data-itemid=${option.item} data-immid=${option.imm} @click=${onDelete}>Delete</button>
+            </td>
+          `
+          : ''
+        }
+      </tr>
+    // `
+  //   : null
+  // }
 `;
 
 const immTemplate = (imm) => html`
@@ -221,6 +226,8 @@ export async function optionPage(ctx) {
     item = await getItem(itemId);
 
     const options = item.options;
+    console.log(options);
+    
     const imms = await getAllForOptions();
     const currentUser = roleAssignment(user, item);
 
