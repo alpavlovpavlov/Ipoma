@@ -110,6 +110,8 @@ async function onCreate(event) {
     const dataSheets = formData.getAll('immDataSheet');
     const user = getUser();
     let uploadedFiles = {};
+    console.log(files);
+    console.log(dataSheets);
 
     try {
         if(data) {
