@@ -272,7 +272,7 @@ async function onCreate(event) {
     } catch (error) {
       notifyNoEvent(error);
     };
-  };
+  } else return alert('Please choose an option');
   form.reset();
 }
 
