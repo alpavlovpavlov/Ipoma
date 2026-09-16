@@ -131,14 +131,20 @@ async function onCreate(event) {
             let imm = Object.assign({ _ownerId: user._id }, data);
 
             if (dataSheets[0].name != '' || files[0].name != '') {
+                console.log('Got here 1');
+                
                 uploadedFiles = await saveDrawing(formData);
             }
 
             if (dataSheets[0].name != '') {
+                console.log('Got here 2');
+                
                 imm.immDataSheet = uploadedFiles.immDataSheets;
             }
 
             if (files[0].name != '') {
+                console.log('Got here 3');
+                
                 imm.immDrawing = uploadedFiles.immDrawings;
             }
             
