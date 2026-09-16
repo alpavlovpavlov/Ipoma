@@ -226,6 +226,8 @@ export async function optionPage(ctx) {
     console.log(options);
     
     const imms = await getAllForOptions();
+    console.log(imms);
+    
     const currentUser = roleAssignment(user, item);
 
     if (options != undefined) {
