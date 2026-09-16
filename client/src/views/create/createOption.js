@@ -122,8 +122,7 @@ const optionTemplate = (item, options, isLoading, imms, role) => html`
 `;
 
 const tbodyTemplate = (option, i, role, imms) => html`
-  <!-- ${imms.includes(option.imm)
-    ? html` -->
+  
       <tr>
         <td>
           <span class="check">${i + 1}</span>
@@ -202,9 +201,7 @@ const tbodyTemplate = (option, i, role, imms) => html`
           : ''
         }
       </tr>
-    // `
-  //   : null
-  // }
+  
 `;
 
 const immTemplate = (imm) => html`
