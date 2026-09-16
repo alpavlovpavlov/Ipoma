@@ -118,8 +118,8 @@ router.post('/upload',
     ]),
     async (req, res) => {
         try {
-            const immDataSheets = req.files.immDataSheet?.map(x => x.path) || [];
-            const immDrawings = req.files.immDrawing?.map(x => x.path) || [];
+            // const immDataSheets = req.files.immDataSheet?.map(x => x.path) || [];
+            // const immDrawings = req.files.immDrawing?.map(x => x.path) || [];
 
             res.json({
                 immDataSheets,
