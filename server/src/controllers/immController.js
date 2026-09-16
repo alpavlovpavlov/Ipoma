@@ -118,17 +118,16 @@ router.post('/upload',
     ]),
     async (req, res) => {
         try {
-        const immDataSheets = req.files.immDataSheet?.map(x => x.path) || [];
-        const immDrawings = req.files.immDrawing?.map(x => x.path) || [];
+            const immDataSheets = req.files.immDataSheet?.map(x => x.path) || [];
+            const immDrawings = req.files.immDrawing?.map(x => x.path) || [];
 
-        res.json({
-            immDataSheets,
-            immDrawings
-        });
-
+            res.json({
+                immDataSheets,
+                immDrawings
+            });
         } catch (error) {
-        const message = parseError(error);
-        res.status(444).json({ message });
+            const message = parseError(error);
+            res.status(444).json({ message });
         }
     }
 )
