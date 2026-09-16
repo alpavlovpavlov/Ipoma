@@ -58,7 +58,6 @@ router.get('/imm/:id', async (req, res) => {
 // Create IMM
 router.post('/imm', hasUser(), async (req, res) => {
     const data = req.body;
-    console.log('Hello', data);
     
     try {
         if(data) {
