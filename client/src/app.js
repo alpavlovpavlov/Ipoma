@@ -65,7 +65,6 @@ page('/edit-mold/:moldId', editMoldPage);
 page('/edit-imm/:immId', editImmPage);
 page('/forgot', forgotPassPage);
 page('/renew/:token', renewPassPage);
-// page('/verify-email/:token', '');
 page('/profile', profilePage);
 page('/edit-profile', editProfilePage);
 page('/chg-pass', changePassPage);
