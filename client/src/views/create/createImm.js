@@ -110,8 +110,6 @@ async function onCreate(event) {
     const dataSheets = formData.getAll('immDataSheet');
     const user = getUser();
     let uploadedFiles = {};
-    console.log(files);
-    console.log(dataSheets);
 
     try {
         if(data) {
@@ -130,21 +128,15 @@ async function onCreate(event) {
 
             let imm = Object.assign({ _ownerId: user._id }, data);
 
-            if (dataSheets[0].name != '' || files[0].name != '') {
-                console.log('Got here 1');
-                
+            if (dataSheets[0].name != '' || files[0].name != '') { 
                 uploadedFiles = await saveDrawing(formData);
             }
 
             if (dataSheets[0].name != '') {
-                console.log('Got here 2');
-                
                 imm.immDataSheet = uploadedFiles.immDataSheets;
             }
 
             if (files[0].name != '') {
-                console.log('Got here 3');
-                
                 imm.immDrawing = uploadedFiles.immDrawings;
             }
             
