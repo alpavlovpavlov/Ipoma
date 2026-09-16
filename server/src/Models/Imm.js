@@ -45,24 +45,24 @@ const immSchema = new mongoose.Schema({
 
     immDataSheet: {
         type: [String],
-        validate: {validator: function (value) {
-            value.forEach(element => {
-                return element.toLowerCase().endsWith(".pdf");
-            });
-        },
-            message: "File must be PDF"
-        }
+        // validate: {validator: function (value) {
+        //     value.forEach(element => {
+        //         return element.toLowerCase().endsWith(".pdf");
+        //     });
+        // },
+        //     message: "File must be PDF"
+        // }
     },
 
     immDrawing: {
         type: [String],
-        validate: {validator: function (value) {
-            value.forEach(element => {
-                return element.toLowerCase().endsWith(".pdf");
-            });
-        },
-            message: "File must be PDF"
-        }
+        // validate: {validator: function (value) {
+        //     value.forEach(element => {
+        //         return element.toLowerCase().endsWith(".pdf");
+        //     });
+        // },
+        //     message: "File must be PDF"
+        // }
     },
 
     type: {
