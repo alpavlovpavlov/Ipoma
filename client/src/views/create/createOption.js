@@ -221,12 +221,16 @@ export async function optionPage(ctx) {
     ctx.render(optionTemplate(item, [], true));
     
     item = await getItem(itemId);
+    const immIds = [];
 
     const options = item.options;
     console.log(options);
     
     const imms = await getAllForOptions();
-    console.log(imms);
+    imms.forEach(machine => {
+      immIds.push(machine._id);
+    });
+    console.log(immIds);
     
     const currentUser = roleAssignment(user, item);
 
