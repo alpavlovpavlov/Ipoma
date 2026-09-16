@@ -256,8 +256,9 @@ async function onCreate(event) {
   
   data.item = item._id;
   console.log(data);
+  console.log(data.categories);
   
-  if (data.categories.length == 0) return alert('Please choose at least one option');
+  if (data.categories == undefined) return alert('Please choose at least one option');
   if (data.imm == undefined) return alert('Please choose an injection machine');
   
   const imm = await getById(data.imm);
