@@ -107,7 +107,7 @@ const optionTemplate = (item, options, isLoading, imms, role) => html`
               </div>
             </div>
 
-            <select class="select" id="imm" type="text" placeholder="Item shape" name="imm">
+            <select class="select" id="imm" type="text" name="imm">
               <option value="" disabled selected>--Choose IMM--</option>
               ${imms.map(immTemplate)}
             </select>
