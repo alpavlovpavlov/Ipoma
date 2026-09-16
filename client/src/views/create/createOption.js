@@ -255,6 +255,7 @@ async function onCreate(event) {
   const { data, form } = onSubmit(event);
   
   data.item = item._id;
+  console.log(data);
   
   if (data.categories.length == 0) return alert('Please choose at least one option');
   if (data.imm == undefined) return alert('Please choose an injection machine');
@@ -272,7 +273,7 @@ async function onCreate(event) {
     } catch (error) {
       notifyNoEvent(error);
     };
-  } else return alert('Please choose an option');
+  }
   form.reset();
 }
 
