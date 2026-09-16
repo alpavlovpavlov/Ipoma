@@ -109,7 +109,7 @@ async function onCreate(event) {
     const files = formData.getAll('immDrawing');
     const dataSheets = formData.getAll('immDataSheet');
     const user = getUser();
-    let uploadedFiles = {};
+    let uploadedFiles = [];
 
     try {
         if(data) {
@@ -134,14 +134,10 @@ async function onCreate(event) {
 
             if (dataSheets[0].name != '') {
                 imm.immDataSheet = uploadedFiles.immDataSheets;
-            } else {
-                imm.immDataSheet = [];
             }
 
             if (files[0].name != '') {
                 imm.immDrawing = uploadedFiles.immDrawings;
-            } else {
-                imm.immDrawing = [];
             }
             
             await createIMM(imm);
