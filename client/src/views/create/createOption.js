@@ -12,7 +12,7 @@ import { showHideIMLOption } from "../../util/optionCheckboxHandle.js";
 import { notifyNoEvent } from "../notify.js";
 import { roleAssignment } from "../../util/role.js";
 
-const optionTemplate = (item, options, isLoading, imms, role) => html`
+const optionTemplate = (item, options, isLoading, imms, role, immIds) => html`
   <section id="create-option">
     ${isLoading
       ? html`<h3>Loading &hellip;</h3>`
@@ -61,7 +61,7 @@ const optionTemplate = (item, options, isLoading, imms, role) => html`
             ${options.length > 0
               ? html`
                 <tbody>
-                  ${options.map((option, i) => tbodyTemplate(option, i, role, imms))}
+                  ${options.map((option, i) => tbodyTemplate(option, i, role, immIds))}
                 </tbody>
               `
               : html`<tbody></tbody>`
@@ -121,8 +121,9 @@ const optionTemplate = (item, options, isLoading, imms, role) => html`
   </section>
 `;
 
-const tbodyTemplate = (option, i, role, imms) => html`
-  
+const tbodyTemplate = (option, i, role, immIds) => html`
+  ${immIds.includes(option.imm)
+    ? html`
       <tr>
         <td>
           <span class="check">${i + 1}</span>
@@ -198,10 +199,12 @@ const tbodyTemplate = (option, i, role, imms) => html`
               <button class="delete-btn danger" data-optionid=${option._id} data-itemid=${option.item} data-immid=${option.imm} @click=${onDelete}>Delete</button>
             </td>
           `
-          : ''
+          : null
         }
       </tr>
-  
+    `
+    : null
+  }
 `;
 
 const immTemplate = (imm) => html`
@@ -235,9 +238,9 @@ export async function optionPage(ctx) {
     const currentUser = roleAssignment(user, item);
 
     if (options != undefined) {
-      ctx.render(optionTemplate(item, options, false, imms, currentUser.role));
+      ctx.render(optionTemplate(item, options, false, imms, currentUser.role, immIds));
     } else {
-      ctx.render(optionTemplate(item, [], false, imms, currentUser.role));
+      ctx.render(optionTemplate(item, [], false, imms, currentUser.role, immIds));
     }
 
     handleChange();
